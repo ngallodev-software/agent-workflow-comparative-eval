@@ -1,6 +1,6 @@
 # Agent-Workflow Comparative Eval
 
-`agent-workflow-comparative-eval` is a dependency-neutral Python library for paired feature-level evaluation. It defines the evidence contracts and measurement semantics shared by Agent-Workflow and optional candidate implementations such as `agent-workflow-typesafe-ai`.
+`agent-workflow-comparative-eval` is a dependency-neutral Python library for paired feature-level evaluation. It defines the evidence contracts and measurement semantics shared by Agent-Workflow and candidate implementations such as Agent-Workflow's optional built-in TypeSafe provider.
 
 The library owns **comparison meaning**, not workflow authority. It does not schedule Agent Runs, select models/executors, apply candidate decisions, persist host lifecycle state, or call TypeSafe/Jev.
 
