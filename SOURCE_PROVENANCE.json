@@ -1,0 +1,21 @@
+{
+  "agent_workflow": {
+    "commit": "24873c822eea6a9566dd9abedcdd27aae9131e3b",
+    "compare_blob": "e85732e9707267218fbb8df908a816c815fe4f56",
+    "metrics_blob": "21be44e7a7c56978542dc0e8044fe1524a72d4fd",
+    "version": "0.10.1"
+  },
+  "dataset_sha256": {
+    "routing-v1.json": "7aadc5b00a450f464df23c1238a437e364a6d038910db337c12614750aeacd07",
+    "skill-behavior-v1.json": "df5eda515df4589a4387e293e3135ce3d08699935347ebb42dbb02cc638cb763"
+  },
+  "reviewed_on": "2026-09-18",
+  "schema": "agent-workflow-comparative-eval/source-provenance/v1",
+  "typesafe_plugin": {
+    "commit": "e43b6c0209786b0b0bebdc1087913b3c84dc6906",
+    "evaluation_blob": "4b341955fdc19bce2e7d6a040eeade2e1b2a3027",
+    "routing_dataset_blob": "7491f8391832cee1af7ed611f368f3c5870fbe64",
+    "skill_dataset_blob": "f4483f31876563facfa9c4ed97dd54d77b4ba9e5",
+    "version": "0.1.0"
+  }
+}

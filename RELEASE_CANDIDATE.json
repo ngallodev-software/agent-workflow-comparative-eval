@@ -1,0 +1,34 @@
+{
+  "canonical_contracts": [
+    "agent-workflow-comparative-eval/eval-feature/v1",
+    "agent-workflow-comparative-eval/comparison-observation/v1",
+    "agent-workflow-comparative-eval/comparison-outcome/v1",
+    "agent-workflow-comparative-eval/comparison-report/v1"
+  ],
+  "datasets": {
+    "routing-v1": {
+      "sha256": "7aadc5b00a450f464df23c1238a437e364a6d038910db337c12614750aeacd07",
+      "version": "routing-v1.0.0"
+    },
+    "skill-behavior-v1": {
+      "sha256": "df5eda515df4589a4387e293e3135ce3d08699935347ebb42dbb02cc638cb763",
+      "version": "skill-behavior-v1.0.0"
+    }
+  },
+  "distribution": "agent-workflow-comparative-eval",
+  "import_package": "agent_workflow_comparative_eval",
+  "legacy_readers": [
+    "agent-workflow-typesafe/eval-feature/v1",
+    "agent-workflow-typesafe/comparison-observation/v1",
+    "agent-workflow-typesafe/comparison-outcome/v1",
+    "agent-workflow-typesafe/comparison-report/v1"
+  ],
+  "release_note": "A real Git commit/tag is intentionally not invented in this source artifact; create library-release-handoff/v1 only after committing/tagging the repository.",
+  "schema": "agent-workflow-comparative-eval/release-candidate/v1",
+  "status": "qualified-source-candidate",
+  "verified_consumers": {
+    "agent-workflow": "0.10.1 adoption source",
+    "agent-workflow-typesafe": "0.1.1 adoption source"
+  },
+  "version": "0.1.0"
+}

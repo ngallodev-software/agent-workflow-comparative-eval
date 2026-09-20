@@ -1,0 +1,30 @@
+{
+  "$id": "agent-workflow-comparative-eval/consumer-adoption-handoff/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adoption": {
+      "type": "object"
+    },
+    "compatibility": {
+      "type": "object"
+    },
+    "consumer": {
+      "type": "object"
+    },
+    "library": {
+      "type": "object"
+    },
+    "schema": {
+      "const": "agent-workflow-comparative-eval/consumer-adoption-handoff/v1"
+    }
+  },
+  "required": [
+    "schema",
+    "consumer",
+    "library",
+    "adoption",
+    "compatibility"
+  ],
+  "type": "object"
+}

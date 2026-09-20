@@ -1,0 +1,23 @@
+{
+  "datasets": {
+    "routing": "routing-v1.0.0",
+    "skill_behavior": "skill-behavior-v1.0.0"
+  },
+  "legacy_schemas": [
+    "agent-workflow-typesafe/eval-feature/v1",
+    "agent-workflow-typesafe/comparison-observation/v1",
+    "agent-workflow-typesafe/comparison-outcome/v1",
+    "agent-workflow-typesafe/comparison-report/v1"
+  ],
+  "library_version": "0.1.0",
+  "python": ">=3.11",
+  "schema": "agent-workflow-comparative-eval/compatibility/v1",
+  "verified_consumers": {
+    "agent-workflow": [
+      "0.10.1"
+    ],
+    "agent-workflow-typesafe": [
+      "0.1.1"
+    ]
+  }
+}

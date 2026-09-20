@@ -1,0 +1,11 @@
+include README.md
+include CHANGELOG.md
+include LICENSE
+include COMPATIBILITY.json
+include SOURCE_PROVENANCE.json
+include VALIDATION_REPORT.md
+include RELEASE_CANDIDATE.json
+recursive-include docs *.md
+recursive-include src/agent_workflow_comparative_eval/schemas *.json
+recursive-include src/agent_workflow_comparative_eval/resources *.json
+recursive-include tests *.py

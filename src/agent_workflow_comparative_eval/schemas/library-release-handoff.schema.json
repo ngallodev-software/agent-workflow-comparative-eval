@@ -1,0 +1,38 @@
+{
+  "$id": "agent-workflow-comparative-eval/library-release-handoff/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "type": "array"
+    },
+    "contracts": {
+      "type": "object"
+    },
+    "datasets": {
+      "type": "object"
+    },
+    "library": {
+      "type": "object"
+    },
+    "parity": {
+      "type": "object"
+    },
+    "schema": {
+      "const": "agent-workflow-comparative-eval/library-release-handoff/v1"
+    },
+    "source": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema",
+    "library",
+    "source",
+    "artifacts",
+    "contracts",
+    "datasets",
+    "parity"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-workflow-comparative-eval"
+version = "0.1.0"
+description = "Dependency-neutral comparative evaluation contracts, datasets, metrics, and statistics for Agent-Workflow ecosystems"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [{name = "ngallodev-software"}]
+dependencies = ["jsonschema>=4.18,<5"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10", "build>=1.2,<2"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+agent_workflow_comparative_eval = [
+  "schemas/*.json",
+  "schemas/legacy/*.json",
+  "resources/*.json",
+  "resources/datasets/*.json",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"
