@@ -36,4 +36,4 @@ Historical TypeSafe-v1 records remain readable through `upgrade_legacy_record()`
 - **Historical `agent-workflow-typesafe` records** remain compatibility inputs only; the standalone plugin is no longer the current ownership boundary.
 - **This library** owns neutral records, datasets, pairing/cohorts, usage/timing normalization, metrics, deterministic statistics, and report construction.
 
-The library imports no Agent-Workflow runtime code and remains dependency-neutral. Library version `0.1.0` is recorded as verified with Agent-Workflow `0.10.1`, `0.11.0`, `0.11.1`, and `0.11.2` in `COMPATIBILITY.json`.
+The library imports no Agent-Workflow runtime code and remains dependency-neutral. Library version `0.1.0` is recorded as verified with Agent-Workflow `0.10.1` through `0.11.4` in `COMPATIBILITY.json`.
