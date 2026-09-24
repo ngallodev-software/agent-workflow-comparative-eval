@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
 authors = [{name = "ngallodev-software"}]
+keywords = ["agent-workflow", "comparative-evaluation", "evaluation", "benchmarking", "semantic-decisions", "evidence"]
 dependencies = ["jsonschema>=4.18,<5"]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -18,6 +19,12 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
 ]
+
+[project.urls]
+Repository = "https://github.com/ngallodev-software/agent-workflow-comparative-eval"
+AgentWorkflow = "https://github.com/ngallodev-software/agent-workflow"
+TypeSafeAdapter = "https://github.com/ngallodev-software/agent-workflow-typesafe-ai"
+BenchmarkResults = "https://github.com/ngallodev-software/agent-workflow-benchmark-results"
 
 [project.optional-dependencies]
 test = ["pytest>=8,<10", "build>=1.2,<2"]
