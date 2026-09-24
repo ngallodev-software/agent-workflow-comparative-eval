@@ -1,8 +1,40 @@
 # Agent-Workflow Comparative Eval
 
-`agent-workflow-comparative-eval` is a dependency-neutral Python library for paired feature-level evaluation. It defines the evidence contracts and measurement semantics shared by Agent-Workflow's built-in bounded semantic provider path and other candidate implementations.
+`agent-workflow-comparative-eval` is a dependency-neutral Python library for
+paired feature-level evaluation. It defines the evidence contracts, frozen
+datasets, pairing semantics, metrics, and deterministic statistics used to
+compare bounded decision implementations without making the evaluator itself
+part of workflow authority.
 
-The library owns **comparison meaning**, not workflow authority. It does not schedule Agent Runs, select models/executors, apply candidate decisions, persist host lifecycle state, or call TypeSafe/Jev.
+The library owns **comparison meaning**, not workflow authority. It does not
+schedule Agent Runs, select models or executors, apply candidate decisions,
+persist host lifecycle state, or call TypeSafe/Jev.
+
+## Why this is a separate library
+
+Agent-Workflow can compare deterministic control decisions with candidate
+semantic decisions, but the meaning of that comparison should not belong to a
+specific provider. Keeping the evaluation layer separate gives deterministic,
+TypeSafe-backed, and future candidate implementations the same versioned
+observation/outcome contracts and the same frozen corpora.
+
+That separation also prevents benchmark and provider code from silently changing
+labels, cohort rules, or result semantics when their runtime behavior changes.
+
+```text
+candidate/control evidence
+        |
+        v
+agent-workflow-comparative-eval
+  - versioned observations
+  - frozen datasets
+  - pairing/cohorts
+  - normalized usage/timing
+  - metrics/statistics
+        |
+        v
+consumer-owned reporting / policy
+```
 
 ## Core surface
 
@@ -24,16 +56,57 @@ Canonical v1 records use the neutral namespace:
 - `agent-workflow-comparative-eval/comparison-outcome/v1`
 - `agent-workflow-comparative-eval/comparison-report/v1`
 
-Historical TypeSafe-v1 records remain readable through `upgrade_legacy_record()` and the validators. Historical bytes are never rewritten in place.
+Historical TypeSafe-v1 records remain readable through
+`upgrade_legacy_record()` and the validators. Historical bytes are never
+rewritten in place.
 
 ## Frozen datasets
 
-`load_corpus("routing-v1")` and `load_corpus("skill-behavior-v1")` return the same case IDs, labels, and dataset versions shipped by the TypeSafe plugin baseline. The shared library is their canonical owner going forward; result-affecting edits require a new dataset version.
+`load_corpus("routing-v1")` and `load_corpus("skill-behavior-v1")` return
+the same case IDs, labels, and dataset versions shipped by the TypeSafe plugin
+baseline. The shared library is their canonical owner going forward;
+result-affecting edits require a new dataset version.
 
 ## Consumer boundary
 
-- **Agent-Workflow** owns deterministic control execution, bounded built-in TypeSafe projection/question sets/SDK calls, shadow scheduling, semantic receipts, provider telemetry, persistence, lifecycle outcome joins, review, and acceptance.
-- **Historical `agent-workflow-typesafe` records** remain compatibility inputs only; the standalone plugin is no longer the current ownership boundary.
-- **This library** owns neutral records, datasets, pairing/cohorts, usage/timing normalization, metrics, deterministic statistics, and report construction.
+- **Agent-Workflow** owns deterministic control execution, bounded built-in
+  TypeSafe projection/question sets/SDK calls, shadow scheduling, semantic
+  receipts, provider telemetry, persistence, lifecycle outcome joins, review,
+  and acceptance.
+- **Historical `agent-workflow-typesafe` records** remain compatibility inputs
+  only; the standalone plugin is no longer the current ownership boundary.
+- **This library** owns neutral records, datasets, pairing/cohorts, usage/timing
+  normalization, metrics, deterministic statistics, and report construction.
+- **Benchmark/reporting consumers** decide how observations are grouped,
+  displayed, or used in a study; this package does not declare a treatment
+  winner.
 
-The library imports no Agent-Workflow runtime code and remains dependency-neutral. Library version `0.1.0` is recorded as verified with Agent-Workflow `0.10.1` through `0.11.4` in `COMPATIBILITY.json`.
+The library imports no Agent-Workflow runtime code and remains
+dependency-neutral. Library version `0.1.0` is recorded as verified with
+Agent-Workflow `0.10.1` through `0.11.4` in
+[`COMPATIBILITY.json`](COMPATIBILITY.json). Newer Agent-Workflow releases may
+depend on the same library version, but the compatibility file is the explicit
+record of versions independently verified by this repository.
+
+## Related repositories
+
+- [Agent-Workflow](https://github.com/ngallodev-software/agent-workflow) —
+  workflow/lifecycle authority and the built-in bounded semantic provider.
+- [Agent-Workflow TypeSafe AI](https://github.com/ngallodev-software/agent-workflow-typesafe-ai) —
+  standalone provider adapter and historical source of the first evaluation
+  contracts.
+- [Agent-Workflow Benchmark](https://github.com/ngallodev-software/agent-workflow-benchmark) —
+  benchmark execution, scoring, sealing, and reporting integration.
+- [Benchmark Results](https://github.com/ngallodev-software/agent-workflow-benchmark-results) —
+  public paired measurements and limitations.
+
+## Development
+
+```bash
+python -m pip install -e '.[test]'
+python -m pytest
+python -m build
+```
+
+See `docs/`, `VALIDATION_REPORT.md`, and `SOURCE_PROVENANCE.json` for the
+current validation and provenance record.
