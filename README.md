@@ -1,5 +1,12 @@
 # Agent-Workflow Comparative Eval
 
+## Quick summary
+
+- **What it is:** a provider-neutral library defining comparison records, frozen datasets, pairing rules, metrics, and deterministic statistics.
+- **Why it exists:** comparison semantics should not belong to Agent-Workflow core or to any one semantic provider such as TypeSafe/Jev.
+- **Key boundary:** it compares evidence; it does not schedule runs, select models, apply decisions, or own lifecycle state.
+- **Who uses it:** Agent-Workflow providers and benchmark/reporting consumers can share the same versioned comparison meaning.
+
 `agent-workflow-comparative-eval` is a dependency-neutral Python library for
 paired feature-level evaluation. It defines the evidence contracts, frozen
 datasets, pairing semantics, metrics, and deterministic statistics used to
