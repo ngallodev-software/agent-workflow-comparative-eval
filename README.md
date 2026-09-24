@@ -1,6 +1,6 @@
 # Agent-Workflow Comparative Eval
 
-## Quick summary
+## Summary
 
 - **What it is:** a provider-neutral library defining comparison records, frozen datasets, pairing rules, metrics, and deterministic statistics.
 - **Why it exists:** comparison semantics should not belong to Agent-Workflow core or to any one semantic provider such as TypeSafe/Jev.
