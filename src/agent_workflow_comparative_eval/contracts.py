@@ -7,6 +7,9 @@ from jsonschema import Draft202012Validator
 
 from .constants import (
     FEATURE_SCHEMA, OBSERVATION_SCHEMA, OUTCOME_SCHEMA, REPORT_SCHEMA,
+    PROVIDER_REQUEST_SCHEMA, DECISION_STUDY_EXCLUSION_SCHEMA,
+    DECISION_STUDY_REPORT_SCHEMA, DECISION_STUDY_SPEC_SCHEMA,
+    DECISION_STUDY_CASE_SCHEMA, DECISION_STUDY_ORACLE_SCHEMA,
     LEGACY_FEATURE_SCHEMA, LEGACY_OBSERVATION_SCHEMA, LEGACY_OUTCOME_SCHEMA, LEGACY_REPORT_SCHEMA,
     LEGACY_TO_CANONICAL,
 )
@@ -17,6 +20,12 @@ _SCHEMA_FILES = {
     OBSERVATION_SCHEMA: "comparison-observation.schema.json",
     OUTCOME_SCHEMA: "comparison-outcome.schema.json",
     REPORT_SCHEMA: "comparison-report.schema.json",
+    PROVIDER_REQUEST_SCHEMA: "provider-request.schema.json",
+    DECISION_STUDY_EXCLUSION_SCHEMA: "decision-study-exclusion.schema.json",
+    DECISION_STUDY_REPORT_SCHEMA: "decision-study-report.schema.json",
+    DECISION_STUDY_SPEC_SCHEMA: "decision-study-spec.schema.json",
+    DECISION_STUDY_CASE_SCHEMA: "decision-study-case.schema.json",
+    DECISION_STUDY_ORACLE_SCHEMA: "decision-study-oracle.schema.json",
     LEGACY_FEATURE_SCHEMA: "eval-feature.schema.json",
     LEGACY_OBSERVATION_SCHEMA: "comparison-observation.schema.json",
     LEGACY_OUTCOME_SCHEMA: "comparison-outcome.schema.json",

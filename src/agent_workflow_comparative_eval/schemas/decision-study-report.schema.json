@@ -1,0 +1,19 @@
+{
+  "$id": "agent-workflow-comparative-eval/decision-study-report/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "agent-workflow-comparative-eval/decision-study-report/v1"},
+    "study_id": {"type": "string", "minLength": 1},
+    "study_version": {"type": "string", "minLength": 1},
+    "cohort": {"type": "object"},
+    "counts": {"type": "object"},
+    "seams": {"type": "object"},
+    "request_efficiency": {"type": "object"},
+    "exclusions": {"type": "object"},
+    "eligibility": {"type": "object"},
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  },
+  "required": ["schema", "study_id", "study_version", "cohort", "counts", "seams", "request_efficiency", "exclusions", "eligibility", "limitations"]
+}

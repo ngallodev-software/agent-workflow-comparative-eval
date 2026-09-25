@@ -14,8 +14,16 @@ from .timing import quantile, timing_summary
 from .cohorts import group_by_cohort
 from .pairing import assert_same_cohort
 from .errors import ComparativeEvalError, ContractError, CohortError, ImmutableOutcomeConflict
+from .study import (
+    list_studies,
+    load_study_spec,
+    make_provider_request,
+    make_exclusion,
+    make_precomputed_decision_observation,
+    build_decision_study_report,
+)
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 from .comparisons import ComparisonPolicy, compare_trials
 from .metrics import (
     correctness_counts, binary_classification, classification_metrics, ordinal_metrics,

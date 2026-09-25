@@ -1,0 +1,28 @@
+{
+  "$id": "agent-workflow-comparative-eval/provider-request/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "agent-workflow-comparative-eval/provider-request/v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "recorded_at": {"type": "string", "minLength": 1},
+    "identity": {"type": "object"},
+    "decisions": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true, "minItems": 1},
+    "request_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "status": {"enum": ["success", "error", "timeout"]},
+    "duration_seconds": {"type": ["number", "null"], "minimum": 0},
+    "usage": {"type": "object"},
+    "error_class": {"type": ["string", "null"]},
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "raw_content_stored": {"const": false},
+        "secret_values_stored": {"const": false}
+      },
+      "required": ["raw_content_stored", "secret_values_stored"]
+    }
+  },
+  "required": ["schema", "request_id", "recorded_at", "identity", "decisions", "status", "duration_seconds", "usage", "privacy"]
+}

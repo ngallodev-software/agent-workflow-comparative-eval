@@ -1,0 +1,25 @@
+{
+  "$id": "agent-workflow-comparative-eval/decision-study-case/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "agent-workflow-comparative-eval/decision-study-case/v1"},
+    "case_id": {"type": "string", "minLength": 1},
+    "dataset_version": {"type": "string", "minLength": 1},
+    "task": {"type": "string", "minLength": 1},
+    "metadata": {"type": "object"},
+    "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "oracle_eligible": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "routing.task_class": {"type": "boolean"},
+        "routing.interaction_required": {"type": "boolean"},
+        "routing.semantic_risk": {"type": "boolean"}
+      },
+      "required": ["routing.task_class", "routing.interaction_required", "routing.semantic_risk"]
+    }
+  },
+  "required": ["schema", "case_id", "dataset_version", "task", "metadata", "tags", "oracle_eligible"]
+}

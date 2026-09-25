@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.0
+
+Study-grade comparative-decision evidence and reporting.
+
+- Freezes the `routing-semantic-v1` preregistered study specification before the full-study oracle or outcomes exist.
+- Adds neutral provider-request evidence so one batched semantic call is accounted once rather than copied into three decision totals.
+- Adds per-decision precomputed observation support preserving raw semantic decision, probability/confidence/distribution, policy candidate, applied result, fallback, and request identity.
+- Adds explicit study exclusion records.
+- Adds a decision-study report that evaluates Choice, Noul, and Score with different correctness/calibration semantics, Wilson intervals, deterministic paired bootstrap effects, and request-level efficiency.
+- Adds separate inference-case and frozen-oracle schemas so oracle labels can be withheld from inference.
+- Keeps the existing v1 generic observation/report contracts readable and unchanged.
+
 ## 0.1.0
 
 Initial shared comparative-evaluation release candidate.
