@@ -409,6 +409,7 @@ def build_decision_study_report(
     exclusions: Sequence[Mapping[str, Any]] = (),
     cohort: Mapping[str, Any] | None = None,
     ece_minimum_n: int = 100,
+    minimum_oracle_n: int = 100,
 ) -> dict[str, Any]:
     if not observations:
         raise ValueError("decision study requires observations")
@@ -424,6 +425,14 @@ def build_decision_study_report(
             raise ValueError("exclusion belongs to another study")
     reasons = Counter(str(item["reason_code"]) for item in exclusions)
     seams = {feature_id: _feature_report(feature_id, items, oracle, ece_minimum_n=ece_minimum_n) for feature_id, items in sorted(groups.items())}
+    seam_eligibility = {
+        feature_id: {
+            "paired_oracle_n": int(report["counts"]["paired_correctness_eligible"]),
+            "minimum_required": minimum_oracle_n,
+            "eligible": int(report["counts"]["paired_correctness_eligible"]) >= minimum_oracle_n,
+        }
+        for feature_id, report in seams.items()
+    }
     record = {
         "schema": DECISION_STUDY_REPORT_SCHEMA,
         "study_id": study_id,
@@ -438,6 +447,13 @@ def build_decision_study_report(
         "seams": seams,
         "request_efficiency": _request_report(requests),
         "exclusions": {"count": len(exclusions), "reason_counts": dict(sorted(reasons.items()))},
+        "eligibility": {
+            "minimum_oracle_n_per_seam": minimum_oracle_n,
+            "seams": seam_eligibility,
+            "all_observed_seams_eligible": bool(seam_eligibility) and all(
+                item["eligible"] for item in seam_eligibility.values()
+            ),
+        },
         "limitations": [
             "agreement between control and candidate is not correctness without an independent oracle",
             "shadow observations do not establish downstream causal effects",
