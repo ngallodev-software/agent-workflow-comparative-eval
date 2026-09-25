@@ -95,6 +95,16 @@ Agent-Workflow `0.10.1` through `0.11.4` in
 depend on the same library version, but the compatibility file is the explicit
 record of versions independently verified by this repository.
 
+## Study-readiness audit
+
+The dated Phase 0 audit is preserved as a frozen engineering artifact rather than folded into README marketing copy:
+
+- [2026-09-24 Phase 0 current-state audit and implementation plan](docs/audits/2026-09-24-phase-0-current-state-audit-and-implementation-plan.md)
+- [Audit index and publication context](docs/audits/README.md)
+- [Portfolio case study](https://ngallodev-software.uk/projects/agent-workflow-comparative-eval)
+
+The audit's central finding is that the evaluation engine is substantially implemented, while the first defensible comparative-decision study still requires a frozen independent oracle corpus, lossless per-seam evidence persistence, explicit batch/request accounting, and a dedicated benchmark execution/publication lane. Current BM3–BM5 TypeSafe qualification evidence remains integration evidence rather than an effectiveness dataset.
+
 ## Related repositories
 
 - [Agent-Workflow](https://github.com/ngallodev-software/agent-workflow) —
