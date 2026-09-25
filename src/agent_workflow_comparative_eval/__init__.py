@@ -17,6 +17,8 @@ from .errors import ComparativeEvalError, ContractError, CohortError, ImmutableO
 from .study import (
     list_studies,
     load_study_spec,
+    validate_decision_study_corpus,
+    validate_decision_study_oracle_bundle,
     make_provider_request,
     make_exclusion,
     make_precomputed_decision_observation,
