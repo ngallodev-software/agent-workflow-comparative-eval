@@ -47,7 +47,7 @@ The study work therefore focuses first on restoring the evidence chain rather th
 
 - The comparison library already contains correctness, reliability, efficiency, calibration, pairing, and deterministic statistical primitives.
 - TypeSafe/Jev remains an evidence provider; Agent-Workflow keeps deterministic workflow and lifecycle authority.
-- The first study is preregistered around three existing routing seams and uses a separate blinded oracle. Before the first real A/B labels, the execution runtime will be qualified against an Inspect AI sandbox backend while retaining the direct-Docker runner as rollback.
+- The first study is preregistered around three existing routing seams and uses a separate blinded oracle. The Inspect AI + Inspect SWE + Codex CLI adjudication runtime is implemented; authenticated Debian-host qualification against the actual model/load-balancer path is still pending before any real A/B labels.
 - Provider overhead is accounted at the batched-request level to avoid triple-counting one request across three decisions.
 - A favorable Jev result is not a publication requirement.
 
@@ -57,4 +57,4 @@ Do not render claims that Jev improves routing correctness, quality, cost, or la
 
 ---
 
-<small>Last updated: 2026-09-25 13:35 PDT</small>
+<small>Last updated: 2026-09-25 15:22 PDT</small>
