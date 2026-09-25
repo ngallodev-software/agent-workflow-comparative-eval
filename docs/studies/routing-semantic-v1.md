@@ -121,3 +121,18 @@ The authoring view excludes:
 - comparison results.
 
 Oracle adjudication must be performed without access to treatment outputs. The resulting frozen oracle remains a separate artifact and is first joined after inference.
+
+### Frozen adjudicator handoff identity
+
+The exact blinded artifact for independent A/B adjudication is committed at:
+
+`docs/studies/artifacts/routing-semantic-v1/oracle-authoring-view.json`
+
+Identity:
+
+- corpus SHA-256: `e4b33df3b3752b32cdb362833765cc8f0c9cc024473071209563d73284011280`
+- authoring-view SHA-256: `a5a40224793a50d9371e9ae437e144b15812829ba1cd56a5564dc6ba28846a0a`
+- cases: **120**
+- oracle protocol: `routing-semantic-oracle-v1.0.0`
+
+The adjacent `oracle-authoring-view.manifest.json` records the source commit, corpus/spec blob identities, hashes, case count, and blinding flags. Adjudicators A and B must receive this exact file; do not regenerate or modify it after adjudication begins.
