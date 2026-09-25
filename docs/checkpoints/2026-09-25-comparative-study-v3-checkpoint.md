@@ -4,7 +4,7 @@
 **Checkpoint:** `comparative-study-v3`  
 **Supersedes sequencing in:** `docs/checkpoints/2026-09-24-comparative-study-v2-checkpoint.md`
 
-This checkpoint preserves all frozen study semantics from v2 and inserts one infrastructure qualification phase before the first real oracle adjudication.
+This checkpoint preserves all frozen study semantics from v2 and inserts one infrastructure qualification phase before the first real oracle adjudication. The Inspect runtime implementation is now complete in Agent-Workflow Benchmark; authenticated Debian-host qualification remains pending.
 
 ## Governing rule
 
@@ -26,6 +26,7 @@ Therefore the adjudicator execution backend may still be improved **without chan
 | `agent-workflow-comparative-eval` | master | `5652d24cdbd90c9d78c6ec5f9d7ddd39b008e15e` | canonical frozen oracle handoff |
 | `agent-workflow-benchmark` | main | `0f5df45957eee12d6318b5a4b4590398aedc8083` | direct-Docker adjudication harness |
 | `agent-workflow-benchmark` | main | `ac593ca879607bfd5ccbde81666fcb3c31b9aaa1` | A/B/C module contract + isolated-agent architecture |
+| `agent-workflow-benchmark` | main | `7c3cef0ca3572005cb1266629b62dcbf65608440` | Inspect adjudication runtime implementation + authenticated P0A gate |
 
 Current Agent-Workflow and benchmark-results HEADs must still be re-audited before execution.
 
@@ -63,48 +64,42 @@ The implementation plan is owned by benchmark:
 
 `docs/plans/2026-09-25-inspect-adjudication-integration-plan.md`
 
-The direct-Docker runner remains the reference/rollback implementation.
+The Inspect adjudication runtime implementation landed in Agent-Workflow Benchmark at `7c3cef0ca3572005cb1266629b62dcbf65608440`. The direct-Docker runner remains the reference/rollback implementation; it is not a bypass around the authenticated P0A qualification gate.
 
 ## Revised phase map
 
-### P0A — Inspect adjudication runtime integration and qualification
+### P0A — Inspect adjudication runtime implementation + authenticated qualification
 
-Complete before any real A/B labels.
+The software implementation is complete in Agent-Workflow Benchmark at `7c3cef0ca3572005cb1266629b62dcbf65608440` (`0.4.1`). Experimental qualification is still pending on the user's Debian host against the actual model/load-balancer path.
 
-Target runtime:
+Implemented runtime identity:
 
 - `inspect-ai==0.3.268`;
 - `inspect-swe==0.2.70`;
-- Codex CLI `0.156.1`;
-- Docker sandbox;
+- Codex CLI resolved by the `latest-at-cohort-start` policy, then frozen to the exact numeric version in the runtime lock for A, B, and any required C;
+- separate Inspect Docker sandbox per adjudicator sample;
 - host-side model/load-balancer credentials;
-- sandboxed Codex connected through Inspect's agent bridge;
-- web search/MCP/provider-side code execution withheld.
+- sandboxed Codex connected through Inspect's localhost agent bridge;
+- web search disabled, goals disabled, no MCP servers, no bridged host tools, and no auto-review/guardian capability.
 
-P0A must use only synthetic qualification fixtures, not the real 120-case authoring view for label generation.
+P0A qualification must use only synthetic `inspect-qualification-*` fixtures, never the real 120-case authoring view for label generation.
 
-Qualification must prove:
+The machine-readable qualification manifest must report `qualified: true` with every gate passing:
 
-1. exact version/runtime identity;
-2. user load-balancer connectivity;
-3. provider credential absent from sandbox;
-4. no `TYPESAFE_*` credential in adjudicator;
-5. no repository or Docker socket mount;
-6. no cross-agent filesystem visibility;
-7. exact prompt/input/output-contract materialization;
-8. deterministic parity with the reference backend using a stub agent;
-9. A/B delayed-reveal behavior;
-10. C dispute-only isolation;
-11. failure/retry behavior does not violate role independence;
-12. machine-readable qualification manifest is frozen.
+1. IA-1 — dependency/runtime identity;
+2. IA-2 — actual host provider/load-balancer bridge;
+3. IA-3 — sandbox guardrail/leakage isolation;
+4. IA-4 — module/input/prompt materialization parity;
+5. IA-5 — deterministic direct-Docker wrapper vs Inspect adapter parity;
+6. IA-6 — independent synthetic A/B orchestration;
+7. IA-7 — forced synthetic dispute and fresh C isolation;
+8. IA-8 — complete synthetic freeze/rollback compatibility.
 
-If any required gate fails, use fresh direct-Docker A/B sessions for P0B.
-
-Do not mix one backend's A pass with another backend's B pass in the same oracle cohort.
+P0B remains blocked until this authenticated qualification passes. Do not bypass the gate with the reference backend, and do not mix backends or runtime locks inside an oracle cohort.
 
 ### P0B — independent oracle
 
-After P0A is qualified:
+Blocked until P0A produces a passing authenticated qualification manifest. After P0A is qualified:
 
 1. verify canonical view SHA-256;
 2. materialize identical A/B blinded inputs;
@@ -228,12 +223,12 @@ Retain every v2 do-not-regress item, plus:
 
 ## Next exact action
 
-Implement benchmark P0A from:
+Run the authenticated Debian-host P0A qualification using:
 
-`agent-workflow-benchmark/docs/plans/2026-09-25-inspect-adjudication-integration-plan.md`
+`agent-workflow-benchmark/docs/INSPECT_ORACLE_ADJUDICATION.md`
 
-Do not start `run-ab` on the real frozen 120-case authoring view until P0A produces a passing frozen qualification manifest.
+Use the user's actual host-side model/load-balancer configuration, preserve credential isolation, and produce the frozen machine-readable qualification manifest. Do not start real A/B adjudication on the frozen 120-case authoring view until that manifest has `qualified: true` and IA-1 through IA-8 all pass.
 
 ## Immediate continuation summary
 
-> The comparative study semantics remain frozen. The next action is no longer real A/B adjudication. First integrate and qualify Inspect AI/Inspect SWE as the preferred isolated adjudicator runtime using synthetic fixtures only, while retaining the merged direct-Docker runner as rollback. After the Inspect qualification manifest passes and is frozen, proceed to the real independent A/B/C oracle, then P1 instrumentation, P2 full inference, and P3 publication.
+> The comparative study semantics remain frozen. Inspect AI + Inspect SWE + Codex CLI runtime implementation is complete at benchmark commit `7c3cef0ca3572005cb1266629b62dcbf65608440`; authenticated Debian-host qualification is still pending. P0B remains blocked until the synthetic IA-1 through IA-8 qualification manifest reports `qualified: true`. Only then proceed to the real independent A/B/C oracle, followed by P1 instrumentation, P2 full inference, and P3 publication.
