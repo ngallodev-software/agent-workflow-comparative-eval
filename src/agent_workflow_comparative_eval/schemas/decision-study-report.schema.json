@@ -12,7 +12,8 @@
     "seams": {"type": "object"},
     "request_efficiency": {"type": "object"},
     "exclusions": {"type": "object"},
+    "eligibility": {"type": "object"},
     "limitations": {"type": "array", "items": {"type": "string"}}
   },
-  "required": ["schema", "study_id", "study_version", "cohort", "counts", "seams", "request_efficiency", "exclusions", "limitations"]
+  "required": ["schema", "study_id", "study_version", "cohort", "counts", "seams", "request_efficiency", "exclusions", "eligibility", "limitations"]
 }
