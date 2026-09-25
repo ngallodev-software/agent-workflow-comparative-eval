@@ -1,0 +1,24 @@
+{
+  "$id": "agent-workflow-comparative-eval/decision-study-oracle/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "agent-workflow-comparative-eval/decision-study-oracle/v1"},
+    "case_id": {"type": "string", "minLength": 1},
+    "dataset_version": {"type": "string", "minLength": 1},
+    "labels": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "routing.task_class": {"enum": ["implementation", "diagnosis", "review", "documentation", "other"]},
+        "routing.interaction_required": {"type": "boolean"},
+        "routing.semantic_risk": {"type": "integer", "minimum": 0, "maximum": 2}
+      }
+    },
+    "provenance": {"type": "object"},
+    "adjudication": {"type": "object"},
+    "frozen": {"const": true}
+  },
+  "required": ["schema", "case_id", "dataset_version", "labels", "provenance", "adjudication", "frozen"]
+}
