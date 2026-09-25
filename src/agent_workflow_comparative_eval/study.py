@@ -12,6 +12,10 @@ from .constants import (
     DECISION_STUDY_EXCLUSION_SCHEMA,
     DECISION_STUDY_REPORT_SCHEMA,
     DECISION_STUDY_SPEC_SCHEMA,
+    DECISION_STUDY_CASE_SCHEMA,
+    DECISION_STUDY_ORACLE_SCHEMA,
+    DECISION_STUDY_CORPUS_SCHEMA,
+    DECISION_STUDY_ORACLE_BUNDLE_SCHEMA,
     OBSERVATION_SCHEMA,
     PROVIDER_REQUEST_SCHEMA,
 )
@@ -52,6 +56,61 @@ def load_study_spec(name: str) -> dict[str, Any]:
     value = json.loads(resource.read_text(encoding="utf-8"))
     validate_record(value, DECISION_STUDY_SPEC_SCHEMA)
     return value
+
+
+def validate_decision_study_corpus(value: Mapping[str, Any]) -> dict[str, Any]:
+    validate_record(value, DECISION_STUDY_CORPUS_SCHEMA)
+    dataset_version = str(value["dataset_version"])
+    seen: set[str] = set()
+    cases: list[dict[str, Any]] = []
+    for raw in value["cases"]:
+        if not isinstance(raw, Mapping):
+            raise ValueError("decision-study corpus case must be an object")
+        validate_record(raw, DECISION_STUDY_CASE_SCHEMA)
+        case_id = str(raw["case_id"])
+        if case_id in seen:
+            raise ValueError(f"duplicate decision-study case ID: {case_id}")
+        if raw["dataset_version"] != dataset_version:
+            raise ValueError(
+                f"case {case_id} dataset_version differs from corpus dataset_version"
+            )
+        seen.add(case_id)
+        cases.append(dict(raw))
+    return {**dict(value), "cases": cases}
+
+
+def validate_decision_study_oracle_bundle(
+    value: Mapping[str, Any],
+    *,
+    expected_study_id: str | None = None,
+    expected_dataset_version: str | None = None,
+) -> dict[str, Any]:
+    validate_record(value, DECISION_STUDY_ORACLE_BUNDLE_SCHEMA)
+    study_id = str(value["study_id"])
+    dataset_version = str(value["dataset_version"])
+    if expected_study_id is not None and study_id != expected_study_id:
+        raise ValueError("oracle bundle belongs to a different study")
+    if (
+        expected_dataset_version is not None
+        and dataset_version != expected_dataset_version
+    ):
+        raise ValueError("oracle bundle dataset_version does not match inference corpus")
+    seen: set[str] = set()
+    records: list[dict[str, Any]] = []
+    for raw in value["records"]:
+        if not isinstance(raw, Mapping):
+            raise ValueError("decision-study oracle record must be an object")
+        validate_record(raw, DECISION_STUDY_ORACLE_SCHEMA)
+        case_id = str(raw["case_id"])
+        if case_id in seen:
+            raise ValueError(f"duplicate decision-study oracle case ID: {case_id}")
+        if raw["dataset_version"] != dataset_version:
+            raise ValueError(
+                f"oracle record {case_id} has a different dataset version"
+            )
+        seen.add(case_id)
+        records.append(dict(raw))
+    return {**dict(value), "records": records}
 
 
 def make_provider_request(
