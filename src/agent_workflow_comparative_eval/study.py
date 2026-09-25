@@ -235,27 +235,47 @@ def _paired_change(control_ok: Sequence[bool], candidate_ok: Sequence[bool], *, 
     return paired_bootstrap_interval(deltas, label=label)
 
 
-def _change_analysis(controls: Sequence[Any], candidates: Sequence[Any], truths: Sequence[Any]) -> dict[str, int]:
-    counts = {"agreements": 0, "beneficial_changes": 0, "harmful_changes": 0, "changed_both_correct": 0, "changed_both_wrong": 0}
-    for control, candidate, truth in zip(controls, candidates, truths, strict=True):
+def _change_analysis(
+    controls: Sequence[Any],
+    candidates: Sequence[Any],
+    truths: Sequence[Any],
+    candidate_success: Sequence[bool],
+) -> dict[str, int]:
+    counts = {
+        "agreements_correct": 0,
+        "agreements_wrong": 0,
+        "beneficial_changes": 0,
+        "harmful_changes": 0,
+        "changed_both_wrong": 0,
+        "candidate_no_decision": 0,
+    }
+    for control, candidate, truth, success in zip(
+        controls, candidates, truths, candidate_success, strict=True
+    ):
+        if not success:
+            counts["candidate_no_decision"] += 1
+            continue
         if control == candidate:
-            counts["agreements"] += 1
+            counts["agreements_correct" if control == truth else "agreements_wrong"] += 1
         elif candidate == truth and control != truth:
             counts["beneficial_changes"] += 1
         elif control == truth and candidate != truth:
             counts["harmful_changes"] += 1
-        elif control == truth and candidate == truth:
-            counts["changed_both_correct"] += 1
         else:
             counts["changed_both_wrong"] += 1
     return counts
-
 
 def _rate_interval(successes: int, total: int) -> dict[str, Any]:
     return {"successes": successes, "n": total, "rate": successes / total if total else None, "wilson_95": wilson_interval(successes, total)}
 
 
-def _feature_report(feature_id: str, observations: Sequence[Mapping[str, Any]], oracle: Mapping[str, Any], *, ece_minimum_n: int) -> dict[str, Any]:
+def _feature_report(
+    feature_id: str,
+    observations: Sequence[Mapping[str, Any]],
+    oracle: Mapping[str, Any],
+    *,
+    ece_minimum_n: int,
+) -> dict[str, Any]:
     semantic_type = _semantic_type(observations)
     candidate_arms = [obs.get("candidate", {}) for obs in observations]
     semantic_statuses: Counter[str] = Counter()
@@ -273,78 +293,219 @@ def _feature_report(feature_id: str, observations: Sequence[Mapping[str, Any]], 
     controls: list[Any] = []
     candidates: list[Any] = []
     truths: list[Any] = []
-    paired_obs: list[Mapping[str, Any]] = []
+    candidate_success: list[bool] = []
+    answered_controls: list[Any] = []
+    answered_candidates: list[Any] = []
+    answered_truths: list[Any] = []
+    answered_obs: list[Mapping[str, Any]] = []
+
     for obs in observations:
         oid = str(obs["observation_id"])
         if oid not in oracle:
             continue
         control = _decision(obs.get("control", {}).get("result"))
+        if control is None:
+            continue
         candidate_arm = obs.get("candidate", {})
         candidate = _decision(candidate_arm.get("result"))
-        if control is None or candidate is None or candidate_arm.get("status") != "success":
-            continue
+        success = candidate_arm.get("status") == "success" and candidate is not None
         controls.append(control)
         candidates.append(candidate)
         truths.append(oracle[oid])
-        paired_obs.append(obs)
+        candidate_success.append(success)
+        if success:
+            answered_controls.append(control)
+            answered_candidates.append(candidate)
+            answered_truths.append(oracle[oid])
+            answered_obs.append(obs)
 
     base: dict[str, Any] = {
         "semantic_type": semantic_type,
         "counts": {
             "observations": len(observations),
-            "oracle_eligible": sum(str(obs["observation_id"]) in oracle for obs in observations),
-            "paired_correctness_eligible": len(truths),
+            "oracle_eligible": len(truths),
+            "candidate_answered": len(answered_truths),
+            "candidate_no_decision": len(truths) - len(answered_truths),
         },
         "reliability": {
             "candidate": arm_reliability(candidate_arms),
             "semantic_statuses": dict(sorted(semantic_statuses.items())),
             "fallback_reasons": dict(sorted(fallback_reasons.items())),
+            "answer_coverage": (
+                len(answered_truths) / len(truths) if truths else None
+            ),
         },
     }
     if not truths:
-        base["correctness"] = {"eligible": False, "reason": "no paired oracle-eligible successful observations"}
-        base["calibration"] = {"eligible": False, "reason": "no paired oracle-eligible successful observations"}
+        base["correctness"] = {
+            "eligible": False,
+            "reason": "no oracle-eligible observations",
+        }
+        base["calibration"] = {
+            "eligible": False,
+            "reason": "no oracle-eligible observations",
+        }
         return base
 
     if semantic_type in {"choice", "noul"}:
         counts = correctness_counts(controls, candidates, truths)
-        control_ok = [control == truth for control, truth in zip(controls, truths, strict=True)]
-        candidate_ok = [candidate == truth for candidate, truth in zip(candidates, truths, strict=True)]
+        control_ok = [
+            control == truth
+            for control, truth in zip(controls, truths, strict=True)
+        ]
+        candidate_ok = [
+            success and candidate == truth
+            for candidate, truth, success in zip(
+                candidates, truths, candidate_success, strict=True
+            )
+        ]
+        answered_ok = [
+            candidate == truth
+            for candidate, truth in zip(
+                answered_candidates, answered_truths, strict=True
+            )
+        ]
         correctness: dict[str, Any] = {
             "paired_counts": counts,
             "control_accuracy": _rate_interval(sum(control_ok), len(control_ok)),
-            "candidate_accuracy": _rate_interval(sum(candidate_ok), len(candidate_ok)),
-            "candidate_minus_control_accuracy": _paired_change(control_ok, candidate_ok, label=f"{feature_id}:accuracy"),
-            "change_analysis": _change_analysis(controls, candidates, truths),
+            # Candidate attempt accuracy treats timeout/error/no-decision as incorrect.
+            "candidate_accuracy": _rate_interval(
+                sum(candidate_ok), len(candidate_ok)
+            ),
+            "candidate_answered_accuracy": (
+                _rate_interval(sum(answered_ok), len(answered_ok))
+                if answered_ok
+                else {"successes": 0, "n": 0, "rate": None, "wilson_95": None}
+            ),
+            "candidate_answer_coverage": (
+                len(answered_truths) / len(truths) if truths else None
+            ),
+            "candidate_minus_control_accuracy": _paired_change(
+                control_ok, candidate_ok, label=f"{feature_id}:attempt-accuracy"
+            ),
+            "change_analysis": _change_analysis(
+                controls, candidates, truths, candidate_success
+            ),
         }
         if semantic_type == "choice":
-            correctness["control_classification"] = classification_metrics(controls, truths)
-            correctness["candidate_classification"] = classification_metrics(candidates, truths)
+            candidate_labels = [
+                candidate if success else "__no_decision__"
+                for candidate, success in zip(
+                    candidates, candidate_success, strict=True
+                )
+            ]
+            correctness["control_classification"] = classification_metrics(
+                controls, truths
+            )
+            correctness["candidate_classification"] = classification_metrics(
+                candidate_labels, truths
+            )
+            correctness["candidate_answered_classification"] = (
+                classification_metrics(answered_candidates, answered_truths)
+                if answered_truths
+                else {"n": 0, "accuracy": None, "labels": [], "confusion_matrix": {}}
+            )
         else:
-            correctness["control_binary"] = binary_classification([bool(x) for x in controls], [bool(x) for x in truths])
-            correctness["candidate_binary"] = binary_classification([bool(x) for x in candidates], [bool(x) for x in truths])
+            correctness["control_binary"] = binary_classification(
+                [bool(x) for x in controls], [bool(x) for x in truths]
+            )
+            correctness["candidate_binary_answered"] = (
+                binary_classification(
+                    [bool(x) for x in answered_candidates],
+                    [bool(x) for x in answered_truths],
+                )
+                if answered_truths
+                else {
+                    "n": 0,
+                    "tp": 0,
+                    "tn": 0,
+                    "fp": 0,
+                    "fn": 0,
+                    "accuracy": None,
+                    "precision": None,
+                    "recall": None,
+                    "f1": None,
+                }
+            )
         base["correctness"] = correctness
     elif semantic_type == "score":
         control_numbers = [float(x) for x in controls]
-        candidate_numbers = [float(x) for x in candidates]
         truth_numbers = [float(x) for x in truths]
-        abs_effect = [abs(candidate - truth) - abs(control - truth) for control, candidate, truth in zip(control_numbers, candidate_numbers, truth_numbers, strict=True)]
-        base["correctness"] = {
+        correctness = {
             "control_ordinal": ordinal_metrics(control_numbers, truth_numbers),
-            "candidate_ordinal": ordinal_metrics(candidate_numbers, truth_numbers),
-            "candidate_minus_control_absolute_error": paired_bootstrap_interval(abs_effect, label=f"{feature_id}:absolute-error"),
+            "candidate_answer_coverage": (
+                len(answered_truths) / len(truths) if truths else None
+            ),
         }
+        if answered_truths:
+            candidate_numbers = [float(x) for x in answered_candidates]
+            answered_truth_numbers = [float(x) for x in answered_truths]
+            answered_control_numbers = [float(x) for x in answered_controls]
+            abs_effect = [
+                abs(candidate - truth) - abs(control - truth)
+                for control, candidate, truth in zip(
+                    answered_control_numbers,
+                    candidate_numbers,
+                    answered_truth_numbers,
+                    strict=True,
+                )
+            ]
+            correctness["candidate_ordinal"] = ordinal_metrics(
+                candidate_numbers, answered_truth_numbers
+            )
+            correctness["candidate_minus_control_absolute_error"] = (
+                paired_bootstrap_interval(
+                    abs_effect, label=f"{feature_id}:absolute-error"
+                )
+            )
+        else:
+            correctness["candidate_ordinal"] = {
+                "n": 0,
+                "mean_absolute_error": None,
+                "signed_bias": None,
+                "within_one_level_accuracy": None,
+            }
+            correctness["candidate_minus_control_absolute_error"] = {
+                "n": 0,
+                "mean": None,
+                "lower": None,
+                "upper": None,
+                "confidence": 0.95,
+            }
+        base["correctness"] = correctness
     else:
-        base["correctness"] = {"eligible": False, "reason": "semantic type unavailable"}
+        base["correctness"] = {
+            "eligible": False,
+            "reason": "semantic type unavailable",
+        }
 
-    candidate_results = [obs.get("candidate", {}).get("result") for obs in paired_obs]
+    candidate_results = [
+        obs.get("candidate", {}).get("result") for obs in answered_obs
+    ]
     if semantic_type == "noul":
-        probabilities = [result.get("probability") if isinstance(result, Mapping) else None for result in candidate_results]
-        if all(isinstance(p, (int, float)) and not isinstance(p, bool) for p in probabilities):
+        probabilities = [
+            result.get("probability") if isinstance(result, Mapping) else None
+            for result in candidate_results
+        ]
+        if (
+            answered_truths
+            and all(
+                isinstance(p, (int, float)) and not isinstance(p, bool)
+                for p in probabilities
+            )
+        ):
             probs = [float(p) for p in probabilities]
-            calibration: dict[str, Any] = {"eligible": True, "n": len(probs), "brier": brier_score(probs, [bool(x) for x in truths])}
+            calibration: dict[str, Any] = {
+                "eligible": True,
+                "n": len(probs),
+                "brier": brier_score(
+                    probs, [bool(x) for x in answered_truths]
+                ),
+            }
             if len(probs) >= ece_minimum_n:
-                calibration["ece"] = expected_calibration_error(probs, [bool(x) for x in truths])
+                calibration["ece"] = expected_calibration_error(
+                    probs, [bool(x) for x in answered_truths]
+                )
                 calibration["ece_eligible"] = True
             else:
                 calibration["ece"] = None
@@ -352,17 +513,30 @@ def _feature_report(feature_id: str, observations: Sequence[Mapping[str, Any]], 
                 calibration["ece_reason"] = f"requires n >= {ece_minimum_n}"
             base["calibration"] = calibration
         else:
-            base["calibration"] = {"eligible": False, "reason": "complete Noul probability evidence unavailable"}
+            base["calibration"] = {
+                "eligible": False,
+                "reason": "complete answered Noul probability evidence unavailable",
+            }
     elif semantic_type in {"choice", "score"}:
         vectors: list[dict[str, float]] = []
         for result in candidate_results:
-            raw = result.get("probabilities") if isinstance(result, Mapping) else None
+            raw = (
+                result.get("probabilities")
+                if isinstance(result, Mapping)
+                else None
+            )
             if not isinstance(raw, Mapping):
                 vectors = []
                 break
-            vectors.append({str(k): float(v) for k, v in raw.items() if isinstance(v, (int, float)) and not isinstance(v, bool)})
-        labels = [str(x) for x in truths]
-        if len(vectors) == len(truths) and vectors:
+            vectors.append(
+                {
+                    str(k): float(v)
+                    for k, v in raw.items()
+                    if isinstance(v, (int, float)) and not isinstance(v, bool)
+                }
+            )
+        labels = [str(x) for x in answered_truths]
+        if len(vectors) == len(answered_truths) and vectors:
             base["calibration"] = {
                 "eligible": True,
                 "n": len(vectors),
@@ -370,11 +544,16 @@ def _feature_report(feature_id: str, observations: Sequence[Mapping[str, Any]], 
                 "log_loss": multiclass_log_loss(vectors, labels),
             }
         else:
-            base["calibration"] = {"eligible": False, "reason": "complete probability distribution evidence unavailable"}
+            base["calibration"] = {
+                "eligible": False,
+                "reason": "complete answered probability distribution evidence unavailable",
+            }
     else:
-        base["calibration"] = {"eligible": False, "reason": "semantic type unavailable"}
+        base["calibration"] = {
+            "eligible": False,
+            "reason": "semantic type unavailable",
+        }
     return base
-
 
 def _request_report(requests: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
     unique: dict[str, Mapping[str, Any]] = {}
@@ -427,9 +606,9 @@ def build_decision_study_report(
     seams = {feature_id: _feature_report(feature_id, items, oracle, ece_minimum_n=ece_minimum_n) for feature_id, items in sorted(groups.items())}
     seam_eligibility = {
         feature_id: {
-            "paired_oracle_n": int(report["counts"]["paired_correctness_eligible"]),
+            "oracle_eligible_n": int(report["counts"]["oracle_eligible"]),
             "minimum_required": minimum_oracle_n,
-            "eligible": int(report["counts"]["paired_correctness_eligible"]) >= minimum_oracle_n,
+            "eligible": int(report["counts"]["oracle_eligible"]) >= minimum_oracle_n,
         }
         for feature_id, report in seams.items()
     }
