@@ -1,7 +1,7 @@
 # Routing Semantic Comparative Study v1
 
 **Study ID:** `routing-semantic-v1`  
-**Study version:** `1.0.0`  
+**Study version:** `1.1.0`  
 **Status:** preregistered implementation specification
 
 ## Purpose
@@ -84,3 +84,40 @@ Allowed reason codes are frozen in the machine-readable study specification. Sil
 Raw provider HTTP evidence and credentials remain private. Public evidence may include public-safe inputs, sanitized case-level decision evidence, aggregate metrics, hashes, exact software/model/question-set/projector identities, exclusion counts, limitations, and reproducibility instructions.
 
 A favorable semantic result is not required for publication. Evidence quality is the acceptance criterion.
+
+
+## Frozen inference corpus
+
+The canonical inference corpus is packaged as:
+
+`resources/studies/routing-semantic-v1.corpus.json`
+
+Dataset version: `routing-semantic-corpus-v1.0.0`  
+Case count: **120**
+
+The corpus is public-safe and contains no oracle labels. It deliberately spans:
+
+- clear single-intent tasks;
+- absent routing metadata;
+- stale or misleading declared task type;
+- material authorization/choice gaps;
+- stale interaction flags where no new decision is required;
+- production/security high-consequence contexts;
+- mixed-intent tasks;
+- terse and ambiguous requests.
+
+Construction tags exist only for later stratified analysis. They are not sent to Agent-Workflow's decision provider and are removed from the oracle-authoring view.
+
+## Independent oracle handoff
+
+`oracle_authoring_view()` produces the adjudicator artifact. It contains the frozen decision taxonomy/rubric plus only case ID, request text, declared metadata, and oracle eligibility.
+
+The authoring view excludes:
+
+- construction tags;
+- deterministic control outputs;
+- TypeSafe/Jev outputs;
+- probability/confidence evidence;
+- comparison results.
+
+Oracle adjudication must be performed without access to treatment outputs. The resulting frozen oracle remains a separate artifact and is first joined after inference.

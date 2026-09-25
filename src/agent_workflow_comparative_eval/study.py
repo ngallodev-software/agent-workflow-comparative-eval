@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from collections import Counter
 from collections.abc import Mapping, Sequence
@@ -12,6 +13,11 @@ from .constants import (
     DECISION_STUDY_EXCLUSION_SCHEMA,
     DECISION_STUDY_REPORT_SCHEMA,
     DECISION_STUDY_SPEC_SCHEMA,
+    DECISION_STUDY_CASE_SCHEMA,
+    DECISION_STUDY_ORACLE_SCHEMA,
+    DECISION_STUDY_CORPUS_SCHEMA,
+    DECISION_STUDY_ORACLE_BUNDLE_SCHEMA,
+    ORACLE_AUTHORING_VIEW_SCHEMA,
     OBSERVATION_SCHEMA,
     PROVIDER_REQUEST_SCHEMA,
 )
@@ -37,6 +43,7 @@ from .timing import timing_summary
 from .usage import aggregate_usage
 
 _STUDIES = {"routing-semantic-v1": "routing-semantic-v1.study.json"}
+_STUDY_CORPORA = {"routing-semantic-v1": "routing-semantic-v1.corpus.json"}
 
 
 def list_studies() -> tuple[str, ...]:
@@ -52,6 +59,122 @@ def load_study_spec(name: str) -> dict[str, Any]:
     value = json.loads(resource.read_text(encoding="utf-8"))
     validate_record(value, DECISION_STUDY_SPEC_SCHEMA)
     return value
+
+
+def list_study_corpora() -> tuple[str, ...]:
+    return tuple(sorted(_STUDY_CORPORA))
+
+
+def _study_corpus_resource(name: str):
+    try:
+        filename = _STUDY_CORPORA[name]
+    except KeyError as exc:
+        raise ValueError(f"unknown decision-study corpus: {name}") from exc
+    return files("agent_workflow_comparative_eval").joinpath(
+        "resources", "studies", filename
+    )
+
+
+def load_study_corpus(name: str) -> dict[str, Any]:
+    resource = _study_corpus_resource(name)
+    value = json.loads(resource.read_text(encoding="utf-8"))
+    return validate_decision_study_corpus(value)
+
+
+def study_corpus_manifest(name: str) -> dict[str, Any]:
+    resource = _study_corpus_resource(name)
+    raw = resource.read_bytes()
+    value = validate_decision_study_corpus(json.loads(raw))
+    return {
+        "study_id": value["study_id"],
+        "dataset_version": value["dataset_version"],
+        "case_count": len(value["cases"]),
+        "sha256": hashlib.sha256(raw).hexdigest(),
+    }
+
+
+def oracle_authoring_view(corpus: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the blinded adjudication view without construction-analysis tags."""
+    value = validate_decision_study_corpus(corpus)
+    spec = load_study_spec(str(value["study_id"]))
+    record = {
+        "schema": ORACLE_AUTHORING_VIEW_SCHEMA,
+        "study_id": value["study_id"],
+        "dataset_version": value["dataset_version"],
+        "decision_seams": list(spec["decision_seams"]),
+        "oracle_policy": dict(spec["oracle_policy"]),
+        "cases": [
+            {
+                "case_id": case["case_id"],
+                "task": case["task"],
+                "metadata": dict(case["metadata"]),
+                "oracle_eligible": dict(case["oracle_eligible"]),
+            }
+            for case in value["cases"]
+        ],
+        "blinding": {
+            "construction_tags_included": False,
+            "control_outputs_included": False,
+            "candidate_outputs_included": False,
+        },
+    }
+    validate_record(record, ORACLE_AUTHORING_VIEW_SCHEMA)
+    return record
+
+
+def validate_decision_study_corpus(value: Mapping[str, Any]) -> dict[str, Any]:
+    validate_record(value, DECISION_STUDY_CORPUS_SCHEMA)
+    dataset_version = str(value["dataset_version"])
+    seen: set[str] = set()
+    cases: list[dict[str, Any]] = []
+    for raw in value["cases"]:
+        if not isinstance(raw, Mapping):
+            raise ValueError("decision-study corpus case must be an object")
+        validate_record(raw, DECISION_STUDY_CASE_SCHEMA)
+        case_id = str(raw["case_id"])
+        if case_id in seen:
+            raise ValueError(f"duplicate decision-study case ID: {case_id}")
+        if raw["dataset_version"] != dataset_version:
+            raise ValueError(
+                f"case {case_id} dataset_version differs from corpus dataset_version"
+            )
+        seen.add(case_id)
+        cases.append(dict(raw))
+    return {**dict(value), "cases": cases}
+
+
+def validate_decision_study_oracle_bundle(
+    value: Mapping[str, Any],
+    *,
+    expected_study_id: str | None = None,
+    expected_dataset_version: str | None = None,
+) -> dict[str, Any]:
+    validate_record(value, DECISION_STUDY_ORACLE_BUNDLE_SCHEMA)
+    study_id = str(value["study_id"])
+    dataset_version = str(value["dataset_version"])
+    if expected_study_id is not None and study_id != expected_study_id:
+        raise ValueError("oracle bundle belongs to a different study")
+    if (
+        expected_dataset_version is not None
+        and dataset_version != expected_dataset_version
+    ):
+        raise ValueError("oracle bundle dataset_version does not match inference corpus")
+    seen: set[str] = set()
+    records: list[dict[str, Any]] = []
+    for raw in value["records"]:
+        if not isinstance(raw, Mapping):
+            raise ValueError("decision-study oracle record must be an object")
+        validate_record(raw, DECISION_STUDY_ORACLE_SCHEMA)
+        case_id = str(raw["case_id"])
+        if case_id in seen:
+            raise ValueError(f"duplicate decision-study oracle case ID: {case_id}")
+        if raw["dataset_version"] != dataset_version:
+            raise ValueError(
+                f"oracle record {case_id} has a different dataset version"
+            )
+        seen.add(case_id)
+        records.append(dict(raw))
+    return {**dict(value), "records": records}
 
 
 def make_provider_request(

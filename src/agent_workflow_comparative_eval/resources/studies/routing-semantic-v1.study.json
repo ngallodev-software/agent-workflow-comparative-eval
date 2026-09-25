@@ -9,17 +9,66 @@
     {
       "decision_id": "routing.task_class",
       "feature_id": "routing.task-class/v1",
-      "labels": ["implementation", "diagnosis", "review", "documentation", "other"],
+      "labels": [
+        "implementation",
+        "diagnosis",
+        "review",
+        "documentation",
+        "other"
+      ],
       "oracle_type": "categorical",
-      "primary_metrics": ["top1_accuracy", "confusion_matrix", "paired_correctness_effect", "multiclass_brier", "log_loss"],
-      "semantic_type": "choice"
+      "primary_metrics": [
+        "top1_accuracy",
+        "confusion_matrix",
+        "paired_correctness_effect",
+        "multiclass_brier",
+        "log_loss"
+      ],
+      "semantic_type": "choice",
+      "label_meaning": {
+        "implementation": "Primary deliverable creates or changes executable behavior, code, configuration, data transformation, or tests as part of a change.",
+        "diagnosis": "Primary deliverable investigates, traces, explains, or determines cause/state without a required implementation change.",
+        "review": "Primary deliverable evaluates an existing or proposed artifact for defects, security, correctness, compatibility, compliance, or readiness.",
+        "documentation": "Primary deliverable is explanatory/reference/runbook/release-note documentation rather than executable behavior.",
+        "other": "Primary deliverable is planning, coordination, prioritization, handoff, organization, or another activity outside the four classes."
+      },
+      "mixed_intent_precedence": [
+        "implementation when an executable behavior/code/config change is explicitly required",
+        "otherwise review when the final deliverable is an assessment/audit/verdict",
+        "otherwise diagnosis when the final deliverable is root-cause/state understanding",
+        "otherwise documentation when the final deliverable is documentation",
+        "otherwise other"
+      ],
+      "metadata_rule": "Declared task_type is observed evidence and may be stale or wrong; it is not the oracle label."
     },
     {
       "decision_id": "routing.interaction_required",
       "feature_id": "routing.interaction-required/v1",
       "oracle_type": "boolean",
-      "primary_metrics": ["accuracy", "precision", "recall", "f1", "paired_correctness_effect", "brier", "ece"],
-      "semantic_type": "noul"
+      "primary_metrics": [
+        "accuracy",
+        "precision",
+        "recall",
+        "f1",
+        "paired_correctness_effect",
+        "brier",
+        "ece"
+      ],
+      "semantic_type": "noul",
+      "proposition": "A material user decision, authorization, or preference is missing from supplied state and is required before the requested action can be completed responsibly.",
+      "true_when": [
+        "a materially incompatible product/API behavior must be chosen",
+        "production/public/irreversible action requires authorization not already supplied",
+        "an effective date, authoritative source, or policy choice changes external behavior",
+        "publication itself requires approval of claim language or evidence level"
+      ],
+      "false_when": [
+        "the request is analysis, review, or preparation only",
+        "authorization or the relevant policy decision is explicitly supplied",
+        "normal engineering judgment or repository evidence can resolve implementation detail without changing product policy",
+        "the task can safely produce a bounded artifact without an external user choice"
+      ],
+      "metadata_rule": "Declared requires_interaction is observed evidence and may be stale; it is not ground truth."
     },
     {
       "decision_id": "routing.semantic_risk",
@@ -29,10 +78,22 @@
         "1": "moderate consequence; careful verification required",
         "2": "high consequence; authority, security, or irreversible-state risk"
       },
-      "levels": [0, 1, 2],
+      "levels": [
+        0,
+        1,
+        2
+      ],
       "oracle_type": "ordinal",
-      "primary_metrics": ["mean_absolute_error", "signed_bias", "within_one_level_accuracy", "paired_absolute_error_effect", "multiclass_brier", "log_loss"],
-      "semantic_type": "score"
+      "primary_metrics": [
+        "mean_absolute_error",
+        "signed_bias",
+        "within_one_level_accuracy",
+        "paired_absolute_error_effect",
+        "multiclass_brier",
+        "log_loss"
+      ],
+      "semantic_type": "score",
+      "interpretation": "Consequence of acting on a materially wrong semantic interpretation, not generic code complexity or deterministic security/lifecycle risk."
     }
   ],
   "evaluation_unit": "one public-safe routing case evaluated by one batched semantic request and projected into three per-decision observations",
@@ -44,7 +105,19 @@
     "raw_provider_http_public": false
   },
   "exclusion_policy": {
-    "allowed_reason_codes": ["invalid_case_contract", "duplicate_case_id", "oracle_missing", "oracle_conflict_unresolved", "inference_input_leakage", "control_execution_failure", "candidate_execution_failure", "provider_timeout", "provider_service_error", "invalid_provider_contract", "study_identity_mismatch"],
+    "allowed_reason_codes": [
+      "invalid_case_contract",
+      "duplicate_case_id",
+      "oracle_missing",
+      "oracle_conflict_unresolved",
+      "inference_input_leakage",
+      "control_execution_failure",
+      "candidate_execution_failure",
+      "provider_timeout",
+      "provider_service_error",
+      "invalid_provider_contract",
+      "study_identity_mismatch"
+    ],
     "provider_failures_remain_reliability_evidence": true,
     "silent_exclusion_forbidden": true
   },
@@ -62,17 +135,40 @@
     "result_affecting_changes_require_new_version": true,
     "semantic_risk": "independent ordered adjudication under the frozen 0-2 consequence rubric",
     "separate_artifact": true,
-    "task_class": "independent label under the frozen five-class taxonomy with adjudication for conflicts"
+    "task_class": "independent label under the frozen five-class taxonomy with adjudication for conflicts",
+    "protocol_version": "routing-semantic-oracle-v1.0.0",
+    "mixed_intent_rule_version": "routing-task-class-v1.1"
   },
   "purpose": "Evaluate the three live Agent-Workflow routing semantic seams against deterministic control using independently frozen oracle labels without giving either implementation access to the oracle.",
   "research_questions": [
-    {"id": "RQ1", "text": "How does TypeSafe routing.task_class correctness compare with current deterministic classification on independently labeled routing cases?"},
-    {"id": "RQ2", "text": "How does TypeSafe Noul evidence compare with deterministic heuristics for identifying genuinely missing material user interaction or authorization?"},
-    {"id": "RQ3", "text": "How accurately does TypeSafe routing.semantic_risk estimate independently adjudicated interpretation consequence, and how well calibrated is its probability distribution?"},
-    {"id": "RQ4", "text": "How often do semantic decisions disagree with deterministic control, and how often are those disagreements beneficial, harmful, or redundant against the oracle?"},
-    {"id": "RQ5", "text": "What are semantic-provider success, no-match, uncertainty, fallback, timeout, error, and retry rates?"},
-    {"id": "RQ6", "text": "What provider latency, token, and attributable or estimated cost overhead is incurred per batched case and per eligible decision?"},
-    {"id": "RQ7", "text": "Are the probability outputs sufficiently calibrated to justify the existing confidence policy or motivate a separately versioned policy study?"}
+    {
+      "id": "RQ1",
+      "text": "How does TypeSafe routing.task_class correctness compare with current deterministic classification on independently labeled routing cases?"
+    },
+    {
+      "id": "RQ2",
+      "text": "How does TypeSafe Noul evidence compare with deterministic heuristics for identifying genuinely missing material user interaction or authorization?"
+    },
+    {
+      "id": "RQ3",
+      "text": "How accurately does TypeSafe routing.semantic_risk estimate independently adjudicated interpretation consequence, and how well calibrated is its probability distribution?"
+    },
+    {
+      "id": "RQ4",
+      "text": "How often do semantic decisions disagree with deterministic control, and how often are those disagreements beneficial, harmful, or redundant against the oracle?"
+    },
+    {
+      "id": "RQ5",
+      "text": "What are semantic-provider success, no-match, uncertainty, fallback, timeout, error, and retry rates?"
+    },
+    {
+      "id": "RQ6",
+      "text": "What provider latency, token, and attributable or estimated cost overhead is incurred per batched case and per eligible decision?"
+    },
+    {
+      "id": "RQ7",
+      "text": "Are the probability outputs sufficiently calibrated to justify the existing confidence policy or motivate a separately versioned policy study?"
+    }
   ],
   "sample_policy": {
     "confidence": 0.95,
@@ -86,5 +182,5 @@
   "schema": "agent-workflow-comparative-eval/decision-study-spec/v1",
   "status": "preregistered-implementation",
   "study_id": "routing-semantic-v1",
-  "study_version": "1.0.0"
+  "study_version": "1.1.0"
 }
