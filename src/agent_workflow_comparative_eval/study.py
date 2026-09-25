@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from collections import Counter
 from collections.abc import Mapping, Sequence
@@ -41,6 +42,7 @@ from .timing import timing_summary
 from .usage import aggregate_usage
 
 _STUDIES = {"routing-semantic-v1": "routing-semantic-v1.study.json"}
+_STUDY_CORPORA = {"routing-semantic-v1": "routing-semantic-v1.corpus.json"}
 
 
 def list_studies() -> tuple[str, ...]:
@@ -56,6 +58,62 @@ def load_study_spec(name: str) -> dict[str, Any]:
     value = json.loads(resource.read_text(encoding="utf-8"))
     validate_record(value, DECISION_STUDY_SPEC_SCHEMA)
     return value
+
+
+def list_study_corpora() -> tuple[str, ...]:
+    return tuple(sorted(_STUDY_CORPORA))
+
+
+def _study_corpus_resource(name: str):
+    try:
+        filename = _STUDY_CORPORA[name]
+    except KeyError as exc:
+        raise ValueError(f"unknown decision-study corpus: {name}") from exc
+    return files("agent_workflow_comparative_eval").joinpath(
+        "resources", "studies", filename
+    )
+
+
+def load_study_corpus(name: str) -> dict[str, Any]:
+    resource = _study_corpus_resource(name)
+    value = json.loads(resource.read_text(encoding="utf-8"))
+    return validate_decision_study_corpus(value)
+
+
+def study_corpus_manifest(name: str) -> dict[str, Any]:
+    resource = _study_corpus_resource(name)
+    raw = resource.read_bytes()
+    value = validate_decision_study_corpus(json.loads(raw))
+    return {
+        "study_id": value["study_id"],
+        "dataset_version": value["dataset_version"],
+        "case_count": len(value["cases"]),
+        "sha256": hashlib.sha256(raw).hexdigest(),
+    }
+
+
+def oracle_authoring_view(corpus: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the blinded adjudication view without construction-analysis tags."""
+    value = validate_decision_study_corpus(corpus)
+    return {
+        "schema": "agent-workflow-comparative-eval/oracle-authoring-view/v1",
+        "study_id": value["study_id"],
+        "dataset_version": value["dataset_version"],
+        "cases": [
+            {
+                "case_id": case["case_id"],
+                "task": case["task"],
+                "metadata": dict(case["metadata"]),
+                "oracle_eligible": dict(case["oracle_eligible"]),
+            }
+            for case in value["cases"]
+        ],
+        "blinding": {
+            "construction_tags_included": False,
+            "control_outputs_included": False,
+            "candidate_outputs_included": False,
+        },
+    }
 
 
 def validate_decision_study_corpus(value: Mapping[str, Any]) -> dict[str, Any]:
