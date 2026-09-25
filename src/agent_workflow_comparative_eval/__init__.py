@@ -36,3 +36,13 @@ from .metrics import (
     brier_score, expected_calibration_error, multiclass_brier_score, multiclass_log_loss,
     arm_reliability, paired_efficiency,
 )
+
+from .oracle import (
+    validate_oracle_adjudication,
+    compare_oracle_adjudications,
+    validate_oracle_disagreement_set,
+    oracle_tiebreak_view,
+    validate_oracle_consensus_resolution,
+    freeze_oracle_bundle,
+    oracle_bundle_sha256,
+)
