@@ -7,7 +7,7 @@
     "skill_behavior": "skill-behavior-v1.0.0"
   },
   "study_specs": [
-    "routing-semantic-v1/1.0.0"
+    "routing-semantic-v1/1.1.0"
   ],
   "legacy_schemas": [
     "agent-workflow-typesafe/eval-feature/v1",
