@@ -129,6 +129,7 @@ def make_precomputed_decision_observation(
     case_id: str | None = None,
     observation_id: str | None = None,
     data_class: str = "production-metadata",
+    mode: str = "shadow-normal-usage",
 ) -> dict[str, Any]:
     if semantic_type not in {"choice", "noul", "score"}:
         raise ValueError("semantic_type must be choice, noul, or score")
@@ -152,7 +153,7 @@ def make_precomputed_decision_observation(
         "schema": OBSERVATION_SCHEMA,
         "observation_id": observation_id or str(uuid4()),
         "feature_id": feature_id,
-        "mode": "shadow-normal-usage",
+        "mode": mode,
         "recorded_at": datetime.now(timezone.utc).isoformat(),
         "identity": dict(identity),
         "input": {
