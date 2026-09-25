@@ -1,3 +1,4 @@
+import pytest
 from agent_workflow_comparative_eval import (
     build_decision_study_report,
     load_study_spec,
@@ -84,7 +85,7 @@ def test_decision_study_report_separates_seams_and_deduplicates_requests():
     assert report["request_efficiency"]["usage"]["input_tokens"] == 100
     assert report["seams"]["routing.task-class/v1"]["correctness"]["candidate_accuracy"]["rate"] == 1.0
     assert report["seams"]["routing.interaction-required/v1"]["calibration"]["ece_eligible"] is True
-    assert report["seams"]["routing.semantic-risk/v1"]["correctness"]["candidate_ordinal"]["mean_absolute_error"] == 0.4
+    assert report["seams"]["routing.semantic-risk/v1"]["correctness"]["candidate_ordinal"]["mean_absolute_error"] == pytest.approx(0.4)
 
 
 def test_exclusions_are_explicit_and_counted():
