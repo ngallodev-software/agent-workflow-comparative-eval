@@ -8,6 +8,8 @@ DECISION_STUDY_REPORT_SCHEMA = "agent-workflow-comparative-eval/decision-study-r
 DECISION_STUDY_SPEC_SCHEMA = "agent-workflow-comparative-eval/decision-study-spec/v1"
 DECISION_STUDY_CASE_SCHEMA = "agent-workflow-comparative-eval/decision-study-case/v1"
 DECISION_STUDY_ORACLE_SCHEMA = "agent-workflow-comparative-eval/decision-study-oracle/v1"
+DECISION_STUDY_CORPUS_SCHEMA = "agent-workflow-comparative-eval/decision-study-corpus/v1"
+DECISION_STUDY_ORACLE_BUNDLE_SCHEMA = "agent-workflow-comparative-eval/decision-study-oracle-bundle/v1"
 
 LEGACY_FEATURE_SCHEMA = "agent-workflow-typesafe/eval-feature/v1"
 LEGACY_OBSERVATION_SCHEMA = "agent-workflow-typesafe/comparison-observation/v1"
