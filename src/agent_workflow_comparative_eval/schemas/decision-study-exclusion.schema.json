@@ -1,0 +1,16 @@
+{
+  "$id": "agent-workflow-comparative-eval/decision-study-exclusion/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "agent-workflow-comparative-eval/decision-study-exclusion/v1"},
+    "study_id": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "minLength": 1},
+    "decision_id": {"type": ["string", "null"]},
+    "reason_code": {"type": "string", "minLength": 1},
+    "stage": {"type": "string", "minLength": 1},
+    "detail": {"type": ["string", "null"]}
+  },
+  "required": ["schema", "study_id", "case_id", "decision_id", "reason_code", "stage", "detail"]
+}
