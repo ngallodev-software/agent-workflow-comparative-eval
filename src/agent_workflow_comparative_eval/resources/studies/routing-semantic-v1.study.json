@@ -1,0 +1,90 @@
+{
+  "claim_policy": {
+    "agreement_is_not_correctness": true,
+    "cross_seam_headline_accuracy": false,
+    "development_runs_are_not_generalized_effect_claims": true,
+    "favorable_candidate_result_not_required_for_publication": true
+  },
+  "decision_seams": [
+    {
+      "decision_id": "routing.task_class",
+      "feature_id": "routing.task-class/v1",
+      "labels": ["implementation", "diagnosis", "review", "documentation", "other"],
+      "oracle_type": "categorical",
+      "primary_metrics": ["top1_accuracy", "confusion_matrix", "paired_correctness_effect", "multiclass_brier", "log_loss"],
+      "semantic_type": "choice"
+    },
+    {
+      "decision_id": "routing.interaction_required",
+      "feature_id": "routing.interaction-required/v1",
+      "oracle_type": "boolean",
+      "primary_metrics": ["accuracy", "precision", "recall", "f1", "paired_correctness_effect", "brier", "ece"],
+      "semantic_type": "noul"
+    },
+    {
+      "decision_id": "routing.semantic_risk",
+      "feature_id": "routing.semantic-risk/v1",
+      "level_meaning": {
+        "0": "low consequence; easily reversible",
+        "1": "moderate consequence; careful verification required",
+        "2": "high consequence; authority, security, or irreversible-state risk"
+      },
+      "levels": [0, 1, 2],
+      "oracle_type": "ordinal",
+      "primary_metrics": ["mean_absolute_error", "signed_bias", "within_one_level_accuracy", "paired_absolute_error_effect", "multiclass_brier", "log_loss"],
+      "semantic_type": "score"
+    }
+  ],
+  "evaluation_unit": "one public-safe routing case evaluated by one batched semantic request and projected into three per-decision observations",
+  "evidence_policy": {
+    "batch_request_accounting": "count each provider request once even when it yields three decision observations",
+    "credentials_public": false,
+    "public_safe_inputs_allowed": true,
+    "publish_aggregates_hashes_versions_and_sanitized_case_level_evidence": true,
+    "raw_provider_http_public": false
+  },
+  "exclusion_policy": {
+    "allowed_reason_codes": ["invalid_case_contract", "duplicate_case_id", "oracle_missing", "oracle_conflict_unresolved", "inference_input_leakage", "control_execution_failure", "candidate_execution_failure", "provider_timeout", "provider_service_error", "invalid_provider_contract", "study_identity_mismatch"],
+    "provider_failures_remain_reliability_evidence": true,
+    "silent_exclusion_forbidden": true
+  },
+  "frozen_runtime_identity": {
+    "agent_workflow_projector": "routing-state/v2",
+    "agent_workflow_question_set": "routing/v2",
+    "authoritative_arm_in_comparative_mode": "control",
+    "semantic_provider": "typesafe",
+    "semantic_provider_role": "evidence_only"
+  },
+  "oracle_policy": {
+    "blinded_to_control_and_candidate_outputs": true,
+    "hidden_from_inference": true,
+    "interaction_required": "independent binary adjudication under the frozen material-decision-or-authorization definition",
+    "result_affecting_changes_require_new_version": true,
+    "semantic_risk": "independent ordered adjudication under the frozen 0-2 consequence rubric",
+    "separate_artifact": true,
+    "task_class": "independent label under the frozen five-class taxonomy with adjudication for conflicts"
+  },
+  "purpose": "Evaluate the three live Agent-Workflow routing semantic seams against deterministic control using independently frozen oracle labels without giving either implementation access to the oracle.",
+  "research_questions": [
+    {"id": "RQ1", "text": "How does TypeSafe routing.task_class correctness compare with current deterministic classification on independently labeled routing cases?"},
+    {"id": "RQ2", "text": "How does TypeSafe Noul evidence compare with deterministic heuristics for identifying genuinely missing material user interaction or authorization?"},
+    {"id": "RQ3", "text": "How accurately does TypeSafe routing.semantic_risk estimate independently adjudicated interpretation consequence, and how well calibrated is its probability distribution?"},
+    {"id": "RQ4", "text": "How often do semantic decisions disagree with deterministic control, and how often are those disagreements beneficial, harmful, or redundant against the oracle?"},
+    {"id": "RQ5", "text": "What are semantic-provider success, no-match, uncertainty, fallback, timeout, error, and retry rates?"},
+    {"id": "RQ6", "text": "What provider latency, token, and attributable or estimated cost overhead is incurred per batched case and per eligible decision?"},
+    {"id": "RQ7", "text": "Are the probability outputs sufficiently calibrated to justify the existing confidence policy or motivate a separately versioned policy study?"}
+  ],
+  "sample_policy": {
+    "confidence": 0.95,
+    "ece_minimum_n": 100,
+    "minimum_oracle_eligible_per_seam": 100,
+    "p90_minimum_n": 20,
+    "p95_minimum_n": 40,
+    "paired_bootstrap_samples": 10000,
+    "target_shared_cases": 120
+  },
+  "schema": "agent-workflow-comparative-eval/decision-study-spec/v1",
+  "status": "preregistered-implementation",
+  "study_id": "routing-semantic-v1",
+  "study_version": "1.0.0"
+}
