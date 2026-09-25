@@ -8,10 +8,10 @@ This qualification covers library contracts/reporting and the current consumers.
 
 ## Library validation
 
-GitHub Actions run 36091963459 completed successfully at comparative-eval head 5d9543e071939e94ff9c9263a9253e1cb9cace7d.
+GitHub Actions run 36093436875 completed successfully at comparative-eval functional head cceeb548bb39f5d1292bfb529c3e4351114fc330.
 
-- Python 3.11: 22 passed.
-- Python 3.13: 22 passed.
+- Python 3.11: 25 passed.
+- Python 3.13: 25 passed.
 - Wheel/source build: passed.
 - JSON Schema meta-validation: covered by the contract suite.
 - Legacy neutral-schema readers: passed.
@@ -20,6 +20,9 @@ GitHub Actions run 36091963459 completed successfully at comparative-eval head 5
 - Attempt-level candidate correctness retains timeout/error/no-decision cases in the denominator.
 - Answered-only correctness and calibration are reported separately.
 - Sample eligibility and calibration minimum-n gates are machine-readable.
+- Neutral corpus/oracle bundle ownership is enforced by comparative-eval.
+- `routing-semantic-corpus-v1.0.0` contains 120 validated public-safe inference cases.
+- The blinded oracle-authoring view excludes construction tags and treatment outputs while carrying the frozen 1.1.0 taxonomy/rubric.
 
 ## Current consumer qualification
 
