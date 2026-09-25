@@ -54,3 +54,7 @@ The study work therefore focuses first on restoring the evidence chain rather th
 ## Claims that must wait
 
 Do not render claims that Jev improves routing correctness, quality, cost, or latency until the full independently labeled study is complete.
+
+---
+
+<small>Last updated: 2026-09-25 01:08 PDT</small>
