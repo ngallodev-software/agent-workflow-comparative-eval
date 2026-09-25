@@ -1,17 +1,20 @@
 {
+  "schema": "agent-workflow-comparative-eval/compatibility/v1",
+  "library_version": "0.2.0",
+  "python": ">=3.11",
   "datasets": {
     "routing": "routing-v1.0.0",
     "skill_behavior": "skill-behavior-v1.0.0"
   },
+  "study_specs": [
+    "routing-semantic-v1/1.0.0"
+  ],
   "legacy_schemas": [
     "agent-workflow-typesafe/eval-feature/v1",
     "agent-workflow-typesafe/comparison-observation/v1",
     "agent-workflow-typesafe/comparison-outcome/v1",
     "agent-workflow-typesafe/comparison-report/v1"
   ],
-  "library_version": "0.1.0",
-  "python": ">=3.11",
-  "schema": "agent-workflow-comparative-eval/compatibility/v1",
   "verified_consumers": {
     "agent-workflow": [
       "0.10.1",
@@ -19,10 +22,30 @@
       "0.11.1",
       "0.11.2",
       "0.11.3",
-      "0.11.4"
+      "0.11.4",
+      "0.11.10"
+    ],
+    "agent-workflow-benchmark": [
+      "0.4.0"
     ],
     "agent-workflow-typesafe": [
       "0.1.1"
     ]
+  },
+  "current_qualification": {
+    "comparative_eval_head": "5d9543e071939e94ff9c9263a9253e1cb9cace7d",
+    "comparative_eval_ci_run": 36091963459,
+    "agent_workflow": {
+      "version": "0.11.10",
+      "head": "1388dbf31672c55dd35c0fcc3a3293fbaf4cc69d",
+      "ci_run": 36087815880,
+      "result": "success"
+    },
+    "benchmark": {
+      "version": "0.4.0",
+      "head": "1205b83d2621be3e6bcb566feaf6650d6fc88885",
+      "ci_run": 36087979473,
+      "result": "success"
+    }
   }
 }
