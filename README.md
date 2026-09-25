@@ -82,6 +82,18 @@ The study specification is in [`docs/studies/routing-semantic-v1.md`](docs/studi
 
 ## Frozen datasets
 
+### Routing semantic study corpus
+
+The preregistered `routing-semantic-v1` study now owns a **120-case public-safe inference corpus**, version `routing-semantic-corpus-v1.0.0`. It contains no oracle labels.
+
+The shared library owns the corpus and oracle bundle contracts. Benchmark consumers execute them; they do not redefine dataset meaning. `oracle_authoring_view()` strips construction-analysis tags and treatment outputs while preserving the frozen taxonomy/rubric for independent adjudication.
+
+See:
+
+- [routing-semantic-v1 study](docs/studies/routing-semantic-v1.md)
+- [independent oracle adjudication protocol](docs/studies/routing-semantic-v1-oracle-protocol.md)
+
+
 `load_corpus("routing-v1")` and `load_corpus("skill-behavior-v1")` return
 the same case IDs, labels, and dataset versions shipped by the TypeSafe plugin
 baseline. The shared library is their canonical owner going forward;
