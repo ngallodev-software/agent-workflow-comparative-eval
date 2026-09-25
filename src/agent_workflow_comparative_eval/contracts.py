@@ -11,6 +11,7 @@ from .constants import (
     DECISION_STUDY_REPORT_SCHEMA, DECISION_STUDY_SPEC_SCHEMA,
     DECISION_STUDY_CASE_SCHEMA, DECISION_STUDY_ORACLE_SCHEMA,
     DECISION_STUDY_CORPUS_SCHEMA, DECISION_STUDY_ORACLE_BUNDLE_SCHEMA,
+    ORACLE_AUTHORING_VIEW_SCHEMA,
     LEGACY_FEATURE_SCHEMA, LEGACY_OBSERVATION_SCHEMA, LEGACY_OUTCOME_SCHEMA, LEGACY_REPORT_SCHEMA,
     LEGACY_TO_CANONICAL,
 )
@@ -29,6 +30,7 @@ _SCHEMA_FILES = {
     DECISION_STUDY_ORACLE_SCHEMA: "decision-study-oracle.schema.json",
     DECISION_STUDY_CORPUS_SCHEMA: "decision-study-corpus.schema.json",
     DECISION_STUDY_ORACLE_BUNDLE_SCHEMA: "decision-study-oracle-bundle.schema.json",
+    ORACLE_AUTHORING_VIEW_SCHEMA: "oracle-authoring-view.schema.json",
     LEGACY_FEATURE_SCHEMA: "eval-feature.schema.json",
     LEGACY_OBSERVATION_SCHEMA: "comparison-observation.schema.json",
     LEGACY_OUTCOME_SCHEMA: "comparison-outcome.schema.json",
