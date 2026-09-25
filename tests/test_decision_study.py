@@ -1,3 +1,7 @@
+import hashlib
+import json
+from pathlib import Path
+
 import pytest
 from agent_workflow_comparative_eval import (
     build_decision_study_report,
@@ -210,3 +214,37 @@ def test_packaged_routing_semantic_corpus_has_target_size_and_blinded_oracle_vie
     assert view["blinding"]["construction_tags_included"] is False
     assert all("tags" not in case for case in view["cases"])
     assert all("task" in case and "metadata" in case for case in view["cases"])
+
+
+def test_frozen_oracle_authoring_artifact_matches_generated_view_and_hashes():
+    root = Path(__file__).resolve().parents[1]
+    artifact_path = (
+        root
+        / "docs"
+        / "studies"
+        / "artifacts"
+        / "routing-semantic-v1"
+        / "oracle-authoring-view.json"
+    )
+    manifest_path = artifact_path.with_name("oracle-authoring-view.manifest.json")
+    corpus_path = (
+        root
+        / "src"
+        / "agent_workflow_comparative_eval"
+        / "resources"
+        / "studies"
+        / "routing-semantic-v1.corpus.json"
+    )
+
+    artifact = json.loads(artifact_path.read_text(encoding="utf-8"))
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    generated = oracle_authoring_view(load_study_corpus("routing-semantic-v1"))
+
+    assert artifact == generated
+    assert len(artifact["cases"]) == 120
+    assert all("tags" not in case for case in artifact["cases"])
+    assert manifest["corpus"]["sha256"] == hashlib.sha256(corpus_path.read_bytes()).hexdigest()
+    assert manifest["oracle_authoring_view"]["sha256"] == hashlib.sha256(
+        artifact_path.read_bytes()
+    ).hexdigest()
+    assert manifest["frozen_for_independent_adjudication"] is True
