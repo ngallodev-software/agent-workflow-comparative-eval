@@ -1,0 +1,36 @@
+{
+  "$id": "agent-workflow-comparative-eval/oracle-disagreement-set/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "agent-workflow-comparative-eval/oracle-disagreement-set/v1"},
+    "study_id": {"type": "string", "minLength": 1},
+    "dataset_version": {"type": "string", "minLength": 1},
+    "protocol_version": {"type": "string", "minLength": 1},
+    "adjudicators": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "pair_count": {"type": "integer", "minimum": 1},
+    "agreement_count": {"type": "integer", "minimum": 0},
+    "disagreement_count": {"type": "integer", "minimum": 0},
+    "disagreements": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "case_id": {"type": "string", "minLength": 1},
+          "decision_id": {"enum": ["routing.task_class", "routing.interaction_required", "routing.semantic_risk"]}
+        },
+        "required": ["case_id", "decision_id"]
+      }
+    }
+  },
+  "required": ["schema", "study_id", "dataset_version", "protocol_version", "adjudicators", "pair_count", "agreement_count", "disagreement_count", "disagreements"]
+}

@@ -1,0 +1,45 @@
+{
+  "$id": "agent-workflow-comparative-eval/oracle-tiebreak-view/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "agent-workflow-comparative-eval/oracle-tiebreak-view/v1"},
+    "study_id": {"type": "string", "minLength": 1},
+    "dataset_version": {"type": "string", "minLength": 1},
+    "protocol_version": {"type": "string", "minLength": 1},
+    "decision_seams": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+    "oracle_policy": {"type": "object"},
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "case_id": {"type": "string", "minLength": 1},
+          "task": {"type": "string", "minLength": 1},
+          "metadata": {"type": "object"},
+          "required_decisions": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {"enum": ["routing.task_class", "routing.interaction_required", "routing.semantic_risk"]}
+          }
+        },
+        "required": ["case_id", "task", "metadata", "required_decisions"]
+      }
+    },
+    "blinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "construction_tags_included": {"const": false},
+        "control_outputs_included": {"const": false},
+        "candidate_outputs_included": {"const": false},
+        "prior_adjudicator_labels_included": {"const": false}
+      },
+      "required": ["construction_tags_included", "control_outputs_included", "candidate_outputs_included", "prior_adjudicator_labels_included"]
+    }
+  },
+  "required": ["schema", "study_id", "dataset_version", "protocol_version", "decision_seams", "oracle_policy", "cases", "blinding"]
+}
