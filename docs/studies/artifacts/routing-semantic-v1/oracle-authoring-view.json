@@ -1,0 +1,1950 @@
+{
+  "blinding": {
+    "candidate_outputs_included": false,
+    "construction_tags_included": false,
+    "control_outputs_included": false
+  },
+  "cases": [
+    {
+      "case_id": "rsv1-001",
+      "metadata": {
+        "environment": "development",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Add input validation to the JSON import endpoint and return field-specific errors."
+    },
+    {
+      "case_id": "rsv1-002",
+      "metadata": {
+        "environment": "development",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement an LRU cache for parsed configuration files with a bounded entry count."
+    },
+    {
+      "case_id": "rsv1-003",
+      "metadata": {
+        "environment": "development",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Add pagination support to the repository search API while preserving the existing response shape."
+    },
+    {
+      "case_id": "rsv1-004",
+      "metadata": {
+        "environment": "development",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement idempotency keys for duplicate webhook deliveries in the local event processor."
+    },
+    {
+      "case_id": "rsv1-005",
+      "metadata": {
+        "environment": "development",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Add a command-line flag that emits the current configuration as sanitized JSON."
+    },
+    {
+      "case_id": "rsv1-006",
+      "metadata": {
+        "environment": "development",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement retry backoff for transient database connection failures."
+    },
+    {
+      "case_id": "rsv1-007",
+      "metadata": {
+        "environment": "development",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Add a migration that introduces a nullable display_name column and update the model mapping."
+    },
+    {
+      "case_id": "rsv1-008",
+      "metadata": {
+        "environment": "development",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement CSV export for the existing filtered results view."
+    },
+    {
+      "case_id": "rsv1-009",
+      "metadata": {
+        "environment": "development",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Add a deterministic normalization step for user-supplied repository paths."
+    },
+    {
+      "case_id": "rsv1-010",
+      "metadata": {
+        "environment": "development",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement a feature flag that disables the experimental parser without removing its code."
+    },
+    {
+      "case_id": "rsv1-011",
+      "metadata": {
+        "environment": "development",
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Investigate why the worker occasionally processes the same queued job twice and identify the likely failure path."
+    },
+    {
+      "case_id": "rsv1-012",
+      "metadata": {
+        "environment": "development",
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "exploratory"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Diagnose the source of a memory increase that appears after repeated document imports."
+    },
+    {
+      "case_id": "rsv1-013",
+      "metadata": {
+        "environment": "development",
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Trace why the CLI exits with code 0 even when one requested file cannot be parsed."
+    },
+    {
+      "case_id": "rsv1-014",
+      "metadata": {
+        "environment": "development",
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "exploratory"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Investigate a flaky test that fails only when the full integration suite runs in parallel."
+    },
+    {
+      "case_id": "rsv1-015",
+      "metadata": {
+        "environment": "development",
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Determine why the cache hit rate dropped after the latest serialization change."
+    },
+    {
+      "case_id": "rsv1-016",
+      "metadata": {
+        "environment": "development",
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "exploratory"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Analyze why Windows path normalization differs from Linux for nested worktrees."
+    },
+    {
+      "case_id": "rsv1-017",
+      "metadata": {
+        "environment": "development",
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Find the cause of duplicate audit events emitted during workflow retry recovery."
+    },
+    {
+      "case_id": "rsv1-018",
+      "metadata": {
+        "environment": "development",
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "exploratory"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Investigate why a scheduled cleanup does not remove expired temporary records."
+    },
+    {
+      "case_id": "rsv1-019",
+      "metadata": {
+        "environment": "development",
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Trace a latency regression in the report endpoint without changing production behavior yet."
+    },
+    {
+      "case_id": "rsv1-020",
+      "metadata": {
+        "environment": "development",
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "exploratory"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Determine why a configuration override is ignored when it is supplied through the environment."
+    },
+    {
+      "case_id": "rsv1-021",
+      "metadata": {
+        "change_scope": "read-only",
+        "environment": "code-review",
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "audit"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review the authentication middleware change for privilege-escalation or session-fixation risks."
+    },
+    {
+      "case_id": "rsv1-022",
+      "metadata": {
+        "change_scope": "read-only",
+        "environment": "code-review",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Audit the new file deletion helper for path traversal and unsafe absolute-path handling."
+    },
+    {
+      "case_id": "rsv1-023",
+      "metadata": {
+        "change_scope": "read-only",
+        "environment": "code-review",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review the retry scheduler patch for duplicate execution or lost terminal-state transitions."
+    },
+    {
+      "case_id": "rsv1-024",
+      "metadata": {
+        "change_scope": "read-only",
+        "environment": "code-review",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "audit"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Assess the proposed database migration for rollback safety and data-loss risks."
+    },
+    {
+      "case_id": "rsv1-025",
+      "metadata": {
+        "change_scope": "read-only",
+        "environment": "code-review",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review the API pagination implementation for compatibility and off-by-one errors."
+    },
+    {
+      "case_id": "rsv1-026",
+      "metadata": {
+        "change_scope": "read-only",
+        "environment": "code-review",
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Audit the logging changes for accidental credential or personal-data exposure."
+    },
+    {
+      "case_id": "rsv1-027",
+      "metadata": {
+        "change_scope": "read-only",
+        "environment": "code-review",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "audit"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review the dependency update for breaking API changes and unnecessary transitive packages."
+    },
+    {
+      "case_id": "rsv1-028",
+      "metadata": {
+        "change_scope": "read-only",
+        "environment": "code-review",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Assess the new cache invalidation logic for stale reads and race conditions."
+    },
+    {
+      "case_id": "rsv1-029",
+      "metadata": {
+        "change_scope": "read-only",
+        "environment": "code-review",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review the command parser refactor for backwards-incompatible CLI behavior."
+    },
+    {
+      "case_id": "rsv1-030",
+      "metadata": {
+        "change_scope": "read-only",
+        "environment": "code-review",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "audit"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Audit the benchmark evidence collector for ways failed cases could be silently omitted."
+    },
+    {
+      "case_id": "rsv1-031",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Update the README with a concise installation section for Linux, macOS, and Windows."
+    },
+    {
+      "case_id": "rsv1-032",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Document the JSON configuration keys, defaults, and precedence rules."
+    },
+    {
+      "case_id": "rsv1-033",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Write migration notes for users moving from version 1 of the CLI configuration to version 2."
+    },
+    {
+      "case_id": "rsv1-034",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Add an architecture document explaining the event journal and restart-recovery flow."
+    },
+    {
+      "case_id": "rsv1-035",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Document the public Python API with short examples for the three supported entry points."
+    },
+    {
+      "case_id": "rsv1-036",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Update the troubleshooting guide with the known causes of credential and proxy failures."
+    },
+    {
+      "case_id": "rsv1-037",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Write release notes summarizing the new comparative-evaluation evidence fields."
+    },
+    {
+      "case_id": "rsv1-038",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Document the benchmark directory layout and which artifacts are safe to publish."
+    },
+    {
+      "case_id": "rsv1-039",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Add a contributor guide section explaining how to run the local test matrix."
+    },
+    {
+      "case_id": "rsv1-040",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Rewrite the quick-start section so a new user can complete one successful run without reading the full reference."
+    },
+    {
+      "case_id": "rsv1-041",
+      "metadata": {
+        "change_scope": "analysis-only",
+        "environment": "repository",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "planning"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Prioritize the listed backlog items by dependency order and explain the sequencing constraints."
+    },
+    {
+      "case_id": "rsv1-042",
+      "metadata": {
+        "change_scope": "analysis-only",
+        "environment": "repository",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "coordination"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Group the open issues into coherent workstreams without proposing code changes."
+    },
+    {
+      "case_id": "rsv1-043",
+      "metadata": {
+        "change_scope": "analysis-only",
+        "environment": "repository",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "planning"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Create a release-readiness checklist from the existing repository evidence."
+    },
+    {
+      "case_id": "rsv1-044",
+      "metadata": {
+        "change_scope": "analysis-only",
+        "environment": "repository",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "coordination"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Summarize the tradeoffs among the three proposed storage approaches for a design meeting."
+    },
+    {
+      "case_id": "rsv1-045",
+      "metadata": {
+        "change_scope": "analysis-only",
+        "environment": "repository",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "planning"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Organize the current milestones into a two-phase delivery plan with explicit prerequisites."
+    },
+    {
+      "case_id": "rsv1-046",
+      "metadata": {
+        "change_scope": "analysis-only",
+        "environment": "repository",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "coordination"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Compare the existing implementation notes and identify duplicated or contradictory requirements."
+    },
+    {
+      "case_id": "rsv1-047",
+      "metadata": {
+        "change_scope": "analysis-only",
+        "environment": "repository",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "planning"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Produce a dependency map for the repository packages and their release order."
+    },
+    {
+      "case_id": "rsv1-048",
+      "metadata": {
+        "change_scope": "analysis-only",
+        "environment": "repository",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "coordination"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Classify the current open tasks by owner and blocking dependency."
+    },
+    {
+      "case_id": "rsv1-049",
+      "metadata": {
+        "change_scope": "analysis-only",
+        "environment": "repository",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "planning"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Prepare a short handoff that states completed work, unresolved decisions, and next actions."
+    },
+    {
+      "case_id": "rsv1-050",
+      "metadata": {
+        "change_scope": "analysis-only",
+        "environment": "repository",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "coordination"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Identify which repository artifacts are suitable for a public case study and which should remain private."
+    },
+    {
+      "case_id": "rsv1-051",
+      "metadata": {
+        "risk": "normal"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Fix the parser so quoted commas inside CSV fields no longer split the value."
+    },
+    {
+      "case_id": "rsv1-052",
+      "metadata": {
+        "risk": "low"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Find out why the background worker stops polling after a network reconnect."
+    },
+    {
+      "case_id": "rsv1-053",
+      "metadata": {
+        "risk": "low"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review this authorization change and call out any way a lower-privilege user could bypass it."
+    },
+    {
+      "case_id": "rsv1-054",
+      "metadata": {
+        "risk": "normal"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Add a README example showing how to configure an alternate cache directory."
+    },
+    {
+      "case_id": "rsv1-055",
+      "metadata": {
+        "risk": "low"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Summarize the repository's current deployment prerequisites for the operations team."
+    },
+    {
+      "case_id": "rsv1-056",
+      "metadata": {
+        "risk": "low"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Investigate why the report total differs from the sum of its displayed rows."
+    },
+    {
+      "case_id": "rsv1-057",
+      "metadata": {
+        "risk": "normal"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement deterministic sorting for equal-priority queue entries."
+    },
+    {
+      "case_id": "rsv1-058",
+      "metadata": {
+        "risk": "low"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Audit the temporary-file cleanup path for symlink attacks."
+    },
+    {
+      "case_id": "rsv1-059",
+      "metadata": {
+        "risk": "low"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Document how retry receipts relate to the original workflow attempt."
+    },
+    {
+      "case_id": "rsv1-060",
+      "metadata": {
+        "risk": "normal"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Create a dependency-ordered plan for removing the deprecated adapter."
+    },
+    {
+      "case_id": "rsv1-061",
+      "metadata": {
+        "environment": "repository",
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement request signing for outbound webhooks and add verification tests."
+    },
+    {
+      "case_id": "rsv1-062",
+      "metadata": {
+        "environment": "repository",
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review the new concurrency limiter for starvation, fairness, and cancellation bugs."
+    },
+    {
+      "case_id": "rsv1-063",
+      "metadata": {
+        "environment": "repository",
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Investigate why a release build contains development-only fixtures."
+    },
+    {
+      "case_id": "rsv1-064",
+      "metadata": {
+        "environment": "repository",
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Update the operator runbook with the new disaster-recovery steps; do not change code."
+    },
+    {
+      "case_id": "rsv1-065",
+      "metadata": {
+        "environment": "repository",
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Audit the password-reset flow for account-takeover paths."
+    },
+    {
+      "case_id": "rsv1-066",
+      "metadata": {
+        "environment": "repository",
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement a safe parser for the new policy expression syntax."
+    },
+    {
+      "case_id": "rsv1-067",
+      "metadata": {
+        "environment": "repository",
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Diagnose why the schema registry returns an older definition after restart."
+    },
+    {
+      "case_id": "rsv1-068",
+      "metadata": {
+        "environment": "repository",
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Write an architecture note comparing event sourcing with the current append-only journal."
+    },
+    {
+      "case_id": "rsv1-069",
+      "metadata": {
+        "environment": "repository",
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement validation that rejects unsafe repository-relative deletion paths."
+    },
+    {
+      "case_id": "rsv1-070",
+      "metadata": {
+        "environment": "repository",
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Investigate why benchmark exclusions are missing their reason codes."
+    },
+    {
+      "case_id": "rsv1-071",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "production",
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Deploy the pending database migration to production once the code is ready."
+    },
+    {
+      "case_id": "rsv1-072",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "repository",
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Choose one of the two incompatible public API response formats and implement it."
+    },
+    {
+      "case_id": "rsv1-073",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "repository",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Delete the deprecated customer data export after confirming the retention exception is no longer needed."
+    },
+    {
+      "case_id": "rsv1-074",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "repository",
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Rotate the production signing key and update every dependent service."
+    },
+    {
+      "case_id": "rsv1-075",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "production",
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Decide whether backwards compatibility should be preserved for the legacy command syntax, then make the change."
+    },
+    {
+      "case_id": "rsv1-076",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "repository",
+        "risk": "normal",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Enable the new billing calculation for all tenants after selecting the effective date."
+    },
+    {
+      "case_id": "rsv1-077",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "repository",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Merge the authentication redesign and remove the old login flow if the rollout risk is acceptable."
+    },
+    {
+      "case_id": "rsv1-078",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "repository",
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Select the authoritative source for conflicting account-status records and reconcile the database."
+    },
+    {
+      "case_id": "rsv1-079",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "production",
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Change the default model for all production workflows after choosing between the two approved candidates."
+    },
+    {
+      "case_id": "rsv1-080",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "repository",
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Publish the benchmark result publicly once the claim language and evidence level are approved."
+    },
+    {
+      "case_id": "rsv1-081",
+      "metadata": {
+        "authorization_state": "already-approved",
+        "environment": "repository",
+        "requires_interaction": true,
+        "risk": "high",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Prepare the production migration script only; do not execute it or request approval."
+    },
+    {
+      "case_id": "rsv1-082",
+      "metadata": {
+        "authorization_state": "already-approved",
+        "environment": "repository",
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review both API format proposals and report compatibility risks without selecting one."
+    },
+    {
+      "case_id": "rsv1-083",
+      "metadata": {
+        "authorization_state": "already-approved",
+        "environment": "repository",
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Document the key-rotation procedure using the already approved sequence; do not rotate anything."
+    },
+    {
+      "case_id": "rsv1-084",
+      "metadata": {
+        "authorization_state": "already-approved",
+        "environment": "repository",
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement the already approved retry limit of five attempts and update tests."
+    },
+    {
+      "case_id": "rsv1-085",
+      "metadata": {
+        "authorization_state": "already-approved",
+        "environment": "repository",
+        "requires_interaction": true,
+        "risk": "high",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Audit the production deployment plan without changing deployment state."
+    },
+    {
+      "case_id": "rsv1-086",
+      "metadata": {
+        "authorization_state": "already-approved",
+        "environment": "repository",
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Write release notes for the approved deprecation timeline; no policy decision is needed."
+    },
+    {
+      "case_id": "rsv1-087",
+      "metadata": {
+        "authorization_state": "already-approved",
+        "environment": "repository",
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement the security team's approved validation rule exactly as specified."
+    },
+    {
+      "case_id": "rsv1-088",
+      "metadata": {
+        "authorization_state": "already-approved",
+        "environment": "repository",
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Analyze the two storage options for a future decision; do not choose or modify the system."
+    },
+    {
+      "case_id": "rsv1-089",
+      "metadata": {
+        "authorization_state": "already-approved",
+        "environment": "repository",
+        "requires_interaction": true,
+        "risk": "high",
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Update tests to reflect the approved public API behavior already recorded in the specification."
+    },
+    {
+      "case_id": "rsv1-090",
+      "metadata": {
+        "authorization_state": "already-approved",
+        "environment": "repository",
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Prepare a rollback checklist for the approved release without executing any release action."
+    },
+    {
+      "case_id": "rsv1-091",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "production",
+        "requires_interaction": true,
+        "risk": "critical",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Change the production authorization policy so suspended accounts cannot receive new access tokens."
+    },
+    {
+      "case_id": "rsv1-092",
+      "metadata": {
+        "authorization_state": "approved",
+        "environment": "security-sensitive",
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review a migration that rewrites every tenant identifier and assess whether rollback can restore the original mapping."
+    },
+    {
+      "case_id": "rsv1-093",
+      "metadata": {
+        "authorization_state": "approved",
+        "environment": "production",
+        "requires_interaction": false,
+        "risk": "critical",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Investigate whether the incident was caused by leaked signing credentials or by a clock-skew validation defect."
+    },
+    {
+      "case_id": "rsv1-094",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "security-sensitive",
+        "requires_interaction": true,
+        "risk": "high",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement a production data repair that removes duplicate ledger rows while preserving audit history."
+    },
+    {
+      "case_id": "rsv1-095",
+      "metadata": {
+        "authorization_state": "approved",
+        "environment": "production",
+        "requires_interaction": false,
+        "risk": "critical",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Audit the emergency access path for ways it could bypass normal multi-factor authentication."
+    },
+    {
+      "case_id": "rsv1-096",
+      "metadata": {
+        "authorization_state": "approved",
+        "environment": "security-sensitive",
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement certificate validation changes for the service-to-service client used in production."
+    },
+    {
+      "case_id": "rsv1-097",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "production",
+        "requires_interaction": true,
+        "risk": "critical",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Determine whether a corrupted queue can be replayed safely without duplicating external side effects."
+    },
+    {
+      "case_id": "rsv1-098",
+      "metadata": {
+        "authorization_state": "approved",
+        "environment": "security-sensitive",
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review the backup restoration procedure for the possibility of restoring stale authorization state."
+    },
+    {
+      "case_id": "rsv1-099",
+      "metadata": {
+        "authorization_state": "approved",
+        "environment": "production",
+        "requires_interaction": false,
+        "risk": "critical",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Implement an allowlist change that affects which executors can run privileged maintenance jobs."
+    },
+    {
+      "case_id": "rsv1-100",
+      "metadata": {
+        "authorization_state": "not-recorded",
+        "environment": "security-sensitive",
+        "requires_interaction": true,
+        "risk": "high",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Audit the release process to ensure a failed signature verification cannot be overridden silently."
+    },
+    {
+      "case_id": "rsv1-101",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review the parser refactor, fix any correctness defects you find, and update its migration notes."
+    },
+    {
+      "case_id": "rsv1-102",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Investigate the retry regression, implement the smallest safe fix, and document why it failed."
+    },
+    {
+      "case_id": "rsv1-103",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Audit the file-upload path and add validation for any unsafe filename handling you identify."
+    },
+    {
+      "case_id": "rsv1-104",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Compare the two cache designs, choose the simpler one if the requirements clearly decide it, and implement it."
+    },
+    {
+      "case_id": "rsv1-105",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review the schema change, update the model code if compatible, and document any migration caveats."
+    },
+    {
+      "case_id": "rsv1-106",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Diagnose the failing release check, repair the cause, and add a troubleshooting note."
+    },
+    {
+      "case_id": "rsv1-107",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Assess the new command syntax, correct compatibility issues, and update the CLI reference."
+    },
+    {
+      "case_id": "rsv1-108",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Investigate the token-accounting mismatch, fix the calculation, and explain the corrected accounting rule."
+    },
+    {
+      "case_id": "rsv1-109",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review the authorization tests, add missing coverage, and fix any clearly demonstrated policy bug."
+    },
+    {
+      "case_id": "rsv1-110",
+      "metadata": {
+        "environment": "repository",
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Analyze the public evidence tree, remove anything unsafe to publish, and document the publication boundary."
+    },
+    {
+      "case_id": "rsv1-111",
+      "metadata": {},
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Make the parser safer."
+    },
+    {
+      "case_id": "rsv1-112",
+      "metadata": {
+        "task_type": "implementation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Check the retry behavior."
+    },
+    {
+      "case_id": "rsv1-113",
+      "metadata": {
+        "task_type": "review"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Clean up the release docs."
+    },
+    {
+      "case_id": "rsv1-114",
+      "metadata": {
+        "risk": "high"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Fix production before the next run."
+    },
+    {
+      "case_id": "rsv1-115",
+      "metadata": {
+        "requires_interaction": false
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Look into the account issue and handle it."
+    },
+    {
+      "case_id": "rsv1-116",
+      "metadata": {
+        "risk": "normal",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Figure out the cache problem."
+    },
+    {
+      "case_id": "rsv1-117",
+      "metadata": {
+        "task_type": "documentation"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Review this and make whatever changes are needed."
+    },
+    {
+      "case_id": "rsv1-118",
+      "metadata": {
+        "requires_interaction": true
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Update the workflow based on the new requirement."
+    },
+    {
+      "case_id": "rsv1-119",
+      "metadata": {
+        "risk": "critical",
+        "task_type": "security"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Verify the security change and proceed if it looks right."
+    },
+    {
+      "case_id": "rsv1-120",
+      "metadata": {
+        "risk": "low",
+        "task_type": "planning"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "task": "Sort out the benchmark publication."
+    }
+  ],
+  "dataset_version": "routing-semantic-corpus-v1.0.0",
+  "decision_seams": [
+    {
+      "decision_id": "routing.task_class",
+      "feature_id": "routing.task-class/v1",
+      "label_meaning": {
+        "diagnosis": "Primary deliverable investigates, traces, explains, or determines cause/state without a required implementation change.",
+        "documentation": "Primary deliverable is explanatory/reference/runbook/release-note documentation rather than executable behavior.",
+        "implementation": "Primary deliverable creates or changes executable behavior, code, configuration, data transformation, or tests as part of a change.",
+        "other": "Primary deliverable is planning, coordination, prioritization, handoff, organization, or another activity outside the four classes.",
+        "review": "Primary deliverable evaluates an existing or proposed artifact for defects, security, correctness, compatibility, compliance, or readiness."
+      },
+      "labels": [
+        "implementation",
+        "diagnosis",
+        "review",
+        "documentation",
+        "other"
+      ],
+      "metadata_rule": "Declared task_type is observed evidence and may be stale or wrong; it is not the oracle label.",
+      "mixed_intent_precedence": [
+        "implementation when an executable behavior/code/config change is explicitly required",
+        "otherwise review when the final deliverable is an assessment/audit/verdict",
+        "otherwise diagnosis when the final deliverable is root-cause/state understanding",
+        "otherwise documentation when the final deliverable is documentation",
+        "otherwise other"
+      ],
+      "oracle_type": "categorical",
+      "primary_metrics": [
+        "top1_accuracy",
+        "confusion_matrix",
+        "paired_correctness_effect",
+        "multiclass_brier",
+        "log_loss"
+      ],
+      "semantic_type": "choice"
+    },
+    {
+      "decision_id": "routing.interaction_required",
+      "false_when": [
+        "the request is analysis, review, or preparation only",
+        "authorization or the relevant policy decision is explicitly supplied",
+        "normal engineering judgment or repository evidence can resolve implementation detail without changing product policy",
+        "the task can safely produce a bounded artifact without an external user choice"
+      ],
+      "feature_id": "routing.interaction-required/v1",
+      "metadata_rule": "Declared requires_interaction is observed evidence and may be stale; it is not ground truth.",
+      "oracle_type": "boolean",
+      "primary_metrics": [
+        "accuracy",
+        "precision",
+        "recall",
+        "f1",
+        "paired_correctness_effect",
+        "brier",
+        "ece"
+      ],
+      "proposition": "A material user decision, authorization, or preference is missing from supplied state and is required before the requested action can be completed responsibly.",
+      "semantic_type": "noul",
+      "true_when": [
+        "a materially incompatible product/API behavior must be chosen",
+        "production/public/irreversible action requires authorization not already supplied",
+        "an effective date, authoritative source, or policy choice changes external behavior",
+        "publication itself requires approval of claim language or evidence level"
+      ]
+    },
+    {
+      "decision_id": "routing.semantic_risk",
+      "feature_id": "routing.semantic-risk/v1",
+      "interpretation": "Consequence of acting on a materially wrong semantic interpretation, not generic code complexity or deterministic security/lifecycle risk.",
+      "level_meaning": {
+        "0": "low consequence; easily reversible",
+        "1": "moderate consequence; careful verification required",
+        "2": "high consequence; authority, security, or irreversible-state risk"
+      },
+      "levels": [
+        0,
+        1,
+        2
+      ],
+      "oracle_type": "ordinal",
+      "primary_metrics": [
+        "mean_absolute_error",
+        "signed_bias",
+        "within_one_level_accuracy",
+        "paired_absolute_error_effect",
+        "multiclass_brier",
+        "log_loss"
+      ],
+      "semantic_type": "score"
+    }
+  ],
+  "oracle_policy": {
+    "blinded_to_control_and_candidate_outputs": true,
+    "hidden_from_inference": true,
+    "interaction_required": "independent binary adjudication under the frozen material-decision-or-authorization definition",
+    "mixed_intent_rule_version": "routing-task-class-v1.1",
+    "protocol_version": "routing-semantic-oracle-v1.0.0",
+    "result_affecting_changes_require_new_version": true,
+    "semantic_risk": "independent ordered adjudication under the frozen 0-2 consequence rubric",
+    "separate_artifact": true,
+    "task_class": "independent label under the frozen five-class taxonomy with adjudication for conflicts"
+  },
+  "schema": "agent-workflow-comparative-eval/oracle-authoring-view/v1",
+  "study_id": "routing-semantic-v1"
+}
