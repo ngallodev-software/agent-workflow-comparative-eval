@@ -9,6 +9,14 @@
 
 Adjudicators receive only the output of oracle_authoring_view().
 
+For this frozen study instance, A and B receive the exact committed artifact:
+
+`docs/studies/artifacts/routing-semantic-v1/oracle-authoring-view.json`
+
+SHA-256: `a5a40224793a50d9371e9ae437e144b15812829ba1cd56a5564dc6ba28846a0a`
+
+The corresponding frozen corpus SHA-256 is `e4b33df3b3752b32cdb362833765cc8f0c9cc024473071209563d73284011280`. The adjacent manifest records source identities and blinding flags.
+
 They may see:
 
 - case ID;
