@@ -11,6 +11,10 @@ DECISION_STUDY_ORACLE_SCHEMA = "agent-workflow-comparative-eval/decision-study-o
 DECISION_STUDY_CORPUS_SCHEMA = "agent-workflow-comparative-eval/decision-study-corpus/v1"
 DECISION_STUDY_ORACLE_BUNDLE_SCHEMA = "agent-workflow-comparative-eval/decision-study-oracle-bundle/v1"
 ORACLE_AUTHORING_VIEW_SCHEMA = "agent-workflow-comparative-eval/oracle-authoring-view/v1"
+ORACLE_ADJUDICATION_SCHEMA = "agent-workflow-comparative-eval/oracle-adjudication/v1"
+ORACLE_DISAGREEMENT_SET_SCHEMA = "agent-workflow-comparative-eval/oracle-disagreement-set/v1"
+ORACLE_TIEBREAK_VIEW_SCHEMA = "agent-workflow-comparative-eval/oracle-tiebreak-view/v1"
+ORACLE_CONSENSUS_RESOLUTION_SCHEMA = "agent-workflow-comparative-eval/oracle-consensus-resolution/v1"
 
 LEGACY_FEATURE_SCHEMA = "agent-workflow-typesafe/eval-feature/v1"
 LEGACY_OBSERVATION_SCHEMA = "agent-workflow-typesafe/comparison-observation/v1"
