@@ -8,7 +8,9 @@ This file is intentionally maintained as a portfolio-facing engineering artifact
 | --- | --- | --- |
 | Phase 0 architecture/metric audit | complete | dated audit under `docs/audits/` |
 | Study specification | frozen for implementation | `resources/studies/routing-semantic-v1.study.json` |
-| Adjudicator runtime qualification | pending | Inspect AI/Inspect SWE parity gate before first real A/B labels |\n| Independent oracle | not yet frozen | blocked on adjudicator runtime qualification, then A/B/C freeze |
+| Adjudicator runtime implementation | complete | Agent-Workflow Benchmark `7c3cef0ca3572005cb1266629b62dcbf65608440` (`0.4.1`) |
+| Authenticated adjudicator qualification | pending | Debian-host IA-1 through IA-8 run against the actual model/load-balancer path |
+| Independent oracle | not yet frozen | P0B blocked until qualification manifest reports `qualified: true`, then A/B/C freeze |
 | Lossless per-seam persistence | implementation in progress | Agent-Workflow comparative evidence branch |
 | Study-grade metrics/reporting | implementation in progress | comparative-eval 0.2 work |
 | Dedicated benchmark lane | implementation in progress | benchmark comparative-decision work |
