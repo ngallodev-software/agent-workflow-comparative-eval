@@ -20,7 +20,7 @@
     "agent-workflow-comparative-eval/oracle-authoring-view/v1"
   ],
   "study_specs": [
-    "routing-semantic-v1/1.0.0"
+    "routing-semantic-v1/1.1.0"
   ],
   "datasets": {
     "routing-v1": {
