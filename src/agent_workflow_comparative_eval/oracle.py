@@ -258,6 +258,8 @@ def oracle_tiebreak_view(
     corpus_value = validate_decision_study_corpus(corpus)
     spec, protocol = _study_identity(corpus_value)
     disputes = validate_oracle_disagreement_set(disagreement_set, corpus_value)
+    if not disputes["disagreements"]:
+        raise ValueError("A/B adjudications have no disagreements; C tie-break is not required")
     authoring = oracle_authoring_view(corpus_value)
     authoring_cases = {
         str(case["case_id"]): case for case in authoring["cases"]
