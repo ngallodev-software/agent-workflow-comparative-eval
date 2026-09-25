@@ -67,6 +67,19 @@ Historical TypeSafe-v1 records remain readable through
 `upgrade_legacy_record()` and the validators. Historical bytes are never
 rewritten in place.
 
+## Decision-study surface
+
+Version `0.2.0` adds a preregistered, provider-neutral study layer without moving workflow authority into this package:
+
+- a frozen `routing-semantic-v1` study specification;
+- separate inference-case and frozen-oracle contracts so labels cannot leak into model inputs;
+- three per-decision observations for task class, interaction requirement, and semantic risk;
+- one provider-request record per batched semantic call, preventing latency/token/cost triple-counting;
+- explicit exclusions and denominators;
+- Choice/Noul/Score-specific correctness, calibration, and paired uncertainty reporting.
+
+The study specification is in [`docs/studies/routing-semantic-v1.md`](docs/studies/routing-semantic-v1.md). Portfolio-safe implementation status and a Mermaid data-flow diagram are in [`docs/portfolio/COMPARATIVE_STUDY_PROGRESS.md`](docs/portfolio/COMPARATIVE_STUDY_PROGRESS.md).
+
 ## Frozen datasets
 
 `load_corpus("routing-v1")` and `load_corpus("skill-behavior-v1")` return
@@ -89,11 +102,7 @@ result-affecting edits require a new dataset version.
   winner.
 
 The library imports no Agent-Workflow runtime code and remains
-dependency-neutral. Library version `0.1.0` is recorded as verified with
-Agent-Workflow `0.10.1` through `0.11.4` in
-[`COMPATIBILITY.json`](COMPATIBILITY.json). Newer Agent-Workflow releases may
-depend on the same library version, but the compatibility file is the explicit
-record of versions independently verified by this repository.
+dependency-neutral. Version `0.2.0` adds study-grade decision evidence while keeping the existing v1 generic records readable. Compatibility is requalified against current consumers before the branch is released; [`COMPATIBILITY.json`](COMPATIBILITY.json) remains the record of completed qualification rather than a prediction.
 
 ## Study-readiness audit
 
