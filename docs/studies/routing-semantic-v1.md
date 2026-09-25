@@ -1,7 +1,7 @@
 # Routing Semantic Comparative Study v1
 
 **Study ID:** `routing-semantic-v1`  
-**Study version:** `1.0.0`  
+**Study version:** `1.1.0`  
 **Status:** preregistered implementation specification
 
 ## Purpose
