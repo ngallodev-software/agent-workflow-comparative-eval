@@ -33,8 +33,8 @@
     ]
   },
   "current_qualification": {
-    "comparative_eval_head": "5d9543e071939e94ff9c9263a9253e1cb9cace7d",
-    "comparative_eval_ci_run": 36091963459,
+    "comparative_eval_head": "cceeb548bb39f5d1292bfb529c3e4351114fc330",
+    "comparative_eval_ci_run": 36093436875,
     "agent_workflow": {
       "version": "0.11.10",
       "head": "1388dbf31672c55dd35c0fcc3a3293fbaf4cc69d",
@@ -47,5 +47,8 @@
       "ci_run": 36087979473,
       "result": "success"
     }
+  },
+  "study_corpora": {
+    "routing-semantic-v1": "routing-semantic-corpus-v1.0.0"
   }
 }
