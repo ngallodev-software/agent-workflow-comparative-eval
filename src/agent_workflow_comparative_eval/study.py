@@ -17,6 +17,7 @@ from .constants import (
     DECISION_STUDY_ORACLE_SCHEMA,
     DECISION_STUDY_CORPUS_SCHEMA,
     DECISION_STUDY_ORACLE_BUNDLE_SCHEMA,
+    ORACLE_AUTHORING_VIEW_SCHEMA,
     OBSERVATION_SCHEMA,
     PROVIDER_REQUEST_SCHEMA,
 )
@@ -95,10 +96,13 @@ def study_corpus_manifest(name: str) -> dict[str, Any]:
 def oracle_authoring_view(corpus: Mapping[str, Any]) -> dict[str, Any]:
     """Return the blinded adjudication view without construction-analysis tags."""
     value = validate_decision_study_corpus(corpus)
-    return {
-        "schema": "agent-workflow-comparative-eval/oracle-authoring-view/v1",
+    spec = load_study_spec(str(value["study_id"]))
+    record = {
+        "schema": ORACLE_AUTHORING_VIEW_SCHEMA,
         "study_id": value["study_id"],
         "dataset_version": value["dataset_version"],
+        "decision_seams": list(spec["decision_seams"]),
+        "oracle_policy": dict(spec["oracle_policy"]),
         "cases": [
             {
                 "case_id": case["case_id"],
@@ -114,6 +118,8 @@ def oracle_authoring_view(corpus: Mapping[str, Any]) -> dict[str, Any]:
             "candidate_outputs_included": False,
         },
     }
+    validate_record(record, ORACLE_AUTHORING_VIEW_SCHEMA)
+    return record
 
 
 def validate_decision_study_corpus(value: Mapping[str, Any]) -> dict[str, Any]:
