@@ -8,6 +8,9 @@ from agent_workflow_comparative_eval import (
     make_provider_request,
     validate_decision_study_corpus,
     validate_decision_study_oracle_bundle,
+    load_study_corpus,
+    study_corpus_manifest,
+    oracle_authoring_view,
 )
 
 
@@ -189,3 +192,21 @@ def test_neutral_corpus_rejects_duplicate_case_ids():
             "dataset_version": "v1",
             "cases": [case, dict(case)],
         })
+
+
+def test_packaged_routing_semantic_corpus_has_target_size_and_blinded_oracle_view():
+    corpus = load_study_corpus("routing-semantic-v1")
+    assert corpus["dataset_version"] == "routing-semantic-corpus-v1.0.0"
+    assert len(corpus["cases"]) == 120
+    assert len({case["case_id"] for case in corpus["cases"]}) == 120
+    assert all(all(case["oracle_eligible"].values()) for case in corpus["cases"])
+
+    manifest = study_corpus_manifest("routing-semantic-v1")
+    assert manifest["case_count"] == 120
+    assert len(manifest["sha256"]) == 64
+
+    view = oracle_authoring_view(corpus)
+    assert len(view["cases"]) == 120
+    assert view["blinding"]["construction_tags_included"] is False
+    assert all("tags" not in case for case in view["cases"])
+    assert all("task" in case and "metadata" in case for case in view["cases"])
