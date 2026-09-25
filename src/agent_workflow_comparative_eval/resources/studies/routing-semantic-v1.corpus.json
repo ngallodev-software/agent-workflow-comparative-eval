@@ -2092,7 +2092,6 @@
       },
       "tags": [
         "high-consequence",
-        "high-consequence",
         "production-or-security"
       ],
       "oracle_eligible": {
@@ -2114,7 +2113,6 @@
         "authorization_state": "approved"
       },
       "tags": [
-        "high-consequence",
         "high-consequence",
         "production-or-security"
       ],
@@ -2138,7 +2136,6 @@
       },
       "tags": [
         "high-consequence",
-        "high-consequence",
         "production-or-security"
       ],
       "oracle_eligible": {
@@ -2160,7 +2157,6 @@
         "authorization_state": "not-recorded"
       },
       "tags": [
-        "high-consequence",
         "high-consequence",
         "production-or-security"
       ],
@@ -2184,7 +2180,6 @@
       },
       "tags": [
         "high-consequence",
-        "high-consequence",
         "production-or-security"
       ],
       "oracle_eligible": {
@@ -2206,7 +2201,6 @@
         "authorization_state": "approved"
       },
       "tags": [
-        "high-consequence",
         "high-consequence",
         "production-or-security"
       ],
@@ -2230,7 +2224,6 @@
       },
       "tags": [
         "high-consequence",
-        "high-consequence",
         "production-or-security"
       ],
       "oracle_eligible": {
@@ -2252,7 +2245,6 @@
         "authorization_state": "approved"
       },
       "tags": [
-        "high-consequence",
         "high-consequence",
         "production-or-security"
       ],
@@ -2276,7 +2268,6 @@
       },
       "tags": [
         "high-consequence",
-        "high-consequence",
         "production-or-security"
       ],
       "oracle_eligible": {
@@ -2298,7 +2289,6 @@
         "authorization_state": "not-recorded"
       },
       "tags": [
-        "high-consequence",
         "high-consequence",
         "production-or-security"
       ],
