@@ -10,6 +10,7 @@ DECISION_STUDY_CASE_SCHEMA = "agent-workflow-comparative-eval/decision-study-cas
 DECISION_STUDY_ORACLE_SCHEMA = "agent-workflow-comparative-eval/decision-study-oracle/v1"
 DECISION_STUDY_CORPUS_SCHEMA = "agent-workflow-comparative-eval/decision-study-corpus/v1"
 DECISION_STUDY_ORACLE_BUNDLE_SCHEMA = "agent-workflow-comparative-eval/decision-study-oracle-bundle/v1"
+ORACLE_AUTHORING_VIEW_SCHEMA = "agent-workflow-comparative-eval/oracle-authoring-view/v1"
 
 LEGACY_FEATURE_SCHEMA = "agent-workflow-typesafe/eval-feature/v1"
 LEGACY_OBSERVATION_SCHEMA = "agent-workflow-typesafe/comparison-observation/v1"
