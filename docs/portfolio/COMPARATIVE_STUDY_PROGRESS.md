@@ -8,7 +8,9 @@ This file is intentionally maintained as a portfolio-facing engineering artifact
 | --- | --- | --- |
 | Phase 0 architecture/metric audit | complete | dated audit under `docs/audits/` |
 | Study specification | frozen for implementation | `resources/studies/routing-semantic-v1.study.json` |
-| Adjudicator runtime qualification | pending | Inspect AI/Inspect SWE parity gate before first real A/B labels |\n| Independent oracle | not yet frozen | blocked on adjudicator runtime qualification, then A/B/C freeze |
+| Adjudicator runtime implementation | complete | Agent-Workflow Benchmark `7c3cef0ca3572005cb1266629b62dcbf65608440` (`0.4.1`) |
+| Authenticated adjudicator qualification | pending | Debian-host IA-1 through IA-8 run against the actual model/load-balancer path |
+| Independent oracle | not yet frozen | P0B blocked until qualification manifest reports `qualified: true`, then A/B/C freeze |
 | Lossless per-seam persistence | implementation in progress | Agent-Workflow comparative evidence branch |
 | Study-grade metrics/reporting | implementation in progress | comparative-eval 0.2 work |
 | Dedicated benchmark lane | implementation in progress | benchmark comparative-decision work |
@@ -47,7 +49,7 @@ The study work therefore focuses first on restoring the evidence chain rather th
 
 - The comparison library already contains correctness, reliability, efficiency, calibration, pairing, and deterministic statistical primitives.
 - TypeSafe/Jev remains an evidence provider; Agent-Workflow keeps deterministic workflow and lifecycle authority.
-- The first study is preregistered around three existing routing seams and uses a separate blinded oracle. Before the first real A/B labels, the execution runtime will be qualified against an Inspect AI sandbox backend while retaining the direct-Docker runner as rollback.
+- The first study is preregistered around three existing routing seams and uses a separate blinded oracle. The Inspect AI + Inspect SWE + Codex CLI adjudication runtime is implemented; authenticated Debian-host qualification against the actual model/load-balancer path is still pending before any real A/B labels.
 - Provider overhead is accounted at the batched-request level to avoid triple-counting one request across three decisions.
 - A favorable Jev result is not a publication requirement.
 
@@ -57,4 +59,4 @@ Do not render claims that Jev improves routing correctness, quality, cost, or la
 
 ---
 
-<small>Last updated: 2026-09-25 13:35 PDT</small>
+<small>Last updated: 2026-09-25 15:22 PDT</small>
