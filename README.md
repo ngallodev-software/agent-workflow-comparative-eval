@@ -102,7 +102,7 @@ result-affecting edits require a new dataset version.
   winner.
 
 The library imports no Agent-Workflow runtime code and remains
-dependency-neutral. Version `0.2.0` adds study-grade decision evidence while keeping the existing v1 generic records readable. Compatibility is requalified against current consumers before the branch is released; [`COMPATIBILITY.json`](COMPATIBILITY.json) remains the record of completed qualification rather than a prediction.
+dependency-neutral. Version `0.2.0` adds study-grade decision evidence while keeping the existing v1 generic records readable. The current integration candidate is qualified against Agent-Workflow `0.11.10` and agent-workflow-benchmark `0.4.0`; [`COMPATIBILITY.json`](COMPATIBILITY.json) records the exact tested revisions and CI runs.
 
 ## Study-readiness audit
 
