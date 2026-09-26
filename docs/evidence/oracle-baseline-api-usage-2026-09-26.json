@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "record_id": "routing-semantic-v1-oracle-baseline-api-usage-2026-09-26",
+  "study_id": "routing-semantic-v1",
+  "recorded_date": "2026-09-26",
+  "scope": {
+    "description": "Initial adjudicator qualification and oracle adjudication through and including P0B oracle freeze",
+    "through_phase": "P0B",
+    "includes_p1": false,
+    "includes_p2": false,
+    "includes_p3": false
+  },
+  "execution_provenance": {
+    "harness": "OpenAI Codex harness",
+    "load_balancer": "codex-lb",
+    "provider_model": "DeepSeek-4.1-Flash",
+    "routed_runtime_alias": "openai-api/codex-lb/deepseek-flash"
+  },
+  "usage": {
+    "cost_usd": 0.07,
+    "api_requests": 36,
+    "tokens": 726263,
+    "token_breakdown_available": false
+  },
+  "provenance": {
+    "source": "operator-reported provider/API accounting",
+    "raw_provider_traffic_committed": false,
+    "raw_billing_artifact_committed": false
+  },
+  "claim_boundary": "Oracle-baseline construction usage only; not TypeSafe/Jev treatment cost and not comparative-efficiency evidence."
+}

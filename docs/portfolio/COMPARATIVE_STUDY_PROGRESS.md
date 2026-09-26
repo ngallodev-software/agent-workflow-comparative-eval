@@ -10,6 +10,7 @@ This file is intentionally maintained as a portfolio-facing engineering artifact
 | Study specification | frozen for implementation | `resources/studies/routing-semantic-v1.study.json` |
 | Adjudicator runtime implementation | complete | Agent-Workflow Benchmark `7c3cef0ca3572005cb1266629b62dcbf65608440` (`0.4.1`) |
 | Authenticated adjudicator qualification | complete | Debian-host P0A completed against the qualified `openai-api/codex-lb/deepseek-flash` path; IA-1 through IA-8 reported passing |
+| Oracle-baseline API accounting | recorded through freeze | OpenAI Codex harness -> `codex-lb` -> DeepSeek-4.1-Flash; $0.07 USD, 36 API requests, 726,263 tokens; excludes P1/P2/P3 |
 | Independent oracle | frozen and validated | P0B A/B/C adjudication, recorded three-way resolution, oracle freeze, and final corpus validation completed on the private host evidence path |
 | Lossless per-seam persistence | implementation in progress | Agent-Workflow comparative evidence branch |
 | Study-grade metrics/reporting | implementation in progress | comparative-eval 0.2 work |
@@ -55,6 +56,7 @@ The study work therefore focuses first on restoring the evidence chain rather th
 - The comparison library already contains correctness, reliability, efficiency, calibration, pairing, and deterministic statistical primitives.
 - TypeSafe/Jev remains an evidence provider; Agent-Workflow keeps deterministic workflow and lifecycle authority.
 - The first study is preregistered around three existing routing seams and uses a separate blinded oracle. The Inspect AI + Inspect SWE + Codex CLI adjudication runtime passed authenticated P0A qualification, and the independent A/B/C oracle was subsequently frozen and validated on the private host evidence path.
+- The oracle-baseline runs used the OpenAI Codex harness routed through `codex-lb` to the DeepSeek-4.1-Flash API. Cumulative provider/API accounting through oracle freeze was $0.07 USD, 36 requests, and 726,263 tokens. This excludes P1/P2/P3 and is not Jev treatment cost.
 - Provider overhead is accounted at the batched-request level to avoid triple-counting one request across three decisions.
 - P1 live instrumentation verification passed on 8 deterministic development cases: 8 provider requests, 24 per-seam observations, and 0 exclusions. The smoke verified oracle absence during inference, privacy boundaries, probability persistence, unique request IDs, one request per observed case, three observations per case, and the frozen `routing/v2` / `routing-state/v2` identities.
 - A favorable Jev result is not a publication requirement.
@@ -65,4 +67,4 @@ Do not render claims that Jev improves routing correctness, quality, cost, or la
 
 ---
 
-<small>Last updated: 2026-09-26 11:56 PDT — P1 smoke passed; P2 unblocked</small>
+<small>Last updated: 2026-09-26 — P1 smoke passed; P2 unblocked; oracle-baseline provider accounting recorded</small>

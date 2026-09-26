@@ -24,6 +24,20 @@ The qualified adjudicator path for the completed cohort was:
 
 `openai-api/codex-lb/deepseek-flash`
 
+Execution provenance for these oracle-construction runs is:
+
+`OpenAI Codex harness -> codex-lb load balancer -> DeepSeek-4.1-Flash API`
+
+The routed runtime alias remained `openai-api/codex-lb/deepseek-flash`; `DeepSeek-4.1-Flash` is the provider/model identity used for the API accounting record.
+
+Cumulative provider/API accounting for the initial qualification/adjudication runs through and including P0B oracle freeze:
+
+- cost: **$0.07 USD**;
+- API requests: **36**;
+- tokens: **726,263**.
+
+This accounting is scoped to oracle-baseline construction through freeze. It excludes P1 TypeSafe/Jev smoke traffic, P2 comparative inference, and P3 publication work. The figures are operator-recorded provider/API metrics and are not reconstructed from committed raw billing traffic. See `docs/evidence/oracle-baseline-api-usage-2026-09-26.md` and its JSON companion.
+
 The independent oracle is now frozen and available privately for later post-inference joining.
 
 P1 verification evidence:
@@ -113,6 +127,7 @@ The site may now state that:
 - the oracle was frozen and validated before live comparative inference;
 - the adjudication runtime was qualified through IA-1 through IA-8 before real labels were produced;
 - the oracle and inference paths remain structurally separate;
+- cumulative oracle-baseline API accounting through freeze was $0.07 USD across 36 DeepSeek-4.1-Flash API requests and 726,263 tokens, routed via the OpenAI Codex harness and `codex-lb`;
 - the bounded live instrumentation smoke passed before the preregistered full run;
 - P1 verified the intended request/observation/accounting/privacy evidence chain on 8 development-only cases with 0 exclusions;
 - P2 is now unblocked;
@@ -319,15 +334,18 @@ Read in this order:
 7. `docs/portfolio/COMPARATIVE_STUDY_PROGRESS.md`  
    Portfolio-facing architecture/status summary.
 
+8. `docs/evidence/oracle-baseline-api-usage-2026-09-26.md`  
+   Durable P0A/P0B execution provenance and cumulative DeepSeek-4.1-Flash provider/API accounting through oracle freeze. The adjacent JSON file is the machine-readable companion.
+
 Supporting implementation evidence:
 
-8. Agent-Workflow Benchmark `docs/COMPARATIVE_DECISION_STUDY.md`
+9. Agent-Workflow Benchmark `docs/COMPARATIVE_DECISION_STUDY.md`
 
-9. Agent-Workflow Benchmark `docs/INSPECT_ORACLE_ADJUDICATION.md`
+10. Agent-Workflow Benchmark `docs/INSPECT_ORACLE_ADJUDICATION.md`
 
-10. Agent-Workflow Benchmark `scripts/adjudication/README.md`
+11. Agent-Workflow Benchmark `scripts/adjudication/README.md`
 
-11. Agent-Workflow Benchmark `scripts/decision-study/README.md`
+12. Agent-Workflow Benchmark `scripts/decision-study/README.md`
 
 Use implementation documents to verify claims and reproducibility. Do not turn the public page into an operator runbook.
 

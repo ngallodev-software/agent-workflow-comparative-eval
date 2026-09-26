@@ -8,6 +8,24 @@
 
 P0A and P0B remain complete. The independent oracle remains frozen and validated.
 
+## Oracle-baseline execution provenance and API accounting
+
+The initial qualification/adjudication runs through and including P0B oracle freeze used this execution path:
+
+`OpenAI Codex harness -> codex-lb load balancer -> DeepSeek-4.1-Flash API`
+
+The adjudication runtime path/alias recorded elsewhere remains `openai-api/codex-lb/deepseek-flash`.
+
+Cumulative provider/API metrics through oracle freeze:
+
+- cost: **$0.07 USD**;
+- API requests: **36**;
+- tokens: **726,263**.
+
+Scope boundary: these metrics cover the oracle-baseline work through P0B freeze only. They exclude the P1 TypeSafe/Jev smoke, P2 full comparative inference, and P3 publication. The values are operator-recorded provider/API accounting; committed raw billing traffic is not the source artifact.
+
+Durable evidence: `docs/evidence/oracle-baseline-api-usage-2026-09-26.md` and `docs/evidence/oracle-baseline-api-usage-2026-09-26.json`.
+
 P1 development instrumentation smoke is now complete and passed.
 
 Verified P1 evidence:
@@ -66,6 +84,7 @@ The P2 workflow must preserve these rules:
 Safe to state publicly now:
 
 - the independent oracle is frozen and validated;
+- oracle-baseline API accounting through freeze is recorded as $0.07 USD, 36 DeepSeek-4.1-Flash API requests, and 726,263 tokens via the OpenAI Codex harness -> `codex-lb` path;
 - the live TypeSafe/Jev instrumentation path passed a bounded development smoke;
 - P1 produced 8 provider requests and 24 per-seam observations with 0 exclusions;
 - the smoke verified oracle separation, privacy boundaries, probability persistence, and request-level accounting;
