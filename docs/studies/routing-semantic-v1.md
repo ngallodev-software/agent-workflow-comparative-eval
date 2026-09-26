@@ -108,6 +108,10 @@ The corpus is public-safe and contains no oracle labels. It deliberately spans:
 
 Construction tags exist only for later stratified analysis. They are not sent to Agent-Workflow's decision provider and are removed from the oracle-authoring view.
 
+## Reviewer guidance
+
+For a field-by-field explanation of the blinded authoring view and the three oracle questions, see [Routing Semantic v1 — Oracle Reviewer Guide](routing-semantic-v1-oracle-review-guide.md). The guide is non-normative; this study specification and the frozen oracle protocol remain authoritative.
+
 ## Independent oracle handoff
 
 `oracle_authoring_view()` produces the adjudicator artifact. It contains the frozen decision taxonomy/rubric plus only case ID, request text, declared metadata, and oracle eligibility.
