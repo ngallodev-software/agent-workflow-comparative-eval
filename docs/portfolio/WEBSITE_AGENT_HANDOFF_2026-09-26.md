@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-26  
 **Audience:** portfolio / website synthesis agent  
-**Purpose:** update the public-facing case-study narrative after completion of P0A/P0B without overstating P1/P2 results.
+**Purpose:** update the public-facing case-study narrative after completion of P0A/P0B and a passing P1 live instrumentation smoke, without overstating P2 results.
 
 ## Current authoritative state
 
@@ -16,7 +16,9 @@ Completed:
 - disagreement-only C adjudication;
 - recorded human resolution of genuine three-way conflicts;
 - oracle freeze;
-- final oracle validation against the frozen 120-case corpus.
+- final oracle validation against the frozen 120-case corpus;
+- P1 bounded live TypeSafe/Jev instrumentation smoke;
+- P1 persisted-evidence verification.
 
 The qualified adjudicator path for the completed cohort was:
 
@@ -24,9 +26,26 @@ The qualified adjudicator path for the completed cohort was:
 
 The independent oracle is now frozen and available privately for later post-inference joining.
 
+P1 verification evidence:
+
+- 8 deterministic smoke cases;
+- 8 observed cases;
+- 8 provider requests;
+- 24 per-seam observations;
+- 0 exclusions;
+- one provider request per observed case;
+- three observations per observed case;
+- unique request IDs;
+- semantic probability evidence persisted;
+- oracle absent during inference;
+- privacy boundary preserved;
+- request-level usage not triple-counted;
+- question set `routing/v2`;
+- projector `routing-state/v2`;
+- verification status: `pass`.
+
 Not yet completed:
 
-- P1 bounded live TypeSafe/Jev instrumentation smoke;
 - P2 full 120-case comparative inference;
 - P2 correctness/calibration/efficiency report;
 - P3 sanitized public evidence publication.
@@ -94,7 +113,9 @@ The site may now state that:
 - the oracle was frozen and validated before live comparative inference;
 - the adjudication runtime was qualified through IA-1 through IA-8 before real labels were produced;
 - the oracle and inference paths remain structurally separate;
-- the next phase is a bounded live instrumentation smoke before the preregistered full run;
+- the bounded live instrumentation smoke passed before the preregistered full run;
+- P1 verified the intended request/observation/accounting/privacy evidence chain on 8 development-only cases with 0 exclusions;
+- P2 is now unblocked;
 - a favorable semantic result is not required for publication.
 
 Do not expose private A/B/C adjudication artifacts, credentials, raw provider traffic, or private host paths.
@@ -119,8 +140,8 @@ Those statements require P2 evidence.
 ~~~text
 P0A  authenticated adjudicator qualification      COMPLETE
 P0B  independent oracle freeze + validation       COMPLETE
-P1   bounded live instrumentation smoke           TOOLING READY / NOT YET RUN
-P2   full 120-case comparative study              PENDING P1
+P1   bounded live instrumentation smoke           PASS — 8 cases / 24 observations / 8 requests / 0 exclusions
+P2   full 120-case comparative study              UNBLOCKED / NOT YET RUN
 P3   sanitized publication                        PENDING P2
 ~~~
 
@@ -141,13 +162,15 @@ scripts/decision-study/
   README.md
 ~~~
 
-The normal P1 operator entry point is:
+The normal P1 operator entry point was:
 
 ~~~bash
 bash scripts/decision-study/p1-all.sh
 ~~~
 
-P1 deterministically derives a small development-only subset from the exact frozen corpus and records the source corpus hash + selected case IDs. Its verification checks the live evidence chain before P2.
+P1 deterministically derived a small development-only subset from the exact frozen corpus and recorded the source corpus hash + selected case IDs. The completed smoke verified the live evidence chain and unblocked P2.
+
+P1 is **development evidence only**. It verifies instrumentation and evidence integrity; it does not establish comparative effectiveness.
 
 ## Important methodological detail to preserve
 
@@ -211,10 +234,10 @@ This should be presented as a documented methodological limitation, not hidden.
 
 Use a concise status framing:
 
-> **Independent ground truth is now frozen.**  
-> The study moved beyond measuring disagreement and established a blinded A/B/C oracle before running the comparative treatment.
+> **Independent ground truth is frozen, and the live evidence path has passed its smoke test.**  
+> The study moved beyond measuring disagreement, established a blinded A/B/C oracle, then verified the TypeSafe/Jev evidence path on a bounded development sample before the full comparative run.
 
-Do not present outcome metrics yet.
+It is now safe to show P1 instrumentation counts and pass/fail checks. Do not present comparative correctness, calibration, latency/cost, or winner claims until P2 completes.
 
 ### Main visual
 
@@ -247,9 +270,9 @@ disagreement measurement
      ->
 independent correctness oracle
      ->
-P1 evidence-path verification
+P1 evidence-path verification [PASSED]
      ->
-P2 full comparative inference
+P2 full comparative inference [NEXT]
      ->
 P3 sanitized evidence
 ~~~
@@ -287,34 +310,34 @@ Read in this order:
 4. `src/agent_workflow_comparative_eval/resources/studies/routing-semantic-v1.study.json`  
    Machine-readable study contract, metrics, evidence policy, exclusions, and frozen runtime identities.
 
-5. `docs/checkpoints/2026-09-26-comparative-study-v4-checkpoint.md`  
-   Current phase state and P0B-to-P1 handoff.
+5. `docs/checkpoints/2026-09-26-comparative-study-v5-checkpoint.md`  
+   Current phase state and P1-to-P2 handoff.
 
-6. `docs/portfolio/COMPARATIVE_STUDY_PROGRESS.md`  
+6. `docs/checkpoints/2026-09-26-comparative-study-v4-checkpoint.md`  
+   Prior P0B-to-P1 handoff retained for chronology.
+
+7. `docs/portfolio/COMPARATIVE_STUDY_PROGRESS.md`  
    Portfolio-facing architecture/status summary.
 
 Supporting implementation evidence:
 
-7. Agent-Workflow Benchmark `docs/COMPARATIVE_DECISION_STUDY.md`
+8. Agent-Workflow Benchmark `docs/COMPARATIVE_DECISION_STUDY.md`
 
-8. Agent-Workflow Benchmark `docs/INSPECT_ORACLE_ADJUDICATION.md`
+9. Agent-Workflow Benchmark `docs/INSPECT_ORACLE_ADJUDICATION.md`
 
-9. Agent-Workflow Benchmark `scripts/adjudication/README.md`
+10. Agent-Workflow Benchmark `scripts/adjudication/README.md`
 
-10. Agent-Workflow Benchmark `scripts/decision-study/README.md`
+11. Agent-Workflow Benchmark `scripts/decision-study/README.md`
 
 Use implementation documents to verify claims and reproducibility. Do not turn the public page into an operator runbook.
 
 ## Suggested synthesis instruction for the website agent
 
-> Update the comparative-evaluation case study using the ordered source pack in this handoff. Preserve the distinction between completed oracle methodology and not-yet-run comparative outcome measurement. Lead with the evolution from measuring disagreement to establishing independent correctness. Explain blinded A/B/C adjudication, frozen-before-inference ground truth, recorded human resolution, evidence/privacy boundaries, and the staged P1/P2/P3 execution path. Use the methodological limitation about missing persisted adjudicator rationales as evidence of transparent study practice. Do not make any comparative performance claim until P2 data exists. Keep implementation commands below the fold or linked to GitHub rather than in the main narrative.
+> Update the comparative-evaluation case study using the ordered source pack in this handoff. Preserve the distinction between completed oracle methodology, passed P1 instrumentation verification, and not-yet-run P2 comparative outcome measurement. Lead with the evolution from measuring disagreement to establishing independent correctness, then show that the live evidence path was smoke-tested before the full run. Explain blinded A/B/C adjudication, frozen-before-inference ground truth, recorded human resolution, evidence/privacy boundaries, and the staged P1/P2/P3 execution path. It is safe to show the P1 counts (8 cases, 24 observations, 8 requests, 0 exclusions) and the evidence-path checks that passed, but do not treat them as comparative-effectiveness results. Use the methodological limitation about missing persisted adjudicator rationales as evidence of transparent study practice. Do not make any comparative performance claim until P2 data exists. Keep implementation commands below the fold or linked to GitHub rather than in the main narrative.
 
 ## Next website update trigger
 
-After P1:
-
-- update status to instrumentation smoke passed/failed;
-- show evidence-path checks, but still no comparative-effectiveness claims.
+P1 is complete. The site may now show the evidence-path smoke as passed, including its counts and invariant checks, while still withholding comparative-effectiveness claims.
 
 After P2:
 
