@@ -5,6 +5,8 @@
 **Case count:** 120  
 **Status:** frozen before live comparative inference
 
+> Human reviewers resolving three-way conflicts should also use the non-normative [Oracle Reviewer Guide](routing-semantic-v1-oracle-review-guide.md) for field meanings and review workflow. This protocol remains authoritative.
+
 ## Adjudicator input
 
 Adjudicators receive only the output of oracle_authoring_view().
