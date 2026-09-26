@@ -14,8 +14,12 @@ This file is intentionally maintained as a portfolio-facing engineering artifact
 | Lossless per-seam persistence | implementation in progress | Agent-Workflow comparative evidence branch |
 | Study-grade metrics/reporting | implementation in progress | comparative-eval 0.2 work |
 | Dedicated benchmark lane | implementation in progress | benchmark comparative-decision work |
-| P1 live instrumentation smoke | next | bounded live TypeSafe/Jev instrumentation check must precede the full 120-case run |
+| P1 live instrumentation smoke | tooling ready; not yet run | Agent-Workflow Benchmark `68b9d7763369cadeeb0ed87c6c33864263a8d9b2` adds deterministic P1 prepare/run/verify plus `p1-all.sh` |
 | Full study | not run | P2 remains blocked on successful P1 instrumentation verification |
+
+## Website-agent handoff
+
+For the current portfolio synthesis boundary, use [`WEBSITE_AGENT_HANDOFF_2026-09-26.md`](WEBSITE_AGENT_HANDOFF_2026-09-26.md). It distinguishes newly safe oracle-completion claims from outcome claims that remain blocked until P2.
 
 ## Architecture
 
@@ -60,4 +64,4 @@ Do not render claims that Jev improves routing correctness, quality, cost, or la
 
 ---
 
-<small>Last updated: 2026-09-26 10:34 PDT</small>
+<small>Last updated: 2026-09-26 11:56 PDT</small>
