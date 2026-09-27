@@ -1,0 +1,145 @@
+{
+  "schema": "agent-workflow-comparative-eval/decision-study-spec/v1",
+  "study_id": "agentic-jev-pilot-v1",
+  "study_version": "0.1.0-draft.1",
+  "status": "development-pilot",
+  "purpose": "Explore where a Codex coding agent elects to use Jev as a bounded semantic primitive before defining a full agentic effectiveness study or specialized harness.",
+  "evaluation_unit": "one repository task executed by one Codex agent arm with instrumented opportunity, skill, tool-call, and downstream-action evidence",
+  "decision_seams": [
+    {
+      "decision_id": "agent.jev_invocation",
+      "feature_id": "agent.jev-invocation/v1",
+      "semantic_type": "boolean",
+      "oracle_type": "behavioral",
+      "primary_metrics": [
+        "invocation_rate",
+        "opportunity_conditioned_invocation_rate"
+      ]
+    },
+    {
+      "decision_id": "agent.jev_primitive",
+      "feature_id": "agent.jev-primitive/v1",
+      "semantic_type": "categorical",
+      "oracle_type": "behavioral",
+      "labels": [
+        "choice",
+        "noul",
+        "score",
+        "mixed",
+        "none"
+      ],
+      "primary_metrics": [
+        "primitive_mix"
+      ]
+    },
+    {
+      "decision_id": "agent.jev_follow_through",
+      "feature_id": "agent.jev-follow-through/v1",
+      "semantic_type": "categorical",
+      "oracle_type": "behavioral",
+      "labels": [
+        "changed_action",
+        "confirmed_action",
+        "ignored_result",
+        "no_call"
+      ],
+      "primary_metrics": [
+        "behavior_change_rate"
+      ]
+    }
+  ],
+  "research_questions": [
+    {
+      "id": "RQ1",
+      "text": "When Codex has the TypeSafe skill and a callable Jev tool, which coding-task decisions cause it to invoke Jev?"
+    },
+    {
+      "id": "RQ2",
+      "text": "How much behavior changes from skill instructions alone versus skill plus live Jev access?"
+    },
+    {
+      "id": "RQ3",
+      "text": "Which Jev primitives are selected, what state/questions are supplied, and which call patterns are useful or wasteful?"
+    },
+    {
+      "id": "RQ4",
+      "text": "What provider latency/token/reliability overhead is incurred by agent-directed Jev calls?"
+    },
+    {
+      "id": "RQ5",
+      "text": "Which observed decision opportunities merit preregistration in a later task-outcome effectiveness study?"
+    }
+  ],
+  "sample_policy": {
+    "target_tasks": 24,
+    "arm_assignment": "same task executed independently in all three arms",
+    "exploratory_only": true,
+    "minimum_tasks_before_seam_freeze": 24,
+    "no_effectiveness_claims": true
+  },
+  "oracle_policy": {
+    "required": false,
+    "rationale": "This pilot discovers invocation seams and treatment behavior; downstream correctness becomes a separately preregistered full study after pilot review."
+  },
+  "exclusion_policy": {
+    "allowed_reason_codes": [
+      "invalid_task_fixture",
+      "agent_execution_failure",
+      "jev_service_failure",
+      "tool_contract_failure",
+      "study_identity_mismatch"
+    ],
+    "provider_failures_remain_reliability_evidence": true,
+    "silent_exclusion_forbidden": true
+  },
+  "evidence_policy": {
+    "credentials_public": false,
+    "raw_provider_http_public": false,
+    "raw_task_content_public": "only when task fixture is explicitly public-safe",
+    "tool_arguments_private_by_default": true,
+    "record_tool_name": true,
+    "record_primitive_types": true,
+    "record_request_hash": true,
+    "record_latency_usage_status": true,
+    "record_agent_tool_call_identity": true,
+    "record_skill_loaded": true,
+    "record_skill_sha256": true
+  },
+  "frozen_runtime_identity": {
+    "harness": "Inspect AI + Inspect SWE codex_cli",
+    "treatment_model_policy": "same model/runtime lock across all arms",
+    "skill_source": "typesafe-ai/skills",
+    "skill_commit": "65a39f393687675ce170e6094757de20370365b9",
+    "skill_release": "v0.5.7",
+    "tool_transport": "Inspect bridged tool via MCP; executes on host",
+    "api_key_location": "host only; never injected into sandbox"
+  },
+  "claim_policy": {
+    "exploratory_only": true,
+    "skill_only_arm_required": true,
+    "live_jev_arm_required": true,
+    "baseline_arm_required": true,
+    "no_overall_winner": true,
+    "no_downstream_quality_claim_until_followup_study": true
+  },
+  "arms": [
+    {
+      "id": "A-baseline",
+      "codex": true,
+      "typesafe_skill": false,
+      "jev_tool": false
+    },
+    {
+      "id": "B-skill-only",
+      "codex": true,
+      "typesafe_skill": true,
+      "jev_tool": false
+    },
+    {
+      "id": "C-skill-plus-jev",
+      "codex": true,
+      "typesafe_skill": true,
+      "jev_tool": true
+    }
+  ]
+}
