@@ -166,13 +166,17 @@ If the frozen evidence cannot support a defensible resolution, record the confli
 
 ## Important implementation note for the current P0B cohort
 
-The frozen protocol says three-way discussion may use independent rationales. The current A/B/C Inspect output contract preserves labels but does **not** preserve adjudicator rationales; the adjudicator prompt explicitly requested labels-only JSON.
+The frozen protocol says three-way discussion may use independent rationales. The A/B/C authoritative Inspect output contract preserved labels but did **not** preserve structured adjudicator rationales; the adjudicator prompt explicitly requested labels-only JSON.
 
-Therefore the current cohort's recorded human resolution has access to the case, supplied metadata, frozen rubric, and independent labels, but not the original adjudicators' rationales.
+A later audit of the retained private Inspect `.eval` logs found that provider/model reasoning-summary events were present for the completed cohort. Those summaries were supplementary execution evidence, not fields in `adjudication.json`, and the human-resolution tooling did not surface them at the time.
 
-This is an implementation limitation that should be reported with the study. A future version of the adjudication contract should preserve concise independent rationales without exposing cross-adjudicator or treatment information.
+Therefore the completed human resolution had access to the case, supplied metadata, frozen rubric, and independent labels, but not the private reasoning summaries discovered later.
 
-Do not reconstruct or invent rationales for the completed A/B/C passes.
+This is an implementation limitation that should be reported with the study. A future version of the adjudication contract should require concise provider-neutral structured justifications and prove that they survive pass wrapping and dispute rendering. Provider reasoning summaries may be retained separately as supplementary evidence, but the study should not depend on hidden chain-of-thought.
+
+Do not retrofit the later-discovered summaries into the frozen v1 oracle or present them as evidence used by the original human resolution.
+
+See [the 2026-09-27 reasoning-summary retention audit](../audits/2026-09-27-oracle-reasoning-summary-retention-audit.md).
 
 ## Authoritative references
 
