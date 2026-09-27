@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from collections import Counter
 from collections.abc import Mapping, Sequence
 from datetime import datetime, timezone
@@ -642,6 +643,9 @@ def _feature_report(
             }
     elif semantic_type in {"choice", "score"}:
         vectors: list[dict[str, float]] = []
+        normalized_count = 0
+        max_mass_deviation = 0.0
+        invalid_vector_count = 0
         for result in candidate_results:
             raw = (
                 result.get("probabilities")
@@ -649,27 +653,63 @@ def _feature_report(
                 else None
             )
             if not isinstance(raw, Mapping):
-                vectors = []
-                break
-            vectors.append(
-                {
-                    str(k): float(v)
-                    for k, v in raw.items()
-                    if isinstance(v, (int, float)) and not isinstance(v, bool)
-                }
-            )
+                invalid_vector_count += 1
+                continue
+            vector = {
+                str(k): float(v)
+                for k, v in raw.items()
+                if isinstance(v, (int, float)) and not isinstance(v, bool)
+            }
+            if (
+                not vector
+                or any(
+                    not math.isfinite(value) or value < 0.0 or value > 1.0
+                    for value in vector.values()
+                )
+            ):
+                invalid_vector_count += 1
+                continue
+            mass = math.fsum(vector.values())
+            if not math.isfinite(mass) or mass <= 0.0:
+                invalid_vector_count += 1
+                continue
+            deviation = abs(mass - 1.0)
+            max_mass_deviation = max(max_mass_deviation, deviation)
+            if deviation > 1e-12:
+                normalized_count += 1
+            vectors.append({key: value / mass for key, value in vector.items()})
+
         labels = [str(x) for x in answered_truths]
-        if len(vectors) == len(answered_truths) and vectors:
+        if (
+            invalid_vector_count == 0
+            and len(vectors) == len(answered_truths)
+            and vectors
+        ):
             base["calibration"] = {
                 "eligible": True,
                 "n": len(vectors),
                 "multiclass_brier": multiclass_brier_score(vectors, labels),
                 "log_loss": multiclass_log_loss(vectors, labels),
+                "probability_normalization": {
+                    "applied": normalized_count > 0,
+                    "normalized_vectors": normalized_count,
+                    "total_vectors": len(vectors),
+                    "max_absolute_mass_deviation": max_mass_deviation,
+                    "rule": "finite nonnegative probability masses are normalized to unit sum for calibration only; persisted raw evidence is unchanged",
+                },
             }
         else:
             base["calibration"] = {
                 "eligible": False,
-                "reason": "complete answered probability distribution evidence unavailable",
+                "reason": "complete valid answered probability distribution evidence unavailable",
+                "invalid_vector_count": invalid_vector_count,
+                "probability_normalization": {
+                    "applied": normalized_count > 0,
+                    "normalized_vectors": normalized_count,
+                    "total_vectors": len(vectors),
+                    "max_absolute_mass_deviation": max_mass_deviation,
+                    "rule": "finite nonnegative probability masses are normalized to unit sum for calibration only; persisted raw evidence is unchanged",
+                },
             }
     else:
         base["calibration"] = {
@@ -760,6 +800,7 @@ def build_decision_study_report(
             "agreement between control and candidate is not correctness without an independent oracle",
             "shadow observations do not establish downstream causal effects",
             "provider request efficiency is request-level and must not be multiplied by the number of decision seams",
+            "multiclass calibration normalizes finite nonnegative provider probability masses to unit sum at report time while preserving raw persisted evidence",
         ],
     }
     validate_record(record, DECISION_STUDY_REPORT_SCHEMA)

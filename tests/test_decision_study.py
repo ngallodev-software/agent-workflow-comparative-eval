@@ -248,3 +248,79 @@ def test_frozen_oracle_authoring_artifact_matches_generated_view_and_hashes():
         artifact_path.read_bytes()
     ).hexdigest()
     assert manifest["frozen_for_independent_adjudication"] is True
+
+
+def test_multiclass_calibration_normalizes_provider_mass_without_mutating_evidence():
+    choice = _obs(
+        "routing.task-class/v1",
+        "routing.task_class",
+        "choice",
+        "normalized-choice",
+        "implementation",
+        "review",
+        probabilities={
+            "implementation": 0.10,
+            "diagnosis": 0.10,
+            "review": 0.59,
+            "documentation": 0.10,
+            "other": 0.10,
+        },
+    )
+    original = dict(choice["candidate"]["result"]["probabilities"])
+    outcome = make_outcome(
+        choice["observation_id"],
+        "static-oracle",
+        {"oracle": "review"},
+    )
+
+    report = build_decision_study_report(
+        [choice],
+        [outcome],
+        study_id="routing-semantic-v1",
+        study_version="1.1.0",
+        minimum_oracle_n=1,
+    )
+
+    calibration = report["seams"]["routing.task-class/v1"]["calibration"]
+    assert calibration["eligible"] is True
+    assert calibration["probability_normalization"]["applied"] is True
+    assert calibration["probability_normalization"]["normalized_vectors"] == 1
+    assert calibration["probability_normalization"]["total_vectors"] == 1
+    assert calibration["probability_normalization"][
+        "max_absolute_mass_deviation"
+    ] == pytest.approx(0.01)
+    assert choice["candidate"]["result"]["probabilities"] == original
+
+
+def test_invalid_multiclass_probability_vector_disables_calibration_not_report():
+    score = _obs(
+        "routing.semantic-risk/v1",
+        "routing.semantic_risk",
+        "score",
+        "invalid-score",
+        1,
+        1.4,
+        probabilities={"0": 0.5, "1": -0.1, "2": 0.6},
+    )
+    outcome = make_outcome(
+        score["observation_id"],
+        "static-oracle",
+        {"oracle": 1},
+    )
+
+    report = build_decision_study_report(
+        [score],
+        [outcome],
+        study_id="routing-semantic-v1",
+        study_version="1.1.0",
+        minimum_oracle_n=1,
+    )
+
+    seam = report["seams"]["routing.semantic-risk/v1"]
+    assert seam["correctness"]["candidate_ordinal"]["n"] == 1
+    assert seam["calibration"]["eligible"] is False
+    assert seam["calibration"]["invalid_vector_count"] == 1
+    assert (
+        seam["calibration"]["reason"]
+        == "complete valid answered probability distribution evidence unavailable"
+    )
