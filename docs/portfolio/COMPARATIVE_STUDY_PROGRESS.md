@@ -63,6 +63,10 @@ Corrective audit: [`2026-09-27-oracle-reasoning-summary-retention-audit.md`](../
 
 Focused website handoff: [`WEBSITE_AGENT_HANDOFF_ORACLE_EVIDENCE_GAP_2026-09-26.md`](WEBSITE_AGENT_HANDOFF_ORACLE_EVIDENCE_GAP_2026-09-26.md).
 
+## Future-cohort follow-up
+
+The v1 oracle remains immutable. The next-version adjudication/provenance design is tracked in [`routing-semantic-v2-adjudication-evidence-contract.md`](../plans/routing-semantic-v2-adjudication-evidence-contract.md). It requires structured per-decision justifications and explicit aggregate-session usage provenance before another real oracle cohort can run.
+
 ## Claims safe to render now
 
 - The comparison library already contains correctness, reliability, efficiency, calibration, pairing, and deterministic statistical primitives.
