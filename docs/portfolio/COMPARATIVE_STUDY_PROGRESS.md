@@ -12,15 +12,15 @@ This file is intentionally maintained as a portfolio-facing engineering artifact
 | Authenticated adjudicator qualification | complete | Debian-host P0A completed against the qualified `openai-api/codex-lb/deepseek-flash` path; IA-1 through IA-8 reported passing |
 | Oracle-baseline API accounting | recorded through freeze | OpenAI Codex harness -> `codex-lb` -> DeepSeek-4.1-Flash; $0.07 USD, 36 API requests, 726,263 tokens; excludes P1/P2/P3 |
 | Independent oracle | frozen and validated | P0B A/B/C adjudication, recorded three-way resolution, oracle freeze, and final corpus validation completed on the private host evidence path |
-| Lossless per-seam persistence | implementation in progress | Agent-Workflow comparative evidence branch |
-| Study-grade metrics/reporting | implementation in progress | comparative-eval 0.2 work |
-| Dedicated benchmark lane | implementation in progress | benchmark comparative-decision work |
+| Lossless per-seam persistence | complete | P1/P2 evidence preserved Choice/Noul/Score probabilities and request-level identity through reporting |
+| Study-grade metrics/reporting | complete | P2 report completed across all three seams at n=120 |
+| Dedicated benchmark lane | complete | P1/P2/P3 repository-owned phase scripts and verification gates |
 | P1 live instrumentation smoke | passed | 8 cases, 8 observed cases, 24 observations, 8 provider requests, 0 exclusions; all verification invariants passed |
-| Full study | complete; private report generated | 120 cases, 360 observations, 120 provider requests, 0 exclusions; frozen oracle joined only after inference; sanitized P3 publication remains pending |
+| Full study | complete and published | 120 cases, 360 observations, 120 provider requests, 360 oracle outcomes, 0 exclusions; P3 verification passed and sanitized public result is in benchmark-results |
 
 ## Website-agent handoff
 
-For the current portfolio synthesis boundary, use [`WEBSITE_AGENT_HANDOFF_2026-09-26.md`](WEBSITE_AGENT_HANDOFF_2026-09-26.md). It distinguishes newly safe oracle-completion claims from outcome claims that remain blocked until P2.
+For the current portfolio synthesis boundary, use [`WEBSITE_AGENT_HANDOFF_2026-09-27.md`](WEBSITE_AGENT_HANDOFF_2026-09-27.md). It is grounded in the P3-verified public result and supersedes the earlier pre-publication handoff for current rendering.
 
 ## Architecture
 
@@ -75,12 +75,18 @@ The v1 oracle remains immutable. The next-version adjudication/provenance design
 - The oracle-baseline runs used the OpenAI Codex harness routed through `codex-lb` to the DeepSeek-4.1-Flash API. Cumulative provider/API accounting through oracle freeze was $0.07 USD, 36 requests, and 726,263 tokens. This excludes P1/P2/P3 and is not Jev treatment cost.
 - Provider overhead is accounted at the batched-request level to avoid triple-counting one request across three decisions.
 - P1 live instrumentation verification passed on 8 deterministic development cases: 8 provider requests, 24 per-seam observations, and 0 exclusions. The smoke verified oracle absence during inference, privacy boundaries, probability persistence, unique request IDs, one request per observed case, three observations per case, and the frozen `routing/v2` / `routing-state/v2` identities.
-- A favorable Jev result is not a publication requirement.
+- P3 publication verification passed: exact file allowlist, manifest integrity, public oracle projection, privacy contract, and full 120-case sample identity.
+- In the frozen cohort, semantic-candidate accuracy was 91.67% vs 71.67% for interaction-required and 81.67% vs 52.50% for task class; the paired 95% intervals for both accuracy differences remained above zero.
+- Semantic-risk MAE was 0.28975 vs 0.29167 and its paired interval spans zero; this seam should not be described as materially improved.
+- All 120 provider requests succeeded; provider cost evidence remains incomplete.
+- A favorable Jev result was never a publication requirement.
 
-## Claims that must wait
+## Public claim boundary
 
-P2 has completed on the full frozen cohort, but sanitized public evidence preparation/review remains pending. Do not publish comparative correctness, calibration, cost, latency, or winner claims from private P2 artifacts until the P3 publication boundary is reviewed and approved.
+The P3-verified public evidence now supports the seam-level correctness, calibration, request reliability, latency, and token findings summarized above.
+
+Do not generalize these findings into universal TypeSafe/Jev superiority, downstream software-quality causality, cost advantage, or semantic-risk improvement. Provider cost evidence is incomplete and the semantic-risk interval spans zero.
 
 ---
 
-<small>Last updated: 2026-09-27 — P2 complete; reasoning-summary retention audit corrected the oracle-provenance diagnosis; P3 publication pending</small>
+<small>Last updated: 2026-09-27 — P3 verification passed; routing-semantic-v1 public result published; v1 study complete</small>
