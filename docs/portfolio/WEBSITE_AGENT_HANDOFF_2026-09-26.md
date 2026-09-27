@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-26  
 **Audience:** portfolio / website synthesis agent  
-**Purpose:** update the public-facing case-study narrative after completion of P0A/P0B and a passing P1 live instrumentation smoke, without overstating P2 results.
+**Purpose:** update the public-facing case-study narrative after completion of P0A/P0B/P1 and the full P2 run, while keeping private P2 outcome metrics behind the P3 publication-review boundary.
 
 ## Current authoritative state
 
@@ -58,13 +58,21 @@ P1 verification evidence:
 - projector `routing-state/v2`;
 - verification status: `pass`.
 
+P2 completion evidence now available privately:
+
+- 120 frozen cases;
+- 360 per-seam observations;
+- 120 provider requests;
+- 0 exclusions;
+- post-inference join to the already frozen oracle;
+- study eligibility: pass;
+- correctness/calibration/reliability/efficiency report generated.
+
 Not yet completed:
 
-- P2 full 120-case comparative inference;
-- P2 correctness/calibration/efficiency report;
-- P3 sanitized public evidence publication.
+- P3 sanitized public evidence publication/review.
 
-Therefore **do not claim that TypeSafe/Jev is more accurate, faster, cheaper, better calibrated, or more reliable than deterministic control yet**.
+Therefore **do not move private P2 outcome metrics or winner language onto the website until the P3 publication boundary is reviewed and approved**.
 
 ## What changed in the story
 
@@ -130,12 +138,12 @@ The site may now state that:
 - cumulative oracle-baseline API accounting through freeze was $0.07 USD across 36 DeepSeek-4.1-Flash API requests and 726,263 tokens, routed via the OpenAI Codex harness and `codex-lb`;
 - the bounded live instrumentation smoke passed before the preregistered full run;
 - P1 verified the intended request/observation/accounting/privacy evidence chain on 8 development-only cases with 0 exclusions;
-- P2 is now unblocked;
+- P2 full inference and reporting are complete on the private evidence path;
 - a favorable semantic result is not required for publication.
 
 Do not expose private A/B/C adjudication artifacts, credentials, raw provider traffic, or private host paths.
 
-## Claims that remain prohibited until P2
+## Claims that remain prohibited until P3 publication review
 
 Do not say or imply:
 
@@ -146,9 +154,9 @@ Do not say or imply:
 - latency/cost overhead is acceptable or superior;
 - calibration is good;
 - the confidence policy is validated;
-- the 120-case study has been run.
+- the private P2 report may be copied verbatim to the public site.
 
-Those statements require P2 evidence.
+The full study has now run, but outcome claims still require sanitized P3 evidence review before public rendering.
 
 ## Current execution phase map
 
@@ -156,8 +164,8 @@ Those statements require P2 evidence.
 P0A  authenticated adjudicator qualification      COMPLETE
 P0B  independent oracle freeze + validation       COMPLETE
 P1   bounded live instrumentation smoke           PASS — 8 cases / 24 observations / 8 requests / 0 exclusions
-P2   full 120-case comparative study              UNBLOCKED / NOT YET RUN
-P3   sanitized publication                        PENDING P2
+P2   full 120-case comparative study              COMPLETE — 120 cases / 360 observations / 120 requests / 0 exclusions
+P3   sanitized publication                        NEXT
 ~~~
 
 Agent-Workflow Benchmark commit `68b9d7763369cadeeb0ed87c6c33864263a8d9b2` adds the reproducible post-oracle execution lane:
@@ -226,22 +234,17 @@ Key concepts:
 
 Do not imply that declared metadata such as `risk: low` is itself ground truth.
 
-## Known limitation discovered during P0B
+## Known limitation discovered during P0B — corrected after private-log audit
 
 The frozen protocol envisioned using independent adjudicator rationales during genuine three-way discussion.
 
-The completed Inspect cohort persisted independent labels but not the adjudicators' original rationales because the output contract requested labels-only JSON.
+The authoritative Inspect pass persisted labels but no structured rationales because the output contract requested labels-only JSON. The original human-resolution workflow therefore used only the frozen case prompt, supplied metadata, frozen rubric, and A/B/C labels.
 
-Human resolution therefore used:
+A later audit of the retained private Inspect `.eval` logs found contemporaneous provider reasoning summaries for A/B/C. Those summaries were supplementary execution evidence, not part of `adjudication.json`, and were not available to the resolver at the time.
 
-- the frozen case prompt;
-- supplied metadata;
-- the frozen rubric;
-- A/B/C independent labels.
+Do not retrofit those summaries into the frozen oracle. Future cohorts should require provider-neutral structured justifications and verify their complete round-trip before real adjudication.
 
-Do not reconstruct missing model rationales.
-
-This should be presented as a documented methodological limitation, not hidden.
+See `docs/audits/2026-09-27-oracle-reasoning-summary-retention-audit.md`.
 
 ## Recommended public presentation
 
@@ -249,10 +252,10 @@ This should be presented as a documented methodological limitation, not hidden.
 
 Use a concise status framing:
 
-> **Independent ground truth is frozen, and the live evidence path has passed its smoke test.**  
-> The study moved beyond measuring disagreement, established a blinded A/B/C oracle, then verified the TypeSafe/Jev evidence path on a bounded development sample before the full comparative run.
+> **Independent ground truth was frozen before treatment inference, and the full 120-case comparative run has now completed.**  
+> The study progressed through oracle construction, bounded evidence-path validation, and full P2 inference/reporting without exposing the oracle during inference.
 
-It is now safe to show P1 instrumentation counts and pass/fail checks. Do not present comparative correctness, calibration, latency/cost, or winner claims until P2 completes.
+It is safe to show the methodological milestones and P2 execution counts. Keep correctness/calibration/latency/cost outcome claims behind the P3 sanitized-publication review until approved.
 
 ### Main visual
 
@@ -287,9 +290,9 @@ independent correctness oracle
      ->
 P1 evidence-path verification [PASSED]
      ->
-P2 full comparative inference [NEXT]
+P2 full comparative inference [COMPLETE]
      ->
-P3 sanitized evidence
+P3 sanitized evidence [NEXT]
 ~~~
 
 ### Example case
@@ -325,43 +328,43 @@ Read in this order:
 4. `src/agent_workflow_comparative_eval/resources/studies/routing-semantic-v1.study.json`  
    Machine-readable study contract, metrics, evidence policy, exclusions, and frozen runtime identities.
 
-5. `docs/checkpoints/2026-09-26-comparative-study-v5-checkpoint.md`  
-   Current phase state and P1-to-P2 handoff.
+5. `docs/checkpoints/2026-09-27-comparative-study-v6-checkpoint.md`  
+   Current phase state: P2 complete, P3 publication review next, plus reasoning-summary audit correction.
 
-6. `docs/checkpoints/2026-09-26-comparative-study-v4-checkpoint.md`  
-   Prior P0B-to-P1 handoff retained for chronology.
+6. `docs/checkpoints/2026-09-26-comparative-study-v5-checkpoint.md`  
+   Historical P1-to-P2 handoff retained for chronology.
 
-7. `docs/portfolio/COMPARATIVE_STUDY_PROGRESS.md`  
+7. `docs/checkpoints/2026-09-26-comparative-study-v4-checkpoint.md`  
+   Historical P0B-to-P1 handoff retained for chronology.
+
+8. `docs/portfolio/COMPARATIVE_STUDY_PROGRESS.md`  
    Portfolio-facing architecture/status summary.
 
-8. `docs/evidence/oracle-baseline-api-usage-2026-09-26.md`  
+9. `docs/evidence/oracle-baseline-api-usage-2026-09-26.md`  
    Durable P0A/P0B execution provenance and cumulative DeepSeek-4.1-Flash provider/API accounting through oracle freeze. The adjacent JSON file is the machine-readable companion.
 
 Supporting implementation evidence:
 
-9. Agent-Workflow Benchmark `docs/COMPARATIVE_DECISION_STUDY.md`
+10. `docs/audits/2026-09-27-oracle-reasoning-summary-retention-audit.md`
 
-10. Agent-Workflow Benchmark `docs/INSPECT_ORACLE_ADJUDICATION.md`
+11. Agent-Workflow Benchmark `docs/COMPARATIVE_DECISION_STUDY.md`
 
-11. Agent-Workflow Benchmark `scripts/adjudication/README.md`
+12. Agent-Workflow Benchmark `docs/INSPECT_ORACLE_ADJUDICATION.md`
 
-12. Agent-Workflow Benchmark `scripts/decision-study/README.md`
+13. Agent-Workflow Benchmark `scripts/adjudication/README.md`
+
+14. Agent-Workflow Benchmark `scripts/decision-study/README.md`
 
 Use implementation documents to verify claims and reproducibility. Do not turn the public page into an operator runbook.
 
 ## Suggested synthesis instruction for the website agent
 
-> Update the comparative-evaluation case study using the ordered source pack in this handoff. Preserve the distinction between completed oracle methodology, passed P1 instrumentation verification, and not-yet-run P2 comparative outcome measurement. Lead with the evolution from measuring disagreement to establishing independent correctness, then show that the live evidence path was smoke-tested before the full run. Explain blinded A/B/C adjudication, frozen-before-inference ground truth, recorded human resolution, evidence/privacy boundaries, and the staged P1/P2/P3 execution path. It is safe to show the P1 counts (8 cases, 24 observations, 8 requests, 0 exclusions) and the evidence-path checks that passed, but do not treat them as comparative-effectiveness results. Use the methodological limitation about missing persisted adjudicator rationales as evidence of transparent study practice. Do not make any comparative performance claim until P2 data exists. Keep implementation commands below the fold or linked to GitHub rather than in the main narrative.
+> Update the comparative-evaluation case study using the ordered source pack in this handoff. P0A/P0B/P1/P2 are complete; P3 sanitized-publication review is next. Lead with the evolution from measuring disagreement to establishing independent correctness, then show that the live evidence path was smoke-tested before the full 120-case run. Explain blinded A/B/C adjudication, frozen-before-inference ground truth, recorded human resolution, evidence/privacy boundaries, and the staged execution path. Correctly describe the provenance limitation: structured rationales were absent from the authoritative adjudication pass, while a later audit found provider reasoning summaries retained in private Inspect logs outside the original human-resolution workflow. Do not publish private reasoning-summary text or private P2 outcome metrics until the P3 public-evidence boundary is reviewed. Keep implementation commands below the fold or linked to GitHub rather than in the main narrative.
 
 ## Next website update trigger
 
-P1 is complete. The site may now show the evidence-path smoke as passed, including its counts and invariant checks, while still withholding comparative-effectiveness claims.
+P2 is complete privately. Do not populate public outcome areas directly from the private report.
 
-After P2:
-
-- replace placeholder outcome areas with actual correctness, calibration, disagreement, reliability, latency/token/cost, uncertainty, denominators, and exclusions;
-- state conclusions only to the extent supported by the completed report.
-
-After P3:
+After P3 publication review:
 
 - link sanitized evidence and reproducibility artifacts.

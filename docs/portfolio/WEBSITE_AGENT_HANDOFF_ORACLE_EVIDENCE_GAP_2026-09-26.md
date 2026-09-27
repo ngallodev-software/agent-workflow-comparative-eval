@@ -2,19 +2,19 @@
 
 **Date:** 2026-09-26  
 **Audience:** portfolio / website editor  
-**Source postmortem:** `docs/audits/2026-09-26-oracle-decision-justification-evidence-gap.md`
+**Source postmortem:** `docs/audits/2026-09-26-oracle-decision-justification-evidence-gap.md` and the corrective follow-up `docs/audits/2026-09-27-oracle-reasoning-summary-retention-audit.md`
 
 ## Purpose
 
-Add a dated methodology/timeline update explaining a failure discovered after the first independent oracle cohort: the study retained A/B/C labels but did not retain the adjudicators' original decision justifications.
+Add a dated methodology/timeline update explaining the oracle decision-provenance failure and its later correction: the authoritative A/B/C pass retained labels but no structured decision justifications, while a later audit found contemporaneous provider reasoning summaries in the retained private Inspect logs.
 
 This should be presented as an evidence-engineering lesson and a limitation of the completed v1 adjudication, not as evidence that the oracle labels are wrong.
 
 ## Recommended timeline entry
 
-**2026-09-26 — Oracle evidence-retention gap identified**
+**2026-09-26 — Oracle evidence-retention gap identified; 2026-09-27 audit refines the diagnosis**
 
-After freezing the first independent oracle, review found that the execution contract had persisted adjudicator labels but not the concise reasoning/decision justification anticipated by the frozen protocol for difficult three-way conflicts. The frozen oracle remains intact, but the missing provenance limits retrospective analysis of *why* adjudicators disagreed. The next study version will make structured decision justification and round-trip persistence a preflight invariant.
+After freezing the first independent oracle, review found that the execution contract had persisted adjudicator labels but not the concise structured decision justification anticipated by the frozen protocol for difficult three-way conflicts. A later audit of the retained private Inspect logs found that provider reasoning summaries had in fact survived as supplementary execution evidence. The failure was therefore not that the harness could not expose explanatory evidence; the pipeline failed to promote it into the authoritative pass and human-resolution workflow. The frozen oracle remains intact, and the next study version will make structured decision justification and round-trip persistence a preflight invariant.
 
 ## Recommended case-study treatment
 
@@ -22,7 +22,7 @@ Place this after the oracle-freeze milestone and before any later full comparati
 
 Suggested narrative:
 
-> Freezing independent ground truth exposed a second-order problem: a label is enough to score a decision, but not enough to explain the failure mode behind a disagreement. The first adjudication cohort preserved the votes while its labels-only output contract discarded the adjudicators' original decision justifications. Rather than reconstruct explanations after the fact, the study records the limitation and changes the next evaluation contract: every independent decision must carry a compact structured justification whose persistence is verified before the cohort runs.
+> Freezing independent ground truth exposed a second-order problem: a label is enough to score a decision, but not enough to explain the failure mode behind a disagreement. The first adjudication cohort's labels-only pass omitted structured justifications from the artifacts used for human resolution. A later audit found contemporaneous reasoning summaries in the private Inspect logs, making the lesson sharper: useful evidence existed, but the evaluation contract failed to promote it into the durable decision record. The next evaluation contract therefore requires a compact structured justification whose persistence is verified before the cohort runs.
 
 Emphasize that this was discovered through review of the evidence chain itself.
 
@@ -60,7 +60,8 @@ Frozen case
                     v
               persisted record
               labels: YES
-              justifications: NO   <-- discovered gap
+              structured justifications: NO
+              private reasoning summaries: retained elsewhere
                     |
                     v
         corrective contract for next cohort
@@ -74,7 +75,8 @@ Avoid depicting private chain-of-thought. Use terms such as **decision justifica
 Safe:
 
 - the labels were retained;
-- the original independent decision justifications were not;
+- structured independent decision justifications were absent from the authoritative pass;
+- private Inspect logs later proved that provider reasoning summaries were retained as supplementary execution evidence;
 - the frozen protocol anticipated rationales for genuine three-way resolution;
 - the human resolution therefore had a reduced evidence set;
 - the gap limits retrospective disagreement diagnosis and reasoning-provenance audit;
@@ -85,7 +87,7 @@ Do not say:
 
 - the oracle is invalid;
 - the labels are known to be wrong;
-- missing rationales can be regenerated faithfully;
+- private reasoning summaries can be retrofitted as if they were used by the original human resolution;
 - the study captured model chain-of-thought;
 - the API accounting measures Jev efficiency;
 - either comparative arm won.

@@ -3,19 +3,20 @@
 **Date:** 2026-09-26  
 **Study:** `routing-semantic-v1`  
 **Classification:** experimental-design limitation / evidence-retention failure  
-**Status:** documented after oracle freeze; frozen v1 oracle is not retroactively altered
+**Status:** documented after oracle freeze; frozen v1 oracle is not retroactively altered  
+**2026-09-27 correction:** retained private Inspect logs were later found to contain provider reasoning-summary events. The authoritative pass/resolution artifacts still lacked structured decision justifications. See [`2026-09-27-oracle-reasoning-summary-retention-audit.md`](2026-09-27-oracle-reasoning-summary-retention-audit.md).
 
 ## Executive summary
 
-The first `routing-semantic-v1` oracle cohort successfully preserved independent adjudicator **labels**, but it did not preserve the adjudicators' original **decision justifications**. The frozen oracle protocol anticipated that genuine three-way conflicts could be resolved using the case, frozen rubric, and independent rationales. The implemented Inspect output contract instead requested labels-only JSON.
+The first `routing-semantic-v1` oracle cohort successfully preserved independent adjudicator **labels**, but its authoritative adjudication passes did not preserve structured **decision justifications**. The frozen oracle protocol anticipated that genuine three-way conflicts could be resolved using the case, frozen rubric, and independent rationales. The implemented Inspect output contract instead requested labels-only JSON.
 
-This is not a loss of the oracle labels themselves. A/B labels were retained, C labels were retained where required, and the final frozen oracle was produced and validated before comparative inference. The failure is that the evidence chain cannot now answer an important second-order question:
+This is not a loss of the oracle labels themselves. A/B labels were retained, C labels were retained where required, and the final frozen oracle was produced and validated before comparative inference. The failure is that the normal adjudication/resolution evidence chain cannot answer an important second-order question:
 
 > **Why did an adjudicator choose that label, and why did adjudicators disagree?**
 
 That distinction matters. A comparative study can still score candidate/control decisions against the frozen labels, but it cannot retrospectively decompose oracle disagreement into rubric ambiguity, differing interpretation of supplied evidence, boundary-case judgment, or adjudicator reasoning error with the fidelity originally intended.
 
-The correct response is not to reconstruct missing rationales after the fact. Doing so would create post-hoc evidence and contaminate the historical record. The v1 limitation must remain explicit, while a future adjudication contract should require concise, structured decision justifications at the time each independent label is produced.
+A later private-log audit found contemporaneous provider reasoning summaries in the retained Inspect execution evidence. Those summaries were not available to the original human-resolution workflow and must not be retrofitted into the frozen oracle. The correct response is still not to regenerate or rewrite historical rationales after the fact. The v1 limitation must remain explicit, while a future adjudication contract should require concise, structured decision justifications at the time each independent label is produced.
 
 ## What the frozen protocol intended
 
@@ -31,7 +32,7 @@ The protocol also says the adjudication record should preserve independent label
 
 ## What the implementation actually retained
 
-The completed Inspect cohort persisted the independent labels but not the original adjudicator rationales because the adjudicator output contract requested labels-only JSON.
+The completed Inspect cohort persisted the independent labels but not structured adjudicator rationales in the authoritative pass because the adjudicator output contract requested labels-only JSON. Retained private Inspect logs were later found to contain provider reasoning summaries, but those summaries were outside the pass consumed by the resolution tooling.
 
 Consequently, human resolution of genuine three-way conflicts had access to:
 
@@ -40,9 +41,9 @@ Consequently, human resolution of genuine three-way conflicts had access to:
 3. the frozen decision-seam rubric;
 4. the independent A/B/C labels.
 
-It did **not** have the original explanation each model used to arrive at its label.
+It did **not** have the later-discovered private reasoning summaries or a structured rationale field from each model at the time of resolution.
 
-This means the study retained the **decision outcome** but discarded a material part of the intended **decision provenance**.
+This means the authoritative study record retained the **decision outcome** but failed to promote a material part of the available execution evidence into the intended **decision provenance** contract.
 
 ## Why this is a methodological failure
 
@@ -68,9 +69,9 @@ The frozen protocol explicitly envisioned independent rationales as evidence dur
 
 This does not justify changing the frozen oracle now. It does mean the actual implementation was weaker than the intended protocol at this point and the limitation belongs in the study record.
 
-### 3. The study cannot audit adjudicator reasoning fidelity after freeze
+### 3. The authoritative pass cannot directly audit adjudicator reasoning fidelity
 
-After the oracle is frozen, we can inspect the labels and final resolution records, but we cannot test whether an adjudicator:
+From the authoritative labels/resolution records alone, we cannot test whether an adjudicator:
 
 - applied the primary-deliverable rule correctly;
 - copied or over-weighted stale metadata;
@@ -78,17 +79,17 @@ After the oracle is frozen, we can inspect the labels and final resolution recor
 - treated generic complexity as semantic consequence;
 - imported facts outside the blinded authoring view.
 
-The reviewer guide warns against all of these behaviors. Without contemporaneous justification evidence, compliance can only be inferred from labels, not audited directly.
+The reviewer guide warns against all of these behaviors. The later-discovered private reasoning summaries permit a supplementary retrospective audit, but they were not part of the frozen pass contract and cannot be treated as evidence used by the original resolver.
 
 ### 4. The evidence is insufficient for a useful error taxonomy
 
 One of the most valuable outputs of a comparative evaluation is not merely a winner/loser count. It is a map of **where decisions fail and why**.
 
-The missing justifications prevent a defensible retrospective taxonomy of oracle disagreement mechanisms. Any such taxonomy built now would require new interpretation by the researcher and would no longer represent the independent adjudicators' original reasoning.
+The absence of structured justifications from the authoritative pass prevents a defensible disagreement taxonomy from the normal oracle artifacts alone. The private reasoning summaries may support a separately labeled retrospective taxonomy, but such analysis would be supplementary and post-freeze; it must not be represented as part of the original oracle-resolution evidence.
 
 ### 5. It reduces reproducibility of the adjudication process
 
-Another qualified adjudicator can reproduce the rubric and produce new labels, but cannot reproduce the historical path from the original evidence to the original labels because part of that path was never persisted.
+Another qualified adjudicator can reproduce the rubric and produce new labels, but cannot reproduce the historical path from the authoritative pass artifacts alone because the structured rationale was never part of that contract. Supplementary private Inspect summaries preserve some contemporaneous explanatory evidence outside the pass.
 
 Reproducibility therefore exists at the artifact/protocol/label level, but not at the original decision-justification level.
 
@@ -130,9 +131,9 @@ No public count of A/B disagreements, C adjudications, or genuine three-way conf
 
 ## Root cause
 
-The immediate root cause was a mismatch between **protocol semantics** and **output-schema semantics**.
+The immediate root cause was a mismatch between **protocol semantics**, **available execution evidence**, and **output-schema semantics**.
 
-The protocol treated rationales as part of the evidence available for difficult adjudication. The execution contract optimized the model response down to labels-only JSON. Because the run pipeline preserved what the output contract emitted, the missing field became an irreversible evidence gap once the independent passes completed.
+The protocol treated rationales as part of the evidence available for difficult adjudication. The execution contract optimized the model response down to labels-only JSON. Because the run pipeline promoted only what the output contract emitted, the structured rationale became an authoritative-contract gap once the independent passes completed, even though supplementary reasoning-summary events remained in private Inspect logs.
 
 The broader process failure was that preflight qualification validated whether the adjudicator could produce valid labels, but did not fail closed on whether **all evidence required by downstream adjudication and analysis** was persisted.
 
@@ -144,7 +145,7 @@ protocol requirement
       v
 independent label + justification
       |
-      X   output contract retained label only
+      X   output contract promoted label only
       |
       v
 frozen historical record
@@ -229,7 +230,7 @@ Do not:
 Do:
 
 - retain the frozen oracle;
-- disclose that original independent rationales were not persisted;
+- disclose that structured independent rationales were not persisted in the authoritative pass, while private Inspect reasoning summaries survived outside the resolution workflow;
 - bound claims about disagreement analysis accordingly;
 - preserve any actual human resolution rationale that was recorded;
 - version the corrected evidence contract for a subsequent study/adjudication cohort.
@@ -260,6 +261,6 @@ That is a stronger and more accurate description of the work than presenting the
 
 Safe public statement:
 
-> The first frozen oracle retained independent labels but not the adjudicators' original decision justifications. That limited retrospective analysis of why adjudicators disagreed and reduced the evidence available during genuine three-way conflict resolution. The frozen v1 oracle is preserved as executed; the corrective design is to require compact structured justifications and verify their end-to-end persistence before future cohorts run.
+> The first frozen oracle's authoritative passes retained independent labels but no structured decision justifications. A later audit found contemporaneous provider reasoning summaries in private Inspect logs, but those summaries were not exposed to the original human-resolution workflow and are not retrofitted into the frozen oracle. The corrective design is to require compact structured justifications and verify their end-to-end persistence before future cohorts run.
 
 Do not state that the oracle is invalid or that comparative results are known to be wrong. The documented failure concerns evidence completeness and adjudication provenance, not demonstrated label incorrectness.

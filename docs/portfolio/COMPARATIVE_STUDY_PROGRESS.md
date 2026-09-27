@@ -16,7 +16,7 @@ This file is intentionally maintained as a portfolio-facing engineering artifact
 | Study-grade metrics/reporting | implementation in progress | comparative-eval 0.2 work |
 | Dedicated benchmark lane | implementation in progress | benchmark comparative-decision work |
 | P1 live instrumentation smoke | passed | 8 cases, 8 observed cases, 24 observations, 8 provider requests, 0 exclusions; all verification invariants passed |
-| Full study | unblocked; not yet run | P2 may now execute the full 120-case inference and post-inference oracle join/report |
+| Full study | complete; private report generated | 120 cases, 360 observations, 120 provider requests, 0 exclusions; frozen oracle joined only after inference; sanitized P3 publication remains pending |
 
 ## Website-agent handoff
 
@@ -53,9 +53,13 @@ The study work therefore focuses first on restoring the evidence chain rather th
 
 ## Methodology correction discovered after oracle freeze
 
-The completed v1 oracle retained independent A/B/C labels but did not retain the adjudicators' original decision justifications. This limits retrospective diagnosis of why adjudicators disagreed and reduced the evidence available during genuine three-way conflict resolution. The frozen oracle is not being rewritten and missing rationales must not be reconstructed post hoc.
+The completed v1 oracle's authoritative A/B/C passes retained independent labels but no structured decision justifications. A later audit of the retained private Inspect logs found contemporaneous provider reasoning summaries for the cohort. Those summaries were supplementary execution evidence and were not surfaced to the original human-resolution workflow.
+
+The precise failure was therefore **decision-provenance promotion**, not total loss of explanatory evidence: the pipeline reduced the durable adjudication pass to labels even though useful reasoning-summary evidence survived elsewhere. The frozen oracle is not being rewritten and the later-discovered summaries are not retrofitted into it.
 
 Detailed postmortem: [`2026-09-26-oracle-decision-justification-evidence-gap.md`](../audits/2026-09-26-oracle-decision-justification-evidence-gap.md).
+
+Corrective audit: [`2026-09-27-oracle-reasoning-summary-retention-audit.md`](../audits/2026-09-27-oracle-reasoning-summary-retention-audit.md).
 
 Focused website handoff: [`WEBSITE_AGENT_HANDOFF_ORACLE_EVIDENCE_GAP_2026-09-26.md`](WEBSITE_AGENT_HANDOFF_ORACLE_EVIDENCE_GAP_2026-09-26.md).
 
@@ -71,8 +75,8 @@ Focused website handoff: [`WEBSITE_AGENT_HANDOFF_ORACLE_EVIDENCE_GAP_2026-09-26.
 
 ## Claims that must wait
 
-Do not render claims that Jev improves routing correctness, quality, cost, or latency until the full independently labeled P2 study is complete. P1 proves that the intended evidence path works on a bounded development sample; it is not comparative-effectiveness evidence.
+P2 has completed on the full frozen cohort, but sanitized public evidence preparation/review remains pending. Do not publish comparative correctness, calibration, cost, latency, or winner claims from private P2 artifacts until the P3 publication boundary is reviewed and approved.
 
 ---
 
-<small>Last updated: 2026-09-26 — P1 smoke passed; P2 unblocked; oracle-baseline provider accounting recorded</small>
+<small>Last updated: 2026-09-27 — P2 complete; reasoning-summary retention audit corrected the oracle-provenance diagnosis; P3 publication pending</small>
