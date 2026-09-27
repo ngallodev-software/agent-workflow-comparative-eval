@@ -128,3 +128,12 @@ Safe public wording:
 > The first oracle cohort's labels-only pass contract omitted structured decision justifications from the artifacts used by human resolution. A later audit found that private Inspect logs had retained provider reasoning summaries, so the problem was not that the harness could not expose explanatory evidence; the evaluation pipeline failed to promote it into the authoritative decision record. The frozen oracle remains unchanged, and future cohorts will require explicit structured justifications with end-to-end persistence checks.
 
 Do not publish the private reasoning-summary text or use it to revise the frozen v1 oracle.
+
+
+## Follow-up design
+
+The versioned follow-up design is tracked in:
+
+`docs/plans/routing-semantic-v2-adjudication-evidence-contract.md`
+
+It requires provider-neutral structured justifications, explicit final-output versus aggregate-session usage scopes, new preflight round-trip gates, and optional/private treatment of provider reasoning summaries.
