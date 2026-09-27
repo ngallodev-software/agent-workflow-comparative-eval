@@ -51,6 +51,14 @@ The original system already preserved Jev probabilities/confidence in Agent-Work
 
 The study work therefore focuses first on restoring the evidence chain rather than adding another model call or another headline metric.
 
+## Methodology correction discovered after oracle freeze
+
+The completed v1 oracle retained independent A/B/C labels but did not retain the adjudicators' original decision justifications. This limits retrospective diagnosis of why adjudicators disagreed and reduced the evidence available during genuine three-way conflict resolution. The frozen oracle is not being rewritten and missing rationales must not be reconstructed post hoc.
+
+Detailed postmortem: [`2026-09-26-oracle-decision-justification-evidence-gap.md`](../audits/2026-09-26-oracle-decision-justification-evidence-gap.md).
+
+Focused website handoff: [`WEBSITE_AGENT_HANDOFF_ORACLE_EVIDENCE_GAP_2026-09-26.md`](WEBSITE_AGENT_HANDOFF_ORACLE_EVIDENCE_GAP_2026-09-26.md).
+
 ## Claims safe to render now
 
 - The comparison library already contains correctness, reliability, efficiency, calibration, pairing, and deterministic statistical primitives.
