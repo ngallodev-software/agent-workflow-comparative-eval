@@ -1,9 +1,9 @@
 {
   "schema": "agent-workflow-comparative-eval/release-candidate/v1",
-  "status": "qualified-integration-candidate",
+  "status": "development-integration-candidate",
   "distribution": "agent-workflow-comparative-eval",
   "import_package": "agent_workflow_comparative_eval",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "canonical_contracts": [
     "agent-workflow-comparative-eval/eval-feature/v1",
     "agent-workflow-comparative-eval/comparison-observation/v1",
@@ -20,7 +20,9 @@
     "agent-workflow-comparative-eval/oracle-authoring-view/v1"
   ],
   "study_specs": [
-    "routing-semantic-v1/1.1.0"
+    "routing-semantic-v1/1.1.0",
+    "routing-semantic-v2/2.0.0-draft.2",
+    "agentic-jev-pilot-v1/0.1.0-draft.2"
   ],
   "datasets": {
     "routing-v1": {
@@ -43,10 +45,15 @@
     "agent-workflow-benchmark": "0.4.0 integration branch / CI 36087979473",
     "agent-workflow-typesafe": "0.1.1 historical adoption source"
   },
-  "release_note": "The 0.2.0 source is committed and cross-repository integration-qualified. No release tag is asserted by this record; tag/release creation follows merged-default-branch validation.",
+  "release_note": "The 0.3.0 source packages the versioned v2 methodological-replication and agentic-Jev pilot contracts. Cross-repository qualification against agent-workflow-benchmark 0.5.0 is pending; historical 0.2.0 consumer qualification remains evidence for the earlier package pair.",
   "study_corpora": {
     "routing-semantic-v1": {
       "dataset_version": "routing-semantic-corpus-v1.0.0",
+      "case_count": 120,
+      "oracle_labels_included": false
+    },
+    "routing-semantic-v2": {
+      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
       "case_count": 120,
       "oracle_labels_included": false
     }
