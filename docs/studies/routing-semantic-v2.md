@@ -1,6 +1,7 @@
 # Routing Semantic v2 — Methodological Replication
 
 **Status:** design/implementation; not frozen  
+**Study version:** `2.0.0-draft.2`  
 **Relationship to v1:** new study identity; v1 remains immutable and published
 
 ## Purpose
@@ -8,6 +9,17 @@
 `routing-semantic-v2` repairs the evidence-contract failures found during v1 before another real oracle cohort is run.
 
 The first v2 cohort is intentionally a **methodological replication**, not a new task-domain claim. It is intended to reuse the exact 120 v1 case meanings under a new dataset identity so we can measure how much a rationale-complete oracle changes ground truth and whether the published v1 conclusions are stable.
+
+## Adjudicator-model control
+
+The methodological replication keeps the adjudicator model path matched to v1:
+
+- model: `deepseek-flash`;
+- provider path: `openai-api/codex-lb/deepseek-flash`;
+- request mode: Responses API;
+- no new reasoning-effort override.
+
+This isolates the v2 evidence-contract changes from an adjudicator-model change. GPT-6 Luna is used only by the separate agent-directed Jev pilot.
 
 ## Required differences from v1
 

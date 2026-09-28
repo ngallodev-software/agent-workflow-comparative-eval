@@ -86,7 +86,11 @@ A complete pre-live review then tightened the remaining execution boundaries bef
 
 Current readiness checkpoint: [`2026-09-27-comparative-study-v10-prelive-readiness-review.md`](../checkpoints/2026-09-27-comparative-study-v10-prelive-readiness-review.md).
 
-The next bounded work is live qualification: IA-9/10/11 evidence preflight plus the strengthened agentic-Jev runtime freeze/one-call bridge qualification. Real v2 A/B/C and the 24 × 3 pilot remain blocked.
+Before live qualification, the model identities were then frozen separately by study purpose. `routing-semantic-v2` retains the v1-matched DeepSeek Flash adjudicator path so the evidence-contract change is not confounded with a model change. `agentic-jev-pilot-v1` is now frozen on GPT-6 Luna at high reasoning effort across all three arms, with Responses API transport, explicit `gpt-6-luna` Codex model configuration, and a Codex CLI >=0.155.0 requirement.
+
+Model-identity checkpoint: [`2026-09-27-comparative-study-v11-model-identity-split.md`](../checkpoints/2026-09-27-comparative-study-v11-model-identity-split.md).
+
+The next bounded work is still live qualification: DeepSeek IA-9/10/11 evidence preflight plus the Luna/high strengthened agentic-Jev runtime freeze/one-call bridge qualification. Real v2 A/B/C and the 24 × 3 pilot remain blocked.
 
 Design contract: [`routing-semantic-v2-adjudication-evidence-contract.md`](../plans/routing-semantic-v2-adjudication-evidence-contract.md).
 
@@ -112,4 +116,4 @@ Do not generalize these findings into universal TypeSafe/Jev superiority, downst
 
 ---
 
-<small>Last updated: 2026-09-27 — repository-level v2/pilot readiness review complete; live IA-9/10/11 and exactly-once Jev bridge qualification are next</small>
+<small>Last updated: 2026-09-27 — model identities frozen pre-live: DeepSeek Flash for v2 replication, GPT-6 Luna/high for the agentic-Jev pilot; live qualification is next</small>
