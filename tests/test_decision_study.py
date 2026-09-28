@@ -369,3 +369,24 @@ def test_agentic_jev_pilot_has_three_arms_and_no_effectiveness_claim():
         == "65a39f393687675ce170e6094757de20370365b9"
     )
     assert spec["claim_policy"]["no_downstream_quality_claim_until_followup_study"] is True
+
+
+def test_routing_semantic_v2_replication_corpus_preserves_v1_case_content():
+    v1 = load_study_corpus("routing-semantic-v1")
+    v2 = load_study_corpus("routing-semantic-v2")
+    assert v2["study_id"] == "routing-semantic-v2"
+    assert v2["dataset_version"] == "routing-semantic-corpus-v2.0.0-draft.1"
+    assert len(v1["cases"]) == len(v2["cases"]) == 120
+
+    def semantic_projection(case):
+        value = dict(case)
+        value.pop("dataset_version", None)
+        return value
+
+    assert [semantic_projection(case) for case in v2["cases"]] == [
+        semantic_projection(case) for case in v1["cases"]
+    ]
+    manifest = study_corpus_manifest("routing-semantic-v2")
+    assert manifest["study_id"] == "routing-semantic-v2"
+    assert manifest["case_count"] == 120
+    assert len(manifest["sha256"]) == 64
