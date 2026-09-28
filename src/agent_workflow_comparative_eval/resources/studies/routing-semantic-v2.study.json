@@ -1,0 +1,213 @@
+{
+  "schema": "agent-workflow-comparative-eval/decision-study-spec/v1",
+  "study_id": "routing-semantic-v2",
+  "study_version": "2.0.0-draft.1",
+  "status": "design-implementation",
+  "purpose": "Methodological replication of routing-semantic-v1 using the same three routing semantics while upgrading oracle decision provenance, usage scope, and qualification guarantees before any new effectiveness claim.",
+  "evaluation_unit": "one routing case adjudicated independently with a required structured justification per eligible seam; treatment inference remains one batched semantic request projected into three observations",
+  "replication_of": {
+    "study_id": "routing-semantic-v1",
+    "source_dataset_version": "routing-semantic-corpus-v1.0.0",
+    "same_case_content_intended": true,
+    "new_oracle_required": true,
+    "previous_oracle_reuse_for_scoring": false
+  },
+  "decision_seams": [
+    {
+      "decision_id": "routing.task_class",
+      "feature_id": "routing.task-class/v1",
+      "semantic_type": "choice",
+      "oracle_type": "categorical",
+      "labels": [
+        "implementation",
+        "diagnosis",
+        "review",
+        "documentation",
+        "other"
+      ],
+      "label_meaning": {
+        "implementation": "Primary deliverable creates or changes executable behavior, code, configuration, data transformation, or tests as part of a change.",
+        "diagnosis": "Primary deliverable investigates, traces, explains, or determines cause/state without a required implementation change.",
+        "review": "Primary deliverable evaluates an existing or proposed artifact for defects, security, correctness, compatibility, compliance, or readiness.",
+        "documentation": "Primary deliverable is explanatory/reference/runbook/release-note documentation rather than executable behavior.",
+        "other": "Primary deliverable is planning, coordination, prioritization, handoff, organization, or another activity outside the four classes."
+      },
+      "mixed_intent_precedence": [
+        "implementation when an executable behavior/code/config change is explicitly required",
+        "otherwise review when the final deliverable is an assessment/audit/verdict",
+        "otherwise diagnosis when the final deliverable is root-cause/state understanding",
+        "otherwise documentation when the final deliverable is documentation",
+        "otherwise other"
+      ],
+      "metadata_rule": "Declared task_type is observed evidence and may be stale or wrong; it is not the oracle label.",
+      "primary_metrics": [
+        "top1_accuracy",
+        "confusion_matrix",
+        "paired_correctness_effect",
+        "multiclass_brier",
+        "log_loss"
+      ]
+    },
+    {
+      "decision_id": "routing.interaction_required",
+      "feature_id": "routing.interaction-required/v1",
+      "semantic_type": "noul",
+      "oracle_type": "boolean",
+      "proposition": "A material user decision, authorization, or preference is missing from supplied state and is required before the requested action can be completed responsibly.",
+      "true_when": [
+        "a materially incompatible product/API behavior must be chosen",
+        "production/public/irreversible action requires authorization not already supplied",
+        "an effective date, authoritative source, or policy choice changes external behavior",
+        "publication itself requires approval of claim language or evidence level"
+      ],
+      "false_when": [
+        "the request is analysis, review, or preparation only",
+        "authorization or the relevant policy decision is explicitly supplied",
+        "normal engineering judgment or repository evidence can resolve implementation detail without changing product policy",
+        "the task can safely produce a bounded artifact without an external user choice"
+      ],
+      "metadata_rule": "Declared requires_interaction is observed evidence and may be stale; it is not ground truth.",
+      "primary_metrics": [
+        "accuracy",
+        "precision",
+        "recall",
+        "f1",
+        "paired_correctness_effect",
+        "brier",
+        "ece"
+      ]
+    },
+    {
+      "decision_id": "routing.semantic_risk",
+      "feature_id": "routing.semantic-risk/v1",
+      "semantic_type": "score",
+      "oracle_type": "ordinal",
+      "levels": [
+        0,
+        1,
+        2
+      ],
+      "level_meaning": {
+        "0": "low consequence; easily reversible",
+        "1": "moderate consequence; careful verification required",
+        "2": "high consequence; authority, security, or irreversible-state risk"
+      },
+      "interpretation": "Consequence of acting on a materially wrong semantic interpretation, not generic code complexity or deterministic security/lifecycle risk.",
+      "primary_metrics": [
+        "mean_absolute_error",
+        "signed_bias",
+        "within_one_level_accuracy",
+        "paired_absolute_error_effect",
+        "multiclass_brier",
+        "log_loss"
+      ]
+    }
+  ],
+  "research_questions": [
+    {
+      "id": "RQ1",
+      "text": "How stable are the v1 oracle labels when the same case semantics are independently adjudicated under a rationale-complete v2 evidence contract?"
+    },
+    {
+      "id": "RQ2",
+      "text": "Does every eligible A/B/C label retain a bounded structured justification through pass wrapping, dispute construction, and human-resolution rendering?"
+    },
+    {
+      "id": "RQ3",
+      "text": "Can final-output usage and aggregate multi-call session usage be reconciled without ambiguous scope?"
+    },
+    {
+      "id": "RQ4",
+      "text": "What disagreement mechanisms become observable from structured justifications, and how often do they involve rubric interpretation, missing evidence, or genuine ambiguity?"
+    },
+    {
+      "id": "RQ5",
+      "text": "If the v2 oracle materially differs from v1, do the previously published seam-level candidate/control conclusions remain directionally stable under the new oracle?"
+    }
+  ],
+  "sample_policy": {
+    "confidence": 0.95,
+    "target_shared_cases": 120,
+    "source_case_policy": "reuse the exact v1 case content for methodological replication; issue new v2 dataset identity before real adjudication",
+    "minimum_oracle_eligible_per_seam": 100,
+    "paired_bootstrap_samples": 10000,
+    "ece_minimum_n": 100,
+    "p90_minimum_n": 20,
+    "p95_minimum_n": 40
+  },
+  "oracle_policy": {
+    "protocol_version": "routing-semantic-oracle-v2-draft.1",
+    "adjudication_pass_schema": "agent-workflow-benchmark/decision-study-adjudication-pass/v2",
+    "blinded_to_control_and_candidate_outputs": true,
+    "hidden_from_inference": true,
+    "separate_artifact": true,
+    "result_affecting_changes_require_new_version": true,
+    "structured_justification_required": true,
+    "structured_justification": {
+      "decisive_case_evidence_min_items": 1,
+      "decisive_case_evidence_max_items": 3,
+      "decisive_case_evidence_max_chars_each": 320,
+      "rubric_rule_required": true,
+      "rubric_rule_max_chars": 320,
+      "ambiguity_enum": [
+        "none",
+        "material",
+        "insufficient_evidence"
+      ],
+      "free_form_chain_of_thought_required": false
+    },
+    "supplementary_reasoning_summary": {
+      "authoritative": false,
+      "private_only": true,
+      "required": false
+    },
+    "usage_scope_required": [
+      "final_output_usage",
+      "aggregate_session_usage",
+      "provider_request_count",
+      "model_call_count"
+    ]
+  },
+  "exclusion_policy": {
+    "allowed_reason_codes": [
+      "invalid_case_contract",
+      "duplicate_case_id",
+      "oracle_missing",
+      "oracle_conflict_unresolved",
+      "inference_input_leakage",
+      "control_execution_failure",
+      "candidate_execution_failure",
+      "provider_timeout",
+      "provider_service_error",
+      "invalid_provider_contract",
+      "study_identity_mismatch",
+      "adjudication_justification_missing",
+      "adjudication_provenance_scope_invalid"
+    ],
+    "provider_failures_remain_reliability_evidence": true,
+    "silent_exclusion_forbidden": true
+  },
+  "evidence_policy": {
+    "credentials_public": false,
+    "raw_provider_http_public": false,
+    "public_safe_inputs_allowed": true,
+    "publish_aggregates_hashes_versions_and_sanitized_case_level_evidence": true,
+    "authoritative_justification_public_policy": "private-by-default until separately preregistered",
+    "reasoning_summaries_public": false,
+    "pass_rationale_round_trip_required": true
+  },
+  "frozen_runtime_identity": {
+    "agent_workflow_projector": "routing-state/v2",
+    "agent_workflow_question_set": "routing/v2",
+    "semantic_provider": "typesafe",
+    "semantic_provider_role": "evidence_only",
+    "runtime_lock_required_before_real_cohort": true
+  },
+  "claim_policy": {
+    "agreement_is_not_correctness": true,
+    "development_runs_are_not_generalized_effect_claims": true,
+    "v1_public_result_remains_historical": true,
+    "v2_replication_does_not_replace_v1_without_publication": true,
+    "favorable_candidate_result_not_required_for_publication": true
+  }
+}

@@ -324,3 +324,48 @@ def test_invalid_multiclass_probability_vector_disables_calibration_not_report()
         seam["calibration"]["reason"]
         == "complete valid answered probability distribution evidence unavailable"
     )
+
+
+def test_routing_semantic_v2_draft_requires_structured_justification_and_usage_scope():
+    spec = load_study_spec("routing-semantic-v2")
+    assert spec["study_id"] == "routing-semantic-v2"
+    assert spec["status"] == "design-implementation"
+    assert spec["replication_of"]["study_id"] == "routing-semantic-v1"
+    assert spec["oracle_policy"]["structured_justification_required"] is True
+    assert (
+        spec["oracle_policy"]["adjudication_pass_schema"]
+        == "agent-workflow-benchmark/decision-study-adjudication-pass/v2"
+    )
+    assert spec["oracle_policy"]["supplementary_reasoning_summary"] == {
+        "authoritative": False,
+        "private_only": True,
+        "required": False,
+    }
+    assert spec["oracle_policy"]["usage_scope_required"] == [
+        "final_output_usage",
+        "aggregate_session_usage",
+        "provider_request_count",
+        "model_call_count",
+    ]
+
+
+def test_agentic_jev_pilot_has_three_arms_and_no_effectiveness_claim():
+    spec = load_study_spec("agentic-jev-pilot-v1")
+    assert spec["study_id"] == "agentic-jev-pilot-v1"
+    assert spec["sample_policy"]["target_tasks"] == 24
+    assert spec["sample_policy"]["exploratory_only"] is True
+    assert spec["oracle_policy"]["required"] is False
+    assert [arm["id"] for arm in spec["arms"]] == [
+        "A-baseline",
+        "B-skill-only",
+        "C-skill-plus-jev",
+    ]
+    assert spec["arms"][0]["typesafe_skill"] is False
+    assert spec["arms"][1]["typesafe_skill"] is True
+    assert spec["arms"][1]["jev_tool"] is False
+    assert spec["arms"][2]["jev_tool"] is True
+    assert (
+        spec["frozen_runtime_identity"]["skill_commit"]
+        == "65a39f393687675ce170e6094757de20370365b9"
+    )
+    assert spec["claim_policy"]["no_downstream_quality_claim_until_followup_study"] is True
