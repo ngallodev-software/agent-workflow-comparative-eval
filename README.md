@@ -69,9 +69,11 @@ rewritten in place.
 
 ## Decision-study surface
 
-Version `0.2.0` adds a preregistered, provider-neutral study layer without moving workflow authority into this package:
+Version `0.3.0` extends the provider-neutral study layer with versioned follow-up studies while preserving the published v1 boundary:
 
-- a frozen `routing-semantic-v1` study specification;
+- the frozen `routing-semantic-v1` study specification and published historical boundary;
+- `routing-semantic-v2`, a methodological replication with rationale-complete oracle evidence and explicit usage provenance;
+- `agentic-jev-pilot-v1`, a separate exploratory three-arm coding-agent study contract;
 - separate inference-case and frozen-oracle contracts so labels cannot leak into model inputs;
 - three per-decision observations for task class, interaction requirement, and semantic risk;
 - one provider-request record per batched semantic call, preventing latency/token/cost triple-counting;
@@ -114,7 +116,7 @@ result-affecting edits require a new dataset version.
   winner.
 
 The library imports no Agent-Workflow runtime code and remains
-dependency-neutral. Version `0.2.0` adds study-grade decision evidence while keeping the existing v1 generic records readable. The current integration candidate is qualified against Agent-Workflow `0.11.10` and agent-workflow-benchmark `0.4.0`; [`COMPATIBILITY.json`](COMPATIBILITY.json) records the exact tested revisions and CI runs.
+dependency-neutral. Version `0.3.0` adds the v2 methodological-replication and agentic-Jev pilot contracts while keeping the published v1 study and existing generic records readable. Cross-repository qualification for the new package pair is tracked separately from the historical 0.2.0 qualification in [`COMPATIBILITY.json`](COMPATIBILITY.json).
 
 ## Study-readiness audit
 
