@@ -1,13 +1,15 @@
 {
   "schema": "agent-workflow-comparative-eval/compatibility/v1",
-  "library_version": "0.2.0",
+  "library_version": "0.3.0",
   "python": ">=3.11",
   "datasets": {
     "routing": "routing-v1.0.0",
     "skill_behavior": "skill-behavior-v1.0.0"
   },
   "study_specs": [
-    "routing-semantic-v1/1.1.0"
+    "routing-semantic-v1/1.1.0",
+    "routing-semantic-v2/2.0.0-draft.2",
+    "agentic-jev-pilot-v1/0.1.0-draft.2"
   ],
   "legacy_schemas": [
     "agent-workflow-typesafe/eval-feature/v1",
@@ -46,9 +48,11 @@
       "head": "1205b83d2621be3e6bcb566feaf6650d6fc88885",
       "ci_run": 36087979473,
       "result": "success"
-    }
+    },
+    "status": "pending-0.3.0-cross-repository-qualification"
   },
   "study_corpora": {
-    "routing-semantic-v1": "routing-semantic-corpus-v1.0.0"
+    "routing-semantic-v1": "routing-semantic-corpus-v1.0.0",
+    "routing-semantic-v2": "routing-semantic-corpus-v2.0.0-draft.1"
   }
 }
