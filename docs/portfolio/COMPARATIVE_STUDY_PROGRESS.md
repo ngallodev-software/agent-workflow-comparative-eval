@@ -78,6 +78,10 @@ Current execution boundary: live IA-9/10/11 preflight and agentic-Jev tool quali
 
 Detailed checkpoint: [`2026-09-27-comparative-study-v8-v2-live-boundary.md`](../checkpoints/2026-09-27-comparative-study-v8-v2-live-boundary.md).
 
+A subsequent pre-live static review found that the agentic-Jev runtime lock did not yet bind the host-side Jev implementation or installed TypeSafe SDK version. This was corrected before any runtime lock or provider outcome was observed. Benchmark PR #55 merged the stronger contract: the lock now verifies the exact host-tool implementation SHA and `typesafe-sdk==0.6.0` before qualification/run.
+
+Pre-freeze correction checkpoint: [`2026-09-27-comparative-study-v9-agentic-runtime-identity-hardening.md`](../checkpoints/2026-09-27-comparative-study-v9-agentic-runtime-identity-hardening.md).
+
 Design contract: [`routing-semantic-v2-adjudication-evidence-contract.md`](../plans/routing-semantic-v2-adjudication-evidence-contract.md).
 
 ## Claims safe to render now
@@ -102,4 +106,4 @@ Do not generalize these findings into universal TypeSafe/Jev superiority, downst
 
 ---
 
-<small>Last updated: 2026-09-27 — v1 remains complete/published; v2 evidence repair and agent-directed Jev pilot are implemented through the live-preflight boundary</small>
+<small>Last updated: 2026-09-27 — v1 remains complete/published; v2 remains at live preflight; agentic-Jev runtime identity was hardened before its first live freeze</small>
