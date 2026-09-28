@@ -1,7 +1,7 @@
 {
   "schema": "agent-workflow-comparative-eval/decision-study-spec/v1",
   "study_id": "routing-semantic-v2",
-  "study_version": "2.0.0-draft.1",
+  "study_version": "2.0.0-draft.2",
   "status": "design-implementation",
   "purpose": "Methodological replication of routing-semantic-v1 using the same three routing semantics while upgrading oracle decision provenance, usage scope, and qualification guarantees before any new effectiveness claim.",
   "evaluation_unit": "one routing case adjudicated independently with a required structured justification per eligible seam; treatment inference remains one batched semantic request projected into three observations",
@@ -201,7 +201,12 @@
     "agent_workflow_question_set": "routing/v2",
     "semantic_provider": "typesafe",
     "semantic_provider_role": "evidence_only",
-    "runtime_lock_required_before_real_cohort": true
+    "runtime_lock_required_before_real_cohort": true,
+    "oracle_adjudicator_model": "deepseek-flash",
+    "oracle_adjudicator_provider_path": "openai-api/codex-lb/deepseek-flash",
+    "oracle_adjudicator_responses_api": true,
+    "oracle_adjudicator_reasoning_override": null,
+    "replication_model_continuity": "match the routing-semantic-v1 adjudicator model path"
   },
   "claim_policy": {
     "agreement_is_not_correctness": true,
