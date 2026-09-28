@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0
+
+Versioned follow-up study contracts and pre-live methodological controls.
+
+- Adds `routing-semantic-v2` as a separate methodological replication with required structured justifications, explicit usage scope, and frozen DeepSeek adjudicator continuity.
+- Adds the `agentic-jev-pilot-v1` exploratory three-arm coding-agent study with frozen GPT-6 Luna/high runtime identity.
+- Adds the v2 replication corpus identity while preserving v1 case semantics and frozen/public v1 evidence.
+- Records pre-live model-identity boundaries and live-qualification corrections without rewriting earlier checkpoints.
+- Keeps legacy datasets, v1 study semantics, generic comparison contracts, and historical readers intact.
+
 ## 0.2.0
 
 Study-grade comparative-decision evidence and reporting.
