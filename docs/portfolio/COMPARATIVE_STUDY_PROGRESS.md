@@ -94,7 +94,11 @@ The first live DeepSeek IA-9/10/11 preflight then exposed a benchmark terminal-o
 
 First-live correction checkpoint: [`2026-09-27-comparative-study-v12-first-live-preflight-output-correction.md`](../checkpoints/2026-09-27-comparative-study-v12-first-live-preflight-output-correction.md).
 
-The next bounded work is a clean rerun of the DeepSeek IA-9/10/11 evidence preflight, plus the Luna/high strengthened agentic-Jev runtime freeze/one-call bridge qualification. Real v2 A/B/C and the 24 × 3 pilot remain blocked.
+The clean retry then completed far enough to evaluate all three v2 evidence gates: **IA-9 passed, IA-10 failed, and IA-11 passed**. The A/B/C usage evidence contained token totals, but `model_call_count` and `provider_request_count` were null because the pinned Inspect `ModelUsage` aggregate does not provide those counters. Benchmark PR #61 made non-passing gates and the artifact path explicit. Benchmark PR #62 / merge `a898b39d6ef476e99dc1d33080c7b6e01c2494f9` corrects IA-10 by deriving logical model-call and provider-request counts from typed Inspect `ModelEvent` records, counting retries while excluding cache reads from provider requests, and failing closed on invalid retry evidence. The same release advances benchmark to `0.5.0` and pins comparative-eval `0.3.0`.
+
+Second-live correction checkpoint: [`2026-09-28-comparative-study-v13-second-live-preflight-provenance-counts.md`](../checkpoints/2026-09-28-comparative-study-v13-second-live-preflight-provenance-counts.md).
+
+The next bounded work is a clean post-fix DeepSeek IA-9/10/11 preflight, plus the Luna/high strengthened agentic-Jev runtime freeze/one-call bridge qualification. Real v2 A/B/C and the 24 × 3 pilot remain blocked.
 
 Design contract: [`routing-semantic-v2-adjudication-evidence-contract.md`](../plans/routing-semantic-v2-adjudication-evidence-contract.md).
 
@@ -120,4 +124,4 @@ Do not generalize these findings into universal TypeSafe/Jev superiority, downst
 
 ---
 
-<small>Last updated: 2026-09-27 — first live v2 preflight exposed and corrected a terminal-agent-output extraction gap; clean IA-9/10/11 retry is next</small>
+<small>Last updated: 2026-09-28 — second live v2 preflight passed IA-9/IA-11, failed IA-10 on missing request-count provenance, and the event-based count correction is now merged; clean post-fix IA-9/10/11 retry is next</small>
