@@ -352,6 +352,7 @@ def test_routing_semantic_v2_draft_requires_structured_justification_and_usage_s
 def test_agentic_jev_pilot_has_three_arms_and_no_effectiveness_claim():
     spec = load_study_spec("agentic-jev-pilot-v1")
     assert spec["study_id"] == "agentic-jev-pilot-v1"
+    assert spec["study_version"] == "0.1.0-draft.2"
     assert spec["sample_policy"]["target_tasks"] == 24
     assert spec["sample_policy"]["exploratory_only"] is True
     assert spec["oracle_policy"]["required"] is False
@@ -364,10 +365,15 @@ def test_agentic_jev_pilot_has_three_arms_and_no_effectiveness_claim():
     assert spec["arms"][1]["typesafe_skill"] is True
     assert spec["arms"][1]["jev_tool"] is False
     assert spec["arms"][2]["jev_tool"] is True
-    assert (
-        spec["frozen_runtime_identity"]["skill_commit"]
-        == "65a39f393687675ce170e6094757de20370365b9"
-    )
+    runtime = spec["frozen_runtime_identity"]
+    assert runtime["coding_agent_model"] == "gpt-6-luna"
+    assert runtime["coding_agent_provider_path"] == "openai-api/codex-lb/gpt-6-luna"
+    assert runtime["coding_agent_reasoning_effort"] == "high"
+    assert runtime["coding_agent_responses_api"] is True
+    assert runtime["codex_model_config"] == "gpt-6-luna"
+    assert runtime["codex_minimum_version"] == "0.155.0"
+    assert runtime["same_coding_agent_identity_across_arms"] is True
+    assert runtime["skill_commit"] == "65a39f393687675ce170e6094757de20370365b9"
     assert spec["claim_policy"]["no_downstream_quality_claim_until_followup_study"] is True
 
 
