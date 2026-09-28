@@ -90,7 +90,11 @@ Before live qualification, the model identities were then frozen separately by s
 
 Model-identity checkpoint: [`2026-09-27-comparative-study-v11-model-identity-split.md`](../checkpoints/2026-09-27-comparative-study-v11-model-identity-split.md).
 
-The next bounded work is still live qualification: DeepSeek IA-9/10/11 evidence preflight plus the Luna/high strengthened agentic-Jev runtime freeze/one-call bridge qualification. Real v2 A/B/C and the 24 × 3 pilot remain blocked.
+The first live DeepSeek IA-9/10/11 preflight then exposed a benchmark terminal-output extraction gap at the C tiebreaker: the Inspect sample completed, but the harness assumed the adjudication JSON must be in `EvalSample.output.completion` and attempted to decode an empty value. Benchmark PR #60 / merge `37b1e9670bef79f648f0939e4f55fca2b3b6294b` adds a v2-only terminal-assistant fallback, records the selected completion source, preserves v1's historical extraction/provenance shape, and cleans generated preflight evidence before a forced retry.
+
+First-live correction checkpoint: [`2026-09-27-comparative-study-v12-first-live-preflight-output-correction.md`](../checkpoints/2026-09-27-comparative-study-v12-first-live-preflight-output-correction.md).
+
+The next bounded work is a clean rerun of the DeepSeek IA-9/10/11 evidence preflight, plus the Luna/high strengthened agentic-Jev runtime freeze/one-call bridge qualification. Real v2 A/B/C and the 24 × 3 pilot remain blocked.
 
 Design contract: [`routing-semantic-v2-adjudication-evidence-contract.md`](../plans/routing-semantic-v2-adjudication-evidence-contract.md).
 
@@ -116,4 +120,4 @@ Do not generalize these findings into universal TypeSafe/Jev superiority, downst
 
 ---
 
-<small>Last updated: 2026-09-27 — model identities frozen pre-live: DeepSeek Flash for v2 replication, GPT-6 Luna/high for the agentic-Jev pilot; live qualification is next</small>
+<small>Last updated: 2026-09-27 — first live v2 preflight exposed and corrected a terminal-agent-output extraction gap; clean IA-9/10/11 retry is next</small>
