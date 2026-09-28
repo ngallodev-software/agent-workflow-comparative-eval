@@ -63,9 +63,22 @@ Corrective audit: [`2026-09-27-oracle-reasoning-summary-retention-audit.md`](../
 
 Focused website handoff: [`WEBSITE_AGENT_HANDOFF_ORACLE_EVIDENCE_GAP_2026-09-26.md`](WEBSITE_AGENT_HANDOFF_ORACLE_EVIDENCE_GAP_2026-09-26.md).
 
-## Future-cohort follow-up
+## v2 follow-up now in implementation
 
-The v1 oracle remains immutable. The next-version adjudication/provenance design is tracked in [`routing-semantic-v2-adjudication-evidence-contract.md`](../plans/routing-semantic-v2-adjudication-evidence-contract.md). It requires structured per-decision justifications and explicit aggregate-session usage provenance before another real oracle cohort can run.
+The v1 oracle remains immutable.
+
+The next cycle is now split into two separate studies:
+
+- `routing-semantic-v2` — methodological replication of the oracle/evidence process with required structured justifications and explicit provenance scope;
+- `agentic-jev-pilot-v1` — 24-task exploratory baseline / skill-only / skill+Jev study using the existing Inspect/Inspect-SWE Codex harness.
+
+The v2 corpus identity has been created as `routing-semantic-corpus-v2.0.0-draft.1` and is regression-tested to preserve the exact v1 case content apart from identity. The benchmark implementation includes pass-v2, IA-9/10/11 evidence preflight, a frozen TypeSafe skill snapshot, a host-side bridged Jev tool, runtime locking, live tool qualification, and the three-arm pilot runner.
+
+Current execution boundary: live IA-9/10/11 preflight and agentic-Jev tool qualification must pass before freezing the real v2 authoring view or running the 24 × 3 pilot.
+
+Detailed checkpoint: [`2026-09-27-comparative-study-v8-v2-live-boundary.md`](../checkpoints/2026-09-27-comparative-study-v8-v2-live-boundary.md).
+
+Design contract: [`routing-semantic-v2-adjudication-evidence-contract.md`](../plans/routing-semantic-v2-adjudication-evidence-contract.md).
 
 ## Claims safe to render now
 
@@ -89,4 +102,4 @@ Do not generalize these findings into universal TypeSafe/Jev superiority, downst
 
 ---
 
-<small>Last updated: 2026-09-27 — P3 verification passed; routing-semantic-v1 public result published; v1 study complete</small>
+<small>Last updated: 2026-09-27 — v1 remains complete/published; v2 evidence repair and agent-directed Jev pilot are implemented through the live-preflight boundary</small>
