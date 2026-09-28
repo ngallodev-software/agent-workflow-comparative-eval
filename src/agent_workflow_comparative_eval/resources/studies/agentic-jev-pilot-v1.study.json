@@ -1,7 +1,7 @@
 {
   "schema": "agent-workflow-comparative-eval/decision-study-spec/v1",
   "study_id": "agentic-jev-pilot-v1",
-  "study_version": "0.1.0-draft.1",
+  "study_version": "0.1.0-draft.2",
   "status": "development-pilot",
   "purpose": "Explore where a Codex coding agent elects to use Jev as a bounded semantic primitive before defining a full agentic effectiveness study or specialized harness.",
   "evaluation_unit": "one repository task executed by one Codex agent arm with instrumented opportunity, skill, tool-call, and downstream-action evidence",
@@ -112,7 +112,14 @@
     "skill_commit": "65a39f393687675ce170e6094757de20370365b9",
     "skill_release": "v0.5.7",
     "tool_transport": "Inspect bridged tool via MCP; executes on host",
-    "api_key_location": "host only; never injected into sandbox"
+    "api_key_location": "host only; never injected into sandbox",
+    "coding_agent_model": "gpt-6-luna",
+    "coding_agent_provider_path": "openai-api/codex-lb/gpt-6-luna",
+    "coding_agent_reasoning_effort": "high",
+    "coding_agent_responses_api": true,
+    "codex_model_config": "gpt-6-luna",
+    "codex_minimum_version": "0.155.0",
+    "same_coding_agent_identity_across_arms": true
   },
   "claim_policy": {
     "exploratory_only": true,
