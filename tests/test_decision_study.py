@@ -329,6 +329,7 @@ def test_invalid_multiclass_probability_vector_disables_calibration_not_report()
 def test_routing_semantic_v2_draft_requires_structured_justification_and_usage_scope():
     spec = load_study_spec("routing-semantic-v2")
     assert spec["study_id"] == "routing-semantic-v2"
+    assert spec["study_version"] == "2.0.0-draft.2"
     assert spec["status"] == "design-implementation"
     assert spec["replication_of"]["study_id"] == "routing-semantic-v1"
     assert spec["oracle_policy"]["structured_justification_required"] is True
@@ -347,6 +348,11 @@ def test_routing_semantic_v2_draft_requires_structured_justification_and_usage_s
         "provider_request_count",
         "model_call_count",
     ]
+    runtime = spec["frozen_runtime_identity"]
+    assert runtime["oracle_adjudicator_model"] == "deepseek-flash"
+    assert runtime["oracle_adjudicator_provider_path"] == "openai-api/codex-lb/deepseek-flash"
+    assert runtime["oracle_adjudicator_responses_api"] is True
+    assert runtime["oracle_adjudicator_reasoning_override"] is None
 
 
 def test_agentic_jev_pilot_has_three_arms_and_no_effectiveness_claim():
