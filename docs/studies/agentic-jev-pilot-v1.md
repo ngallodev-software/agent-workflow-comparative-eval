@@ -1,6 +1,7 @@
 # Agent-Directed Jev Pilot v1
 
 **Status:** development pilot; no effectiveness claim  
+**Study version:** `0.1.0-draft.2`  
 **Target:** 24 public-safe repository tasks × 3 arms
 
 ## Research question
@@ -20,6 +21,23 @@ This pilot tests a different architecture:
 | C — skill + Jev | yes | yes | yes |
 
 Arm B is required because otherwise an observed behavior change could be caused by the skill instructions rather than the live Jev calls.
+
+## Frozen coding-agent treatment
+
+All three arms use the same coding-agent identity:
+
+- model: **GPT-6 Luna**;
+- provider path: `openai-api/codex-lb/gpt-6-luna`;
+- reasoning effort: **high**;
+- API path: Responses API;
+- Codex model configuration: `gpt-6-luna`;
+- minimum Codex CLI version: `0.155.0`.
+
+Reasoning effort is supplied through Inspect's generation configuration. It is not stored inside provider/model-construction arguments.
+
+This pilot is a new exploratory treatment, so it does not inherit the DeepSeek adjudicator identity from routing-semantic-v1/v2. DeepSeek remains the v2 adjudication model to preserve methodological-replication continuity; Luna is frozen only for the new agent-directed Jev pilot.
+
+The same Luna/runtime/reasoning identity is mandatory across A/B/C. The treatment changes are therefore restricted to TypeSafe skill availability and live Jev availability.
 
 ## Harness boundary
 
