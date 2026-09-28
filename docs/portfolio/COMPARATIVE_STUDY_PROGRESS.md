@@ -82,6 +82,12 @@ A subsequent pre-live static review found that the agentic-Jev runtime lock did 
 
 Pre-freeze correction checkpoint: [`2026-09-27-comparative-study-v9-agentic-runtime-identity-hardening.md`](../checkpoints/2026-09-27-comparative-study-v9-agentic-runtime-identity-hardening.md).
 
+A complete pre-live review then tightened the remaining execution boundaries before any new treatment outcome was observed. Benchmark PR #56 now rechecks the frozen Inspect/SWE, Codex platform, Docker/Compose, sandbox-image, Inspect-harness, host-tool, TypeSafe SDK, skill, and task identities and makes the Jev bridge qualification exactly-once. PR #57 restores the historical v1 provenance shape while keeping the corrected scoped usage contract in v2.
+
+Current readiness checkpoint: [`2026-09-27-comparative-study-v10-prelive-readiness-review.md`](../checkpoints/2026-09-27-comparative-study-v10-prelive-readiness-review.md).
+
+The next bounded work is live qualification: IA-9/10/11 evidence preflight plus the strengthened agentic-Jev runtime freeze/one-call bridge qualification. Real v2 A/B/C and the 24 × 3 pilot remain blocked.
+
 Design contract: [`routing-semantic-v2-adjudication-evidence-contract.md`](../plans/routing-semantic-v2-adjudication-evidence-contract.md).
 
 ## Claims safe to render now
@@ -106,4 +112,4 @@ Do not generalize these findings into universal TypeSafe/Jev superiority, downst
 
 ---
 
-<small>Last updated: 2026-09-27 — v1 remains complete/published; v2 remains at live preflight; agentic-Jev runtime identity was hardened before its first live freeze</small>
+<small>Last updated: 2026-09-27 — repository-level v2/pilot readiness review complete; live IA-9/10/11 and exactly-once Jev bridge qualification are next</small>
