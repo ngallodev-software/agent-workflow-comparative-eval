@@ -48,7 +48,10 @@ _STUDIES = {
     "routing-semantic-v2": "routing-semantic-v2.study.json",
     "agentic-jev-pilot-v1": "agentic-jev-pilot-v1.study.json",
 }
-_STUDY_CORPORA = {"routing-semantic-v1": "routing-semantic-v1.corpus.json"}
+_STUDY_CORPORA = {
+    "routing-semantic-v1": "routing-semantic-v1.corpus.json",
+    "routing-semantic-v2": "routing-semantic-v2.corpus.json",
+}
 
 
 def list_studies() -> tuple[str, ...]:
