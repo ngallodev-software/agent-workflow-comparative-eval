@@ -56,6 +56,20 @@ the current `ModelEvent.call.request` surface, so this refinement still does
 not prove whether the final C request reached the provider with the intended
 `text.format` control. That attribution remains open.
 
+A subsequent read-only schema-artifact diagnostic confirmed that both persisted
+model-facing schemas are bridge-representable and contain no empty schema nodes
+or unsupported `const` / `minItems` / `maxItems` constraints. The C schema
+contains one exact `case_id` constraint using `type: string` plus `enum`
+for `rsv2-preflight-001`; the primary schema contains the corresponding two
+case variants. This rules out malformed benchmark-side C schema construction as
+the explanation for the prose-prefixed terminal completion.
+
+The next diagnostic boundary is therefore the actual Codex-LB ingress request:
+prove whether the C model call arrives with the expected structured-output
+format controls and the exact C schema hash. The benchmark diagnostic tooling
+now includes a loopback-only sanitizing capture mode that records only bounded
+format metadata and schema SHA-256 while forwarding request bytes unchanged.
+
 ## Interpretation
 
 This is a distinct integration failure from v19.
