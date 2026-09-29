@@ -241,7 +241,9 @@ The general test job initially failed one test because the adjudication runtime-
 
 That failure is valid integration evidence: advancing the executable capability without advancing its frozen runtime-lock contract was correctly rejected.
 
-The runtime-lock schema has been corrected on the branch to require capability `.../v2`. A subsequent CI run is required before the branch can be considered repository-green.
+The runtime-lock schema was corrected on the branch to require capability `.../v2`.
+
+The subsequent CI run at benchmark commit `a8b209ad584d648bbc2f3d7b616c40e7d5599719` passed completely. The repository test lane, Inspect import/construction lane, and agentic-Jev import lane are therefore green for this branch state.
 
 ## Qualification rule remains unchanged
 
@@ -262,16 +264,15 @@ Any newly surfaced failure is to be retained and treated as additional integrati
 
 Before opening the upstream Inspect-SWE pull request:
 
-1. obtain a green benchmark CI run for draft PR #71;
-2. install benchmark branch `fix/v2-inspect-schema-representability` into the private Agent-Workflow runtime;
-3. apply/verify the capability-v2 Inspect-SWE compatibility patch;
-4. deliberately archive the prior failed qualification attempt;
-5. freeze a new v2 runtime lock bound to benchmark `0.6.3`, capability v2, and its patched source hash;
-6. rerun full live IA-1 through IA-11 qualification through Codex-LB / DeepSeek Flash;
-7. inspect the generated A/B and C schema artifacts/hashes and every qualification gate;
-8. preserve any new failure as another additive integration checkpoint;
-9. open the upstream Inspect-SWE PR only after the local behavior has survived live qualification;
-10. keep real A/B/C blocked until that qualification genuinely passes.
+1. install benchmark branch `fix/v2-inspect-schema-representability` at or after `a8b209ad584d648bbc2f3d7b616c40e7d5599719` into the private Agent-Workflow runtime;
+2. apply/verify the capability-v2 Inspect-SWE compatibility patch;
+3. deliberately archive the prior failed qualification attempt;
+4. freeze a new v2 runtime lock bound to benchmark `0.6.3`, capability v2, and its patched source hash;
+5. rerun full live IA-1 through IA-11 qualification through Codex-LB / DeepSeek Flash;
+6. inspect the generated A/B and C schema artifacts/hashes and every qualification gate;
+7. preserve any new failure as another additive integration checkpoint;
+8. open the upstream Inspect-SWE PR only after the local behavior has survived live qualification;
+9. keep real A/B/C blocked until that qualification genuinely passes.
 
 ## Current phase map
 
@@ -286,8 +287,8 @@ routing-semantic-v2 2.0.0
   local fail-closed compatibility v2     IMPLEMENTED ON DRAFT PR
   bridge-representable benchmark schema  IMPLEMENTED ON DRAFT PR
   benchmark package                      0.6.3 ON DRAFT PR
-  repository CI                          RE-RUN REQUIRED
-  new live runtime lock                  BLOCKED ON BRANCH INSTALL
+  repository CI                          PASS
+  new live runtime lock                  BLOCKED ON PRIVATE BRANCH INSTALL
   live IA-1..IA-11 qualification         BLOCKED ON PRIVATE RUNTIME
   upstream Inspect-SWE PR                BLOCKED ON LIVE QUALIFICATION
   real A/B/C                             BLOCKED
