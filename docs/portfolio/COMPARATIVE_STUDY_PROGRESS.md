@@ -98,7 +98,15 @@ The clean retry then completed far enough to evaluate all three v2 evidence gate
 
 Second-live correction checkpoint: [`2026-09-28-comparative-study-v13-second-live-preflight-provenance-counts.md`](../checkpoints/2026-09-28-comparative-study-v13-second-live-preflight-provenance-counts.md).
 
-The next bounded work is a clean post-fix DeepSeek IA-9/10/11 preflight, plus the Luna/high strengthened agentic-Jev runtime freeze/one-call bridge qualification. Real v2 A/B/C and the 24 × 3 pilot remain blocked.
+Subsequent v2 work advanced through full structured-justification prompt/validation hardening and native Codex final-output JSON Schema enforcement. Benchmark 0.6.2 exposed `codex_cli(output_schema=...)` through a byte-pinned Inspect-SWE compatibility seam while retaining strict whole-completion parsing and post-generation contract validation. That implementation milestone is preserved in [`2026-09-28-comparative-study-v18-v2-structured-output-implemented.md`](../checkpoints/2026-09-28-comparative-study-v18-v2-structured-output-implemented.md).
+
+The first live qualification attempt through that strengthened path then exposed a second integration boundary before any oracle sample completed: Inspect AI 0.3.268 warned that `const`, `minItems`, and `maxItems` were not modeled and would be dropped. Dropping the per-case `const` left an empty `case_id` schema node, and the provider rejected the request with HTTP 400 because that node lacked a `type`. No `qualification.json` was produced and no experimental evidence was admitted.
+
+The proposed Inspect-SWE feature is now strengthened to fail closed at `codex_cli(output_schema=...)` construction when the active Inspect bridge cannot faithfully preserve a supplied constraint. The check reports nested JSON Pointer paths, costs zero model calls, accepts bridge-representable `type + enum`, and does not rewrite caller schemas. On benchmark draft PR #71, the v2 generation schema now uses `type + enum` for exact case IDs and leaves unsupported array cardinality to the unchanged deterministic post-generation validator. The local capability identity advances to v2 and benchmark provenance to 0.6.3.
+
+Latest integration checkpoint: [`2026-09-29-comparative-study-v19-v2-inspect-schema-bridge-failure.md`](../checkpoints/2026-09-29-comparative-study-v19-v2-inspect-schema-bridge-failure.md).
+
+Current execution boundary: benchmark PR #71 must be repository-green, then the complete live IA-1 through IA-11 qualification must be rerun under a newly frozen capability-v2 runtime lock on the private Codex-LB/DeepSeek path. Any new failure remains integration evidence. Real v2 A/B/C remains blocked until that qualification genuinely passes.
 
 Design contract: [`routing-semantic-v2-adjudication-evidence-contract.md`](../plans/routing-semantic-v2-adjudication-evidence-contract.md).
 
@@ -124,4 +132,4 @@ Do not generalize these findings into universal TypeSafe/Jev superiority, downst
 
 ---
 
-<small>Last updated: 2026-09-28 — second live v2 preflight passed IA-9/IA-11, failed IA-10 on missing request-count provenance, and the event-based count correction is now merged; clean post-fix IA-9/10/11 retry is next</small>
+<small>Last updated: 2026-09-29 — live v2 structured-output qualification exposed lossy Inspect schema transport before any sample completed; construction-time bridge-representability validation and a representable benchmark schema are on draft PR #71, with full live IA-1..IA-11 requalification still required</small>
