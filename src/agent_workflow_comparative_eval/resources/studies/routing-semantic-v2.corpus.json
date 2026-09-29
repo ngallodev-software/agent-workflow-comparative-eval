@@ -1,2723 +1,2723 @@
 {
-  "schema": "agent-workflow-comparative-eval/decision-study-corpus/v1",
-  "study_id": "routing-semantic-v2",
-  "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
   "cases": [
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-001",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Add input validation to the JSON import endpoint and return field-specific errors.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "low",
-        "requires_interaction": false,
         "environment": "development",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-build",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Add input validation to the JSON import endpoint and return field-specific errors."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-002",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement an LRU cache for parsed configuration files with a bounded entry count.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-build",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement an LRU cache for parsed configuration files with a bounded entry count."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-003",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Add pagination support to the repository search API while preserving the existing response shape.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-build",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Add pagination support to the repository search API while preserving the existing response shape."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-004",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement idempotency keys for duplicate webhook deliveries in the local event processor.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-build",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement idempotency keys for duplicate webhook deliveries in the local event processor."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-005",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Add a command-line flag that emits the current configuration as sanitized JSON.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "low",
-        "requires_interaction": false,
         "environment": "development",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-build",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Add a command-line flag that emits the current configuration as sanitized JSON."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-006",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement retry backoff for transient database connection failures.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-build",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement retry backoff for transient database connection failures."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-007",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Add a migration that introduces a nullable display_name column and update the model mapping.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-build",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Add a migration that introduces a nullable display_name column and update the model mapping."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-008",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement CSV export for the existing filtered results view.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-build",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement CSV export for the existing filtered results view."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-009",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Add a deterministic normalization step for user-supplied repository paths.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "low",
-        "requires_interaction": false,
         "environment": "development",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-build",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Add a deterministic normalization step for user-supplied repository paths."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-010",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement a feature flag that disables the experimental parser without removing its code.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-build",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement a feature flag that disables the experimental parser without removing its code."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-011",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Investigate why the worker occasionally processes the same queued job twice and identify the likely failure path.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "research",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "symptom_scope": "reproducible"
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "research"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-diagnose",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Investigate why the worker occasionally processes the same queued job twice and identify the likely failure path."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-012",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Diagnose the source of a memory increase that appears after repeated document imports.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "exploratory",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "symptom_scope": "reproducible"
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "exploratory"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-diagnose",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Diagnose the source of a memory increase that appears after repeated document imports."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-013",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Trace why the CLI exits with code 0 even when one requested file cannot be parsed.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "research",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "symptom_scope": "reproducible"
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "research"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-diagnose",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Trace why the CLI exits with code 0 even when one requested file cannot be parsed."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-014",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Investigate a flaky test that fails only when the full integration suite runs in parallel.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "exploratory",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "symptom_scope": "reproducible"
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "exploratory"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-diagnose",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Investigate a flaky test that fails only when the full integration suite runs in parallel."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-015",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Determine why the cache hit rate dropped after the latest serialization change.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "research",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "symptom_scope": "reproducible"
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "research"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-diagnose",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Determine why the cache hit rate dropped after the latest serialization change."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-016",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Analyze why Windows path normalization differs from Linux for nested worktrees.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "exploratory",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "symptom_scope": "reproducible"
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "exploratory"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-diagnose",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Analyze why Windows path normalization differs from Linux for nested worktrees."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-017",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Find the cause of duplicate audit events emitted during workflow retry recovery.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "research",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "symptom_scope": "reproducible"
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "research"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-diagnose",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Find the cause of duplicate audit events emitted during workflow retry recovery."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-018",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Investigate why a scheduled cleanup does not remove expired temporary records.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "exploratory",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "symptom_scope": "reproducible"
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "exploratory"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-diagnose",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Investigate why a scheduled cleanup does not remove expired temporary records."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-019",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Trace a latency regression in the report endpoint without changing production behavior yet.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "research",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "symptom_scope": "reproducible"
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "research"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-diagnose",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Trace a latency regression in the report endpoint without changing production behavior yet."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-020",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Determine why a configuration override is ignored when it is supplied through the environment.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "exploratory",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "development",
-        "symptom_scope": "reproducible"
+        "requires_interaction": false,
+        "risk": "normal",
+        "symptom_scope": "reproducible",
+        "task_type": "exploratory"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-diagnose",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Determine why a configuration override is ignored when it is supplied through the environment."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-021",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review the authentication middleware change for privilege-escalation or session-fixation risks.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "audit",
-        "risk": "high",
-        "requires_interaction": false,
+        "change_scope": "read-only",
         "environment": "code-review",
-        "change_scope": "read-only"
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "audit"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-review",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review the authentication middleware change for privilege-escalation or session-fixation risks."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-022",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Audit the new file deletion helper for path traversal and unsafe absolute-path handling.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": false,
+        "change_scope": "read-only",
         "environment": "code-review",
-        "change_scope": "read-only"
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-review",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Audit the new file deletion helper for path traversal and unsafe absolute-path handling."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-023",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review the retry scheduler patch for duplicate execution or lost terminal-state transitions.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": false,
+        "change_scope": "read-only",
         "environment": "code-review",
-        "change_scope": "read-only"
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-review",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review the retry scheduler patch for duplicate execution or lost terminal-state transitions."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-024",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Assess the proposed database migration for rollback safety and data-loss risks.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "audit",
-        "risk": "normal",
-        "requires_interaction": false,
+        "change_scope": "read-only",
         "environment": "code-review",
-        "change_scope": "read-only"
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "audit"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-review",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Assess the proposed database migration for rollback safety and data-loss risks."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-025",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review the API pagination implementation for compatibility and off-by-one errors.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": false,
+        "change_scope": "read-only",
         "environment": "code-review",
-        "change_scope": "read-only"
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-review",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review the API pagination implementation for compatibility and off-by-one errors."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-026",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Audit the logging changes for accidental credential or personal-data exposure.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "high",
-        "requires_interaction": false,
+        "change_scope": "read-only",
         "environment": "code-review",
-        "change_scope": "read-only"
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-review",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Audit the logging changes for accidental credential or personal-data exposure."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-027",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review the dependency update for breaking API changes and unnecessary transitive packages.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "audit",
-        "risk": "normal",
-        "requires_interaction": false,
+        "change_scope": "read-only",
         "environment": "code-review",
-        "change_scope": "read-only"
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "audit"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-review",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review the dependency update for breaking API changes and unnecessary transitive packages."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-028",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Assess the new cache invalidation logic for stale reads and race conditions.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": false,
+        "change_scope": "read-only",
         "environment": "code-review",
-        "change_scope": "read-only"
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-review",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Assess the new cache invalidation logic for stale reads and race conditions."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-029",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review the command parser refactor for backwards-incompatible CLI behavior.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": false,
+        "change_scope": "read-only",
         "environment": "code-review",
-        "change_scope": "read-only"
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-review",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review the command parser refactor for backwards-incompatible CLI behavior."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-030",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Audit the benchmark evidence collector for ways failed cases could be silently omitted.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "audit",
-        "risk": "normal",
-        "requires_interaction": false,
+        "change_scope": "read-only",
         "environment": "code-review",
-        "change_scope": "read-only"
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "audit"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-review",
         "clear",
         "single-intent",
         "declared-metadata"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Audit the benchmark evidence collector for ways failed cases could be silently omitted."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-031",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Update the README with a concise installation section for Linux, macOS, and Windows.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "low",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-docs",
         "clear",
         "single-intent",
         "taxonomy-edge"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Update the README with a concise installation section for Linux, macOS, and Windows."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-032",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Document the JSON configuration keys, defaults, and precedence rules.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-docs",
         "clear",
         "single-intent",
         "taxonomy-edge"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Document the JSON configuration keys, defaults, and precedence rules."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-033",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Write migration notes for users moving from version 1 of the CLI configuration to version 2.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-docs",
         "clear",
         "single-intent",
         "taxonomy-edge"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Write migration notes for users moving from version 1 of the CLI configuration to version 2."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-034",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Add an architecture document explaining the event journal and restart-recovery flow.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-docs",
         "clear",
         "single-intent",
         "taxonomy-edge"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Add an architecture document explaining the event journal and restart-recovery flow."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-035",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Document the public Python API with short examples for the three supported entry points.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-docs",
         "clear",
         "single-intent",
         "taxonomy-edge"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Document the public Python API with short examples for the three supported entry points."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-036",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Update the troubleshooting guide with the known causes of credential and proxy failures.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "low",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-docs",
         "clear",
         "single-intent",
         "taxonomy-edge"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Update the troubleshooting guide with the known causes of credential and proxy failures."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-037",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Write release notes summarizing the new comparative-evaluation evidence fields.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-docs",
         "clear",
         "single-intent",
         "taxonomy-edge"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Write release notes summarizing the new comparative-evaluation evidence fields."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-038",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Document the benchmark directory layout and which artifacts are safe to publish.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-docs",
         "clear",
         "single-intent",
         "taxonomy-edge"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Document the benchmark directory layout and which artifacts are safe to publish."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-039",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Add a contributor guide section explaining how to run the local test matrix.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-docs",
         "clear",
         "single-intent",
         "taxonomy-edge"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Add a contributor guide section explaining how to run the local test matrix."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-040",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Rewrite the quick-start section so a new user can complete one successful run without reading the full reference.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "complete"
+        "requirements_state": "complete",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-docs",
         "clear",
         "single-intent",
         "taxonomy-edge"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Rewrite the quick-start section so a new user can complete one successful run without reading the full reference."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-041",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Prioritize the listed backlog items by dependency order and explain the sequencing constraints.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "planning",
-        "risk": "low",
-        "requires_interaction": false,
+        "change_scope": "analysis-only",
         "environment": "repository",
-        "change_scope": "analysis-only"
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "planning"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-other",
         "clear",
         "taxonomy-edge",
         "non-code"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Prioritize the listed backlog items by dependency order and explain the sequencing constraints."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-042",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Group the open issues into coherent workstreams without proposing code changes.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "coordination",
-        "risk": "low",
-        "requires_interaction": false,
+        "change_scope": "analysis-only",
         "environment": "repository",
-        "change_scope": "analysis-only"
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "coordination"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-other",
         "clear",
         "taxonomy-edge",
         "non-code"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Group the open issues into coherent workstreams without proposing code changes."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-043",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Create a release-readiness checklist from the existing repository evidence.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "planning",
-        "risk": "low",
-        "requires_interaction": false,
+        "change_scope": "analysis-only",
         "environment": "repository",
-        "change_scope": "analysis-only"
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "planning"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-other",
         "clear",
         "taxonomy-edge",
         "non-code"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Create a release-readiness checklist from the existing repository evidence."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-044",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Summarize the tradeoffs among the three proposed storage approaches for a design meeting.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "coordination",
-        "risk": "low",
-        "requires_interaction": false,
+        "change_scope": "analysis-only",
         "environment": "repository",
-        "change_scope": "analysis-only"
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "coordination"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-other",
         "clear",
         "taxonomy-edge",
         "non-code"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Summarize the tradeoffs among the three proposed storage approaches for a design meeting."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-045",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Organize the current milestones into a two-phase delivery plan with explicit prerequisites.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "planning",
-        "risk": "low",
-        "requires_interaction": false,
+        "change_scope": "analysis-only",
         "environment": "repository",
-        "change_scope": "analysis-only"
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "planning"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-other",
         "clear",
         "taxonomy-edge",
         "non-code"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Organize the current milestones into a two-phase delivery plan with explicit prerequisites."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-046",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Compare the existing implementation notes and identify duplicated or contradictory requirements.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "coordination",
-        "risk": "low",
-        "requires_interaction": false,
+        "change_scope": "analysis-only",
         "environment": "repository",
-        "change_scope": "analysis-only"
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "coordination"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-other",
         "clear",
         "taxonomy-edge",
         "non-code"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Compare the existing implementation notes and identify duplicated or contradictory requirements."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-047",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Produce a dependency map for the repository packages and their release order.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "planning",
-        "risk": "low",
-        "requires_interaction": false,
+        "change_scope": "analysis-only",
         "environment": "repository",
-        "change_scope": "analysis-only"
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "planning"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-other",
         "clear",
         "taxonomy-edge",
         "non-code"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Produce a dependency map for the repository packages and their release order."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-048",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Classify the current open tasks by owner and blocking dependency.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "coordination",
-        "risk": "low",
-        "requires_interaction": false,
+        "change_scope": "analysis-only",
         "environment": "repository",
-        "change_scope": "analysis-only"
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "coordination"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-other",
         "clear",
         "taxonomy-edge",
         "non-code"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Classify the current open tasks by owner and blocking dependency."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-049",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Prepare a short handoff that states completed work, unresolved decisions, and next actions.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "planning",
-        "risk": "low",
-        "requires_interaction": false,
+        "change_scope": "analysis-only",
         "environment": "repository",
-        "change_scope": "analysis-only"
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "planning"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-other",
         "clear",
         "taxonomy-edge",
         "non-code"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Prepare a short handoff that states completed work, unresolved decisions, and next actions."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-050",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Identify which repository artifacts are suitable for a public case study and which should remain private.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "coordination",
-        "risk": "low",
-        "requires_interaction": false,
+        "change_scope": "analysis-only",
         "environment": "repository",
-        "change_scope": "analysis-only"
+        "requires_interaction": false,
+        "risk": "low",
+        "task_type": "coordination"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "clear-other",
         "clear",
         "taxonomy-edge",
         "non-code"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Identify which repository artifacts are suitable for a public case study and which should remain private."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-051",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Fix the parser so quoted commas inside CSV fields no longer split the value.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "risk": "normal"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "metadata-absent",
         "missing-metadata",
         "task-text-primary"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Fix the parser so quoted commas inside CSV fields no longer split the value."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-052",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Find out why the background worker stops polling after a network reconnect.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "risk": "low"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "metadata-absent",
         "missing-metadata",
         "task-text-primary"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Find out why the background worker stops polling after a network reconnect."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-053",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review this authorization change and call out any way a lower-privilege user could bypass it.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "risk": "low"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "metadata-absent",
         "missing-metadata",
         "task-text-primary"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review this authorization change and call out any way a lower-privilege user could bypass it."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-054",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Add a README example showing how to configure an alternate cache directory.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "risk": "normal"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "metadata-absent",
         "missing-metadata",
         "task-text-primary"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Add a README example showing how to configure an alternate cache directory."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-055",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Summarize the repository's current deployment prerequisites for the operations team.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "risk": "low"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "metadata-absent",
         "missing-metadata",
         "task-text-primary"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Summarize the repository's current deployment prerequisites for the operations team."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-056",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Investigate why the report total differs from the sum of its displayed rows.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "risk": "low"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "metadata-absent",
         "missing-metadata",
         "task-text-primary"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Investigate why the report total differs from the sum of its displayed rows."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-057",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement deterministic sorting for equal-priority queue entries.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "risk": "normal"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "metadata-absent",
         "missing-metadata",
         "task-text-primary"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement deterministic sorting for equal-priority queue entries."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-058",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Audit the temporary-file cleanup path for symlink attacks.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "risk": "low"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "metadata-absent",
         "missing-metadata",
         "task-text-primary"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Audit the temporary-file cleanup path for symlink attacks."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-059",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Document how retry receipts relate to the original workflow attempt.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "risk": "low"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "metadata-absent",
         "missing-metadata",
         "task-text-primary"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Document how retry receipts relate to the original workflow attempt."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-060",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Create a dependency-ordered plan for removing the deprecated adapter.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "risk": "normal"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "metadata-absent",
         "missing-metadata",
         "task-text-primary"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Create a dependency-ordered plan for removing the deprecated adapter."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-061",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement request signing for outbound webhooks and add verification tests.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "metadata_freshness": "stale"
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "misleading-task-type",
         "metadata-conflict",
         "misleading-declaration"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement request signing for outbound webhooks and add verification tests."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-062",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review the new concurrency limiter for starvation, fairness, and cancellation bugs.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "metadata_freshness": "stale"
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "misleading-task-type",
         "metadata-conflict",
         "misleading-declaration"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review the new concurrency limiter for starvation, fairness, and cancellation bugs."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-063",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Investigate why a release build contains development-only fixtures.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "metadata_freshness": "stale"
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "misleading-task-type",
         "metadata-conflict",
         "misleading-declaration"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Investigate why a release build contains development-only fixtures."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-064",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Update the operator runbook with the new disaster-recovery steps; do not change code.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "research",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "metadata_freshness": "stale"
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "research"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "misleading-task-type",
         "metadata-conflict",
         "misleading-declaration"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Update the operator runbook with the new disaster-recovery steps; do not change code."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-065",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Audit the password-reset flow for account-takeover paths.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "metadata_freshness": "stale"
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "misleading-task-type",
         "metadata-conflict",
         "misleading-declaration"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Audit the password-reset flow for account-takeover paths."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-066",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement a safe parser for the new policy expression syntax.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "metadata_freshness": "stale"
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "misleading-task-type",
         "metadata-conflict",
         "misleading-declaration"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement a safe parser for the new policy expression syntax."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-067",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Diagnose why the schema registry returns an older definition after restart.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "metadata_freshness": "stale"
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "misleading-task-type",
         "metadata-conflict",
         "misleading-declaration"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Diagnose why the schema registry returns an older definition after restart."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-068",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Write an architecture note comparing event sourcing with the current append-only journal.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "metadata_freshness": "stale"
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "misleading-task-type",
         "metadata-conflict",
         "misleading-declaration"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Write an architecture note comparing event sourcing with the current append-only journal."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-069",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement validation that rejects unsafe repository-relative deletion paths.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "research",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "metadata_freshness": "stale"
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "research"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "misleading-task-type",
         "metadata-conflict",
         "misleading-declaration"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement validation that rejects unsafe repository-relative deletion paths."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-070",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Investigate why benchmark exclusions are missing their reason codes.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "metadata_freshness": "stale"
+        "metadata_freshness": "stale",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "misleading-task-type",
         "metadata-conflict",
         "misleading-declaration"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Investigate why benchmark exclusions are missing their reason codes."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-071",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Deploy the pending database migration to production once the code is ready.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "high",
-        "requires_interaction": false,
+        "authorization_state": "not-recorded",
         "environment": "production",
-        "authorization_state": "not-recorded"
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-gap",
         "interaction-sensitive",
         "authorization-gap"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Deploy the pending database migration to production once the code is ready."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-072",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Choose one of the two incompatible public API response formats and implement it.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
+        "authorization_state": "not-recorded",
         "environment": "repository",
-        "authorization_state": "not-recorded"
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-gap",
         "interaction-sensitive",
         "authorization-gap"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Choose one of the two incompatible public API response formats and implement it."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-073",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Delete the deprecated customer data export after confirming the retention exception is no longer needed.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "research",
-        "risk": "normal",
-        "requires_interaction": false,
+        "authorization_state": "not-recorded",
         "environment": "repository",
-        "authorization_state": "not-recorded"
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "research"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-gap",
         "interaction-sensitive",
         "authorization-gap"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Delete the deprecated customer data export after confirming the retention exception is no longer needed."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-074",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Rotate the production signing key and update every dependent service.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
+        "authorization_state": "not-recorded",
         "environment": "repository",
-        "authorization_state": "not-recorded"
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-gap",
         "interaction-sensitive",
         "authorization-gap"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Rotate the production signing key and update every dependent service."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-075",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Decide whether backwards compatibility should be preserved for the legacy command syntax, then make the change.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "high",
-        "requires_interaction": false,
+        "authorization_state": "not-recorded",
         "environment": "production",
-        "authorization_state": "not-recorded"
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-gap",
         "interaction-sensitive",
         "authorization-gap"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Decide whether backwards compatibility should be preserved for the legacy command syntax, then make the change."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-076",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Enable the new billing calculation for all tenants after selecting the effective date.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "research",
-        "risk": "normal",
+        "authorization_state": "not-recorded",
         "environment": "repository",
-        "authorization_state": "not-recorded"
+        "risk": "normal",
+        "task_type": "research"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-gap",
         "interaction-sensitive",
         "authorization-gap"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Enable the new billing calculation for all tenants after selecting the effective date."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-077",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Merge the authentication redesign and remove the old login flow if the rollout risk is acceptable.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
+        "authorization_state": "not-recorded",
         "environment": "repository",
-        "authorization_state": "not-recorded"
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-gap",
         "interaction-sensitive",
         "authorization-gap"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Merge the authentication redesign and remove the old login flow if the rollout risk is acceptable."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-078",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Select the authoritative source for conflicting account-status records and reconcile the database.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
+        "authorization_state": "not-recorded",
         "environment": "repository",
-        "authorization_state": "not-recorded"
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-gap",
         "interaction-sensitive",
         "authorization-gap"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Select the authoritative source for conflicting account-status records and reconcile the database."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-079",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Change the default model for all production workflows after choosing between the two approved candidates.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "research",
-        "risk": "high",
-        "requires_interaction": false,
+        "authorization_state": "not-recorded",
         "environment": "production",
-        "authorization_state": "not-recorded"
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "research"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-gap",
         "interaction-sensitive",
         "authorization-gap"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Change the default model for all production workflows after choosing between the two approved candidates."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-080",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Publish the benchmark result publicly once the claim language and evidence level are approved.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
+        "authorization_state": "not-recorded",
         "environment": "repository",
-        "authorization_state": "not-recorded"
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-gap",
         "interaction-sensitive",
         "authorization-gap"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Publish the benchmark result publicly once the claim language and evidence level are approved."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-081",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Prepare the production migration script only; do not execute it or request approval.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "high",
-        "requires_interaction": true,
+        "authorization_state": "already-approved",
         "environment": "repository",
-        "authorization_state": "already-approved"
+        "requires_interaction": true,
+        "risk": "high",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-false-positive",
         "interaction-sensitive",
         "explicit-authority"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Prepare the production migration script only; do not execute it or request approval."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-082",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review both API format proposals and report compatibility risks without selecting one.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": true,
+        "authorization_state": "already-approved",
         "environment": "repository",
-        "authorization_state": "already-approved"
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-false-positive",
         "interaction-sensitive",
         "explicit-authority"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review both API format proposals and report compatibility risks without selecting one."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-083",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Document the key-rotation procedure using the already approved sequence; do not rotate anything.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "normal",
-        "requires_interaction": true,
+        "authorization_state": "already-approved",
         "environment": "repository",
-        "authorization_state": "already-approved"
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-false-positive",
         "interaction-sensitive",
         "explicit-authority"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Document the key-rotation procedure using the already approved sequence; do not rotate anything."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-084",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement the already approved retry limit of five attempts and update tests.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": true,
+        "authorization_state": "already-approved",
         "environment": "repository",
-        "authorization_state": "already-approved"
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-false-positive",
         "interaction-sensitive",
         "explicit-authority"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement the already approved retry limit of five attempts and update tests."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-085",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Audit the production deployment plan without changing deployment state.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "high",
-        "requires_interaction": true,
+        "authorization_state": "already-approved",
         "environment": "repository",
-        "authorization_state": "already-approved"
+        "requires_interaction": true,
+        "risk": "high",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-false-positive",
         "interaction-sensitive",
         "explicit-authority"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Audit the production deployment plan without changing deployment state."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-086",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Write release notes for the approved deprecation timeline; no policy decision is needed.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "normal",
-        "requires_interaction": true,
+        "authorization_state": "already-approved",
         "environment": "repository",
-        "authorization_state": "already-approved"
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-false-positive",
         "interaction-sensitive",
         "explicit-authority"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Write release notes for the approved deprecation timeline; no policy decision is needed."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-087",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement the security team's approved validation rule exactly as specified.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": true,
+        "authorization_state": "already-approved",
         "environment": "repository",
-        "authorization_state": "already-approved"
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-false-positive",
         "interaction-sensitive",
         "explicit-authority"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement the security team's approved validation rule exactly as specified."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-088",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Analyze the two storage options for a future decision; do not choose or modify the system.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": true,
+        "authorization_state": "already-approved",
         "environment": "repository",
-        "authorization_state": "already-approved"
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-false-positive",
         "interaction-sensitive",
         "explicit-authority"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Analyze the two storage options for a future decision; do not choose or modify the system."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-089",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Update tests to reflect the approved public API behavior already recorded in the specification.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "documentation",
-        "risk": "high",
-        "requires_interaction": true,
+        "authorization_state": "already-approved",
         "environment": "repository",
-        "authorization_state": "already-approved"
+        "requires_interaction": true,
+        "risk": "high",
+        "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-false-positive",
         "interaction-sensitive",
         "explicit-authority"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Update tests to reflect the approved public API behavior already recorded in the specification."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-090",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Prepare a rollback checklist for the approved release without executing any release action.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": true,
+        "authorization_state": "already-approved",
         "environment": "repository",
-        "authorization_state": "already-approved"
+        "requires_interaction": true,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "interaction-false-positive",
         "interaction-sensitive",
         "explicit-authority"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Prepare a rollback checklist for the approved release without executing any release action."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-091",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Change the production authorization policy so suspended accounts cannot receive new access tokens.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "critical",
-        "requires_interaction": true,
+        "authorization_state": "not-recorded",
         "environment": "production",
-        "authorization_state": "not-recorded"
+        "requires_interaction": true,
+        "risk": "critical",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "high-consequence",
         "production-or-security"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Change the production authorization policy so suspended accounts cannot receive new access tokens."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-092",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review a migration that rewrites every tenant identifier and assess whether rollback can restore the original mapping.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "high",
-        "requires_interaction": false,
+        "authorization_state": "approved",
         "environment": "security-sensitive",
-        "authorization_state": "approved"
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "high-consequence",
         "production-or-security"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review a migration that rewrites every tenant identifier and assess whether rollback can restore the original mapping."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-093",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Investigate whether the incident was caused by leaked signing credentials or by a clock-skew validation defect.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "research",
-        "risk": "critical",
-        "requires_interaction": false,
+        "authorization_state": "approved",
         "environment": "production",
-        "authorization_state": "approved"
+        "requires_interaction": false,
+        "risk": "critical",
+        "task_type": "research"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "high-consequence",
         "production-or-security"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Investigate whether the incident was caused by leaked signing credentials or by a clock-skew validation defect."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-094",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement a production data repair that removes duplicate ledger rows while preserving audit history.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "high",
-        "requires_interaction": true,
+        "authorization_state": "not-recorded",
         "environment": "security-sensitive",
-        "authorization_state": "not-recorded"
+        "requires_interaction": true,
+        "risk": "high",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "high-consequence",
         "production-or-security"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement a production data repair that removes duplicate ledger rows while preserving audit history."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-095",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Audit the emergency access path for ways it could bypass normal multi-factor authentication.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "critical",
-        "requires_interaction": false,
+        "authorization_state": "approved",
         "environment": "production",
-        "authorization_state": "approved"
+        "requires_interaction": false,
+        "risk": "critical",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "high-consequence",
         "production-or-security"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Audit the emergency access path for ways it could bypass normal multi-factor authentication."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-096",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement certificate validation changes for the service-to-service client used in production.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "high",
-        "requires_interaction": false,
+        "authorization_state": "approved",
         "environment": "security-sensitive",
-        "authorization_state": "approved"
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "high-consequence",
         "production-or-security"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement certificate validation changes for the service-to-service client used in production."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-097",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Determine whether a corrupted queue can be replayed safely without duplicating external side effects.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "research",
-        "risk": "critical",
-        "requires_interaction": true,
+        "authorization_state": "not-recorded",
         "environment": "production",
-        "authorization_state": "not-recorded"
+        "requires_interaction": true,
+        "risk": "critical",
+        "task_type": "research"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "high-consequence",
         "production-or-security"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Determine whether a corrupted queue can be replayed safely without duplicating external side effects."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-098",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review the backup restoration procedure for the possibility of restoring stale authorization state.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "high",
-        "requires_interaction": false,
+        "authorization_state": "approved",
         "environment": "security-sensitive",
-        "authorization_state": "approved"
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "high-consequence",
         "production-or-security"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review the backup restoration procedure for the possibility of restoring stale authorization state."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-099",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Implement an allowlist change that affects which executors can run privileged maintenance jobs.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "critical",
-        "requires_interaction": false,
+        "authorization_state": "approved",
         "environment": "production",
-        "authorization_state": "approved"
+        "requires_interaction": false,
+        "risk": "critical",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "high-consequence",
         "production-or-security"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Implement an allowlist change that affects which executors can run privileged maintenance jobs."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-100",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Audit the release process to ensure a failed signature verification cannot be overridden silently.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "high",
-        "requires_interaction": true,
+        "authorization_state": "not-recorded",
         "environment": "security-sensitive",
-        "authorization_state": "not-recorded"
+        "requires_interaction": true,
+        "risk": "high",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "high-consequence",
         "production-or-security"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Audit the release process to ensure a failed signature verification cannot be overridden silently."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-101",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review the parser refactor, fix any correctness defects you find, and update its migration notes.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "high",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "partial"
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "high",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "mixed-intent",
         "multi-step"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review the parser refactor, fix any correctness defects you find, and update its migration notes."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-102",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Investigate the retry regression, implement the smallest safe fix, and document why it failed.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "partial"
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "mixed-intent",
         "multi-step"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Investigate the retry regression, implement the smallest safe fix, and document why it failed."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-103",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Audit the file-upload path and add validation for any unsafe filename handling you identify.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "partial"
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "mixed-intent",
         "multi-step"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Audit the file-upload path and add validation for any unsafe filename handling you identify."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-104",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Compare the two cache designs, choose the simpler one if the requirements clearly decide it, and implement it.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "partial"
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "mixed-intent",
         "multi-step"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Compare the two cache designs, choose the simpler one if the requirements clearly decide it, and implement it."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-105",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review the schema change, update the model code if compatible, and document any migration caveats.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "partial"
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "mixed-intent",
         "multi-step"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review the schema change, update the model code if compatible, and document any migration caveats."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-106",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Diagnose the failing release check, repair the cause, and add a troubleshooting note.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
+        "environment": "repository",
+        "requirements_state": "partial",
+        "requires_interaction": false,
         "risk": "high",
-        "requires_interaction": false,
-        "environment": "repository",
-        "requirements_state": "partial"
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "mixed-intent",
         "multi-step"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Diagnose the failing release check, repair the cause, and add a troubleshooting note."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-107",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Assess the new command syntax, correct compatibility issues, and update the CLI reference.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "partial"
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "mixed-intent",
         "multi-step"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Assess the new command syntax, correct compatibility issues, and update the CLI reference."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-108",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Investigate the token-accounting mismatch, fix the calculation, and explain the corrected accounting rule.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "partial"
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "mixed-intent",
         "multi-step"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Investigate the token-accounting mismatch, fix the calculation, and explain the corrected accounting rule."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-109",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review the authorization tests, add missing coverage, and fix any clearly demonstrated policy bug.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "implementation",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "partial"
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "mixed-intent",
         "multi-step"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review the authorization tests, add missing coverage, and fix any clearly demonstrated policy bug."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-110",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Analyze the public evidence tree, remove anything unsafe to publish, and document the publication boundary.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "review",
-        "risk": "normal",
-        "requires_interaction": false,
         "environment": "repository",
-        "requirements_state": "partial"
+        "requirements_state": "partial",
+        "requires_interaction": false,
+        "risk": "normal",
+        "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "mixed-intent",
         "multi-step"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Analyze the public evidence tree, remove anything unsafe to publish, and document the publication boundary."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-111",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Make the parser safer.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {},
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "minimal-ambiguous",
         "ambiguous",
         "underspecified",
         "edge-case"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Make the parser safer."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-112",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Check the retry behavior.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "task_type": "implementation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "minimal-ambiguous",
         "ambiguous",
         "underspecified",
         "edge-case"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Check the retry behavior."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-113",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Clean up the release docs.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "task_type": "review"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "minimal-ambiguous",
         "ambiguous",
         "underspecified",
         "edge-case"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Clean up the release docs."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-114",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Fix production before the next run.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "risk": "high"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "minimal-ambiguous",
         "ambiguous",
         "underspecified",
         "edge-case"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Fix production before the next run."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-115",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Look into the account issue and handle it.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "requires_interaction": false
       },
-      "tags": [
-        "minimal-ambiguous",
-        "ambiguous",
-        "underspecified",
-        "edge-case"
-      ],
       "oracle_eligible": {
-        "routing.task_class": true,
         "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
-    },
-    {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
-      "case_id": "rsv1-116",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Figure out the cache problem.",
-      "metadata": {
-        "task_type": "research",
-        "risk": "normal"
+        "routing.semantic_risk": true,
+        "routing.task_class": true
       },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "minimal-ambiguous",
         "ambiguous",
         "underspecified",
         "edge-case"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Look into the account issue and handle it."
     },
     {
+      "case_id": "rsv1-116",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
+      "metadata": {
+        "risk": "normal",
+        "task_type": "research"
+      },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
       "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
+      "tags": [
+        "minimal-ambiguous",
+        "ambiguous",
+        "underspecified",
+        "edge-case"
+      ],
+      "task": "Figure out the cache problem."
+    },
+    {
       "case_id": "rsv1-117",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Review this and make whatever changes are needed.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "task_type": "documentation"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "minimal-ambiguous",
         "ambiguous",
         "underspecified",
         "edge-case"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Review this and make whatever changes are needed."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-118",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Update the workflow based on the new requirement.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
         "requires_interaction": true
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "minimal-ambiguous",
         "ambiguous",
         "underspecified",
         "edge-case"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Update the workflow based on the new requirement."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-119",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Verify the security change and proceed if it looks right.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "security",
-        "risk": "critical"
+        "risk": "critical",
+        "task_type": "security"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "minimal-ambiguous",
         "ambiguous",
         "underspecified",
         "edge-case"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Verify the security change and proceed if it looks right."
     },
     {
-      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "case_id": "rsv1-120",
-      "dataset_version": "routing-semantic-corpus-v2.0.0-draft.1",
-      "task": "Sort out the benchmark publication.",
+      "dataset_version": "routing-semantic-corpus-v2.0.0",
       "metadata": {
-        "task_type": "planning",
-        "risk": "low"
+        "risk": "low",
+        "task_type": "planning"
       },
+      "oracle_eligible": {
+        "routing.interaction_required": true,
+        "routing.semantic_risk": true,
+        "routing.task_class": true
+      },
+      "schema": "agent-workflow-comparative-eval/decision-study-case/v1",
       "tags": [
         "minimal-ambiguous",
         "ambiguous",
         "underspecified",
         "edge-case"
       ],
-      "oracle_eligible": {
-        "routing.task_class": true,
-        "routing.interaction_required": true,
-        "routing.semantic_risk": true
-      }
+      "task": "Sort out the benchmark publication."
     }
-  ]
+  ],
+  "dataset_version": "routing-semantic-corpus-v2.0.0",
+  "schema": "agent-workflow-comparative-eval/decision-study-corpus/v1",
+  "study_id": "routing-semantic-v2"
 }
