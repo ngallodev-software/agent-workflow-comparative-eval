@@ -1,8 +1,8 @@
 {
   "schema": "agent-workflow-comparative-eval/decision-study-spec/v1",
   "study_id": "routing-semantic-v2",
-  "study_version": "2.0.0-draft.2",
-  "status": "design-implementation",
+  "study_version": "2.0.0",
+  "status": "preregistered-implementation",
   "purpose": "Methodological replication of routing-semantic-v1 using the same three routing semantics while upgrading oracle decision provenance, usage scope, and qualification guarantees before any new effectiveness claim.",
   "evaluation_unit": "one routing case adjudicated independently with a required structured justification per eligible seam; treatment inference remains one batched semantic request projected into three observations",
   "replication_of": {
@@ -136,7 +136,7 @@
     "p95_minimum_n": 40
   },
   "oracle_policy": {
-    "protocol_version": "routing-semantic-oracle-v2-draft.1",
+    "protocol_version": "routing-semantic-oracle-v2.0.0",
     "adjudication_pass_schema": "agent-workflow-benchmark/decision-study-adjudication-pass/v2",
     "blinded_to_control_and_candidate_outputs": true,
     "hidden_from_inference": true,

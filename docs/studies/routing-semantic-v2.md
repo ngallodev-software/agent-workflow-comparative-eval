@@ -1,7 +1,7 @@
 # Routing Semantic v2 — Methodological Replication
 
-**Status:** design/implementation; not frozen  
-**Study version:** `2.0.0-draft.2`  
+**Status:** preregistered implementation; real-cohort identities frozen before adjudication  
+**Study version:** `2.0.0`  
 **Relationship to v1:** new study identity; v1 remains immutable and published
 
 ## Purpose

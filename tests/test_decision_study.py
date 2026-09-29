@@ -329,8 +329,8 @@ def test_invalid_multiclass_probability_vector_disables_calibration_not_report()
 def test_routing_semantic_v2_draft_requires_structured_justification_and_usage_scope():
     spec = load_study_spec("routing-semantic-v2")
     assert spec["study_id"] == "routing-semantic-v2"
-    assert spec["study_version"] == "2.0.0-draft.2"
-    assert spec["status"] == "design-implementation"
+    assert spec["study_version"] == "2.0.0"
+    assert spec["status"] == "preregistered-implementation"
     assert spec["replication_of"]["study_id"] == "routing-semantic-v1"
     assert spec["oracle_policy"]["structured_justification_required"] is True
     assert (
@@ -353,6 +353,46 @@ def test_routing_semantic_v2_draft_requires_structured_justification_and_usage_s
     assert runtime["oracle_adjudicator_provider_path"] == "openai-api/codex-lb/deepseek-flash"
     assert runtime["oracle_adjudicator_responses_api"] is True
     assert runtime["oracle_adjudicator_reasoning_override"] is None
+
+
+def test_frozen_v2_oracle_authoring_artifact_matches_generated_view():
+    root = Path(__file__).resolve().parents[1]
+    artifact_path = (
+        root
+        / "docs"
+        / "studies"
+        / "artifacts"
+        / "routing-semantic-v2"
+        / "oracle-authoring-view.json"
+    )
+    artifact = json.loads(artifact_path.read_text(encoding="utf-8"))
+    generated = oracle_authoring_view(load_study_corpus("routing-semantic-v2"))
+
+    manifest_path = artifact_path.with_name("oracle-authoring-view.manifest.json")
+    corpus_path = (
+        root
+        / "src"
+        / "agent_workflow_comparative_eval"
+        / "resources"
+        / "studies"
+        / "routing-semantic-v2.corpus.json"
+    )
+    protocol_path = root / "docs" / "studies" / "routing-semantic-v2-oracle-protocol.md"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
+    assert artifact == generated
+    assert artifact["study_id"] == "routing-semantic-v2"
+    assert artifact["dataset_version"] == "routing-semantic-corpus-v2.0.0"
+    assert len(artifact["cases"]) == 120
+    assert all("tags" not in case for case in artifact["cases"])
+    assert manifest["frozen_for_independent_adjudication"] is True
+    assert manifest["corpus"]["sha256"] == hashlib.sha256(corpus_path.read_bytes()).hexdigest()
+    assert manifest["oracle_authoring_view"]["sha256"] == hashlib.sha256(
+        artifact_path.read_bytes()
+    ).hexdigest()
+    assert manifest["oracle_protocol"]["sha256"] == hashlib.sha256(
+        protocol_path.read_bytes()
+    ).hexdigest()
 
 
 def test_agentic_jev_pilot_has_three_arms_and_no_effectiveness_claim():
@@ -387,7 +427,7 @@ def test_routing_semantic_v2_replication_corpus_preserves_v1_case_content():
     v1 = load_study_corpus("routing-semantic-v1")
     v2 = load_study_corpus("routing-semantic-v2")
     assert v2["study_id"] == "routing-semantic-v2"
-    assert v2["dataset_version"] == "routing-semantic-corpus-v2.0.0-draft.1"
+    assert v2["dataset_version"] == "routing-semantic-corpus-v2.0.0"
     assert len(v1["cases"]) == len(v2["cases"]) == 120
 
     def semantic_projection(case):
