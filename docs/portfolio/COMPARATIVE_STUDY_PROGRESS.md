@@ -104,9 +104,11 @@ The first live qualification attempt through that strengthened path then exposed
 
 The proposed Inspect-SWE feature is now strengthened to fail closed at `codex_cli(output_schema=...)` construction when the active Inspect bridge cannot faithfully preserve a supplied constraint. The check reports nested JSON Pointer paths, costs zero model calls, accepts bridge-representable `type + enum`, and does not rewrite caller schemas. On benchmark draft PR #71, the v2 generation schema now uses `type + enum` for exact case IDs and leaves unsupported array cardinality to the unchanged deterministic post-generation validator. The local capability identity advances to v2 and benchmark provenance to 0.6.3.
 
-Latest integration checkpoint: [`2026-09-29-comparative-study-v19-v2-inspect-schema-bridge-failure.md`](../checkpoints/2026-09-29-comparative-study-v19-v2-inspect-schema-bridge-failure.md).
+The capability-v2 live retry then progressed past the v19 schema-transport rejection but exposed a new end-to-end enforcement failure. A synthetic C sample completed successfully and returned a non-empty terminal answer containing explanatory prose followed by the intended JSON object. The strict whole-completion decoder correctly rejected the prose-prefixed result at character 0. The embedded JSON is not being salvaged because doing so would hide whether native structured output is actually enforced.
 
-Current execution boundary: benchmark PR #71 is repository-green at commit `a8b209ad584d648bbc2f3d7b616c40e7d5599719`. The next required proof is the complete live IA-1 through IA-11 qualification under a newly frozen capability-v2 runtime lock on the private Codex-LB/DeepSeek path. Any new failure remains integration evidence. Real v2 A/B/C remains blocked until that qualification genuinely passes.
+Latest integration checkpoint: [`2026-09-29-comparative-study-v20-v2-native-structured-output-enforcement-failure.md`](../checkpoints/2026-09-29-comparative-study-v20-v2-native-structured-output-enforcement-failure.md).
+
+Current execution boundary: benchmark PR #71 remains unmerged. The next required diagnostic is an archived live qualification retry with Inspect model-API logging enabled so the provider-facing request can establish whether the JSON-schema control was preserved through Codex CLI, Inspect, and Codex-LB before DeepSeek returned unconstrained text. Do not weaken whole-completion parsing. Real v2 A/B/C remains blocked until IA-1 through IA-11 genuinely pass.
 
 Design contract: [`routing-semantic-v2-adjudication-evidence-contract.md`](../plans/routing-semantic-v2-adjudication-evidence-contract.md).
 
@@ -132,4 +134,4 @@ Do not generalize these findings into universal TypeSafe/Jev superiority, downst
 
 ---
 
-<small>Last updated: 2026-09-29 — live v2 structured-output qualification exposed lossy Inspect schema transport before any sample completed; draft PR #71 now passes repository CI with construction-time bridge-representability validation and a representable benchmark schema, while full live IA-1..IA-11 requalification remains required</small>
+<small>Last updated: 2026-09-29 — the capability-v2 retry moved past lossy schema transport but a successful synthetic adjudicator returned prose plus JSON rather than a schema-only completion; v20 preserves this as a native structured-output enforcement failure and the next retry must capture provider-facing model-API evidence before any gate is changed</small>
