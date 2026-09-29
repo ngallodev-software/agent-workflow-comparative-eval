@@ -106,7 +106,7 @@ The proposed Inspect-SWE feature is now strengthened to fail closed at `codex_cl
 
 Latest integration checkpoint: [`2026-09-29-comparative-study-v19-v2-inspect-schema-bridge-failure.md`](../checkpoints/2026-09-29-comparative-study-v19-v2-inspect-schema-bridge-failure.md).
 
-Current execution boundary: benchmark PR #71 must be repository-green, then the complete live IA-1 through IA-11 qualification must be rerun under a newly frozen capability-v2 runtime lock on the private Codex-LB/DeepSeek path. Any new failure remains integration evidence. Real v2 A/B/C remains blocked until that qualification genuinely passes.
+Current execution boundary: benchmark PR #71 is repository-green at commit `a8b209ad584d648bbc2f3d7b616c40e7d5599719`. The next required proof is the complete live IA-1 through IA-11 qualification under a newly frozen capability-v2 runtime lock on the private Codex-LB/DeepSeek path. Any new failure remains integration evidence. Real v2 A/B/C remains blocked until that qualification genuinely passes.
 
 Design contract: [`routing-semantic-v2-adjudication-evidence-contract.md`](../plans/routing-semantic-v2-adjudication-evidence-contract.md).
 
@@ -132,4 +132,4 @@ Do not generalize these findings into universal TypeSafe/Jev superiority, downst
 
 ---
 
-<small>Last updated: 2026-09-29 — live v2 structured-output qualification exposed lossy Inspect schema transport before any sample completed; construction-time bridge-representability validation and a representable benchmark schema are on draft PR #71, with full live IA-1..IA-11 requalification still required</small>
+<small>Last updated: 2026-09-29 — live v2 structured-output qualification exposed lossy Inspect schema transport before any sample completed; draft PR #71 now passes repository CI with construction-time bridge-representability validation and a representable benchmark schema, while full live IA-1..IA-11 requalification remains required</small>
