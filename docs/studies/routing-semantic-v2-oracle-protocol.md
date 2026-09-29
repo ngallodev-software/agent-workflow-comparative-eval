@@ -1,7 +1,7 @@
-# Routing Semantic Oracle Protocol v2 — Draft
+# Routing Semantic Oracle Protocol v2
 
-**Protocol identity:** `routing-semantic-oracle-v2-draft.1`  
-**Status:** implementation draft; must be frozen before real adjudication
+**Protocol identity:** `routing-semantic-oracle-v2.0.0`  
+**Status:** frozen for independent adjudication before any real v2 labels
 
 The v1 task-class, interaction-required, and semantic-risk rubrics remain semantically unchanged for the methodological replication. The material change is the evidence contract.
 
