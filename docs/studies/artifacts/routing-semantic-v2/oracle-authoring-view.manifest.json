@@ -1,0 +1,36 @@
+{
+  "artifact_kind": "frozen-oracle-authoring-view",
+  "blinding": {
+    "candidate_outputs_included": false,
+    "construction_tags_included": false,
+    "control_outputs_included": false,
+    "oracle_labels_included": false
+  },
+  "corpus": {
+    "case_count": 120,
+    "git_blob_sha": "685a9bc28e92567656b6ca266f5c9c2f874f03a3",
+    "path": "src/agent_workflow_comparative_eval/resources/studies/routing-semantic-v2.corpus.json",
+    "sha256": "e77bd7e55748e10329062663424ad24d823a3e38794e4b103f75b10539b0d62b"
+  },
+  "dataset_version": "routing-semantic-corpus-v2.0.0",
+  "frozen_for_independent_adjudication": true,
+  "note": "A and B must receive this exact file. Do not regenerate or modify it after real v2 adjudication begins.",
+  "oracle_authoring_view": {
+    "case_count": 120,
+    "path": "docs/studies/artifacts/routing-semantic-v2/oracle-authoring-view.json",
+    "sha256": "88a18b5e1a1132a25da41bee5fabbeeaa8a687be395fc28bd39c0b4d6a9a2617"
+  },
+  "oracle_protocol": {
+    "path": "docs/studies/routing-semantic-v2-oracle-protocol.md",
+    "sha256": "ff165c964fd032e95160ff760a0f46e661e88d41fd22a376f9b0767e24ba793e"
+  },
+  "oracle_protocol_version": "routing-semantic-oracle-v2.0.0",
+  "source_commit": "3cc273711499c0a040c1e999e128754b1b198050",
+  "study_id": "routing-semantic-v2",
+  "study_spec": {
+    "git_blob_sha": "e304e082626a88697a73a41c98cad88d890de79b",
+    "path": "src/agent_workflow_comparative_eval/resources/studies/routing-semantic-v2.study.json",
+    "sha256": "c7f50364c2d770a55913f327aa0a6fac8837f06bb19830069199862454b29384"
+  },
+  "study_version": "2.0.0"
+}
