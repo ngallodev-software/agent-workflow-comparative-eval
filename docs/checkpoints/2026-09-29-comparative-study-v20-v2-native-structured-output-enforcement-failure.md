@@ -33,6 +33,29 @@ Expecting value: line 1 column 1 (char 0)
 
 The raw private completion and Inspect log remain on the qualification host and are not committed here.
 
+## Current-path refinement
+
+A subsequent read-only diagnostic of the active failed qualification attempt
+narrowed the failure to the tiebreaker path:
+
+- primary A completed successfully with a JSON-object-only terminal completion;
+- primary B completed successfully with a JSON-object-only terminal completion;
+- C completed successfully at the Inspect sample level but returned explanatory
+  prose followed by the JSON object;
+- no qualification manifest was produced.
+
+The same benchmark helper constructs both primary and C through
+`_inspect_eval(..., output_schema=...)`. The benchmark source therefore does
+not show a separate C path that simply omits `output_schema`. The remaining
+structured-output difference is the schema generated from the assigned view:
+primary uses the two-case synthetic qualification view, while C uses the
+dispute-only view.
+
+The active Inspect logs did not expose a persisted raw provider request through
+the current `ModelEvent.call.request` surface, so this refinement still does
+not prove whether the final C request reached the provider with the intended
+`text.format` control. That attribution remains open.
+
 ## Interpretation
 
 This is a distinct integration failure from v19.
