@@ -8,9 +8,9 @@
   },
   "corpus": {
     "case_count": 120,
-    "git_blob_sha": "685a9bc28e92567656b6ca266f5c9c2f874f03a3",
+    "git_blob_sha": "8dd29c7bc21a2d9c39ec0f6f086deeb6afb21537",
     "path": "src/agent_workflow_comparative_eval/resources/studies/routing-semantic-v2.corpus.json",
-    "sha256": "e77bd7e55748e10329062663424ad24d823a3e38794e4b103f75b10539b0d62b"
+    "sha256": "99f113ce05c2921a45534e3e7cf17f410379589208cf95415a57c47caff61236"
   },
   "dataset_version": "routing-semantic-corpus-v2.0.0",
   "frozen_for_independent_adjudication": true,
@@ -25,12 +25,12 @@
     "sha256": "ff165c964fd032e95160ff760a0f46e661e88d41fd22a376f9b0767e24ba793e"
   },
   "oracle_protocol_version": "routing-semantic-oracle-v2.0.0",
-  "source_commit": "3cc273711499c0a040c1e999e128754b1b198050",
+  "source_commit": "a5c39301592af11ac3cc24124d9b29d5c06010d2",
   "study_id": "routing-semantic-v2",
   "study_spec": {
-    "git_blob_sha": "e304e082626a88697a73a41c98cad88d890de79b",
+    "git_blob_sha": "5b49d4657c7024b75900c746ab046b68520e0e7d",
     "path": "src/agent_workflow_comparative_eval/resources/studies/routing-semantic-v2.study.json",
-    "sha256": "c7f50364c2d770a55913f327aa0a6fac8837f06bb19830069199862454b29384"
+    "sha256": "70861ae85b31d4fb65b680d547aab65505cc4f463b833ab3cb4ecd7eabcaab10"
   },
   "study_version": "2.0.0"
 }
