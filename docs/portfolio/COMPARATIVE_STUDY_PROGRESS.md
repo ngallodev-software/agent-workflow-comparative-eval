@@ -114,7 +114,13 @@ Passing qualification checkpoint: [`2026-09-29-comparative-study-v21-v2-full-qua
 
 Benchmark PR #71 passed CI and the private live qualification, then merged as `9ef7f055b3475929ea95d3b2c7509b457c6299df`.
 
-Current execution boundary: the frozen IA-1 through IA-11 qualification requirement is satisfied. Real `routing-semantic-v2` A/B/C may now proceed under the frozen v2 study/module/runtime identities. Keep strict whole-completion parsing and fail closed on any recurrence rather than salvaging embedded JSON.
+Before the first real A/B label was produced, a real-cohort scale review found that the 0.6.3 model schema repeated an identical record definition once per case. All 120 frozen cases share the same three eligible seams, so the per-case `anyOf` representation serialized to 225,971 characters while the equivalent eligibility-grouped representation serialized to 3,310 characters — a 98.54% reduction with the same 120 case identities and unchanged deterministic post-generation validation.
+
+Scale-boundary checkpoint: [`2026-09-29-comparative-study-v22-v2-real-schema-scale-boundary.md`](../checkpoints/2026-09-29-comparative-study-v22-v2-real-schema-scale-boundary.md).
+
+Benchmark 0.6.4 therefore groups cases by eligible-decision shape and records the strategy identity `eligibility-grouped-case-enum/v1`. The v21 pass remains historical qualification evidence for 0.6.3 but cannot authorize a 0.6.4 real cohort: the core gate and v2 operator driver require the qualification IA-1 evidence to match both benchmark version and schema strategy.
+
+Current execution boundary: real `routing-semantic-v2` A/B/C is re-blocked before any real label. Benchmark 0.6.4 / PR #72 must pass CI, then a fresh archived live qualification must pass IA-1 through IA-11 with the grouped-schema strategy and sanitized ingress proof. Keep strict whole-completion parsing and fail closed on any recurrence rather than salvaging embedded JSON.
 
 Design contract: [`routing-semantic-v2-adjudication-evidence-contract.md`](../plans/routing-semantic-v2-adjudication-evidence-contract.md).
 
@@ -140,4 +146,4 @@ Do not generalize these findings into universal TypeSafe/Jev superiority, downst
 
 ---
 
-<small>Last updated: 2026-09-29 — full routing-semantic-v2 live qualification now passes IA-1 through IA-11; sanitized Codex-LB ingress capture verified strict JSON-schema controls and exact schema hashes on the passing retry, while the earlier v20 prose-plus-JSON failure remains preserved as historical intermittent enforcement evidence</small>
+<small>Last updated: 2026-09-29 — v21 preserves the first full IA-1..IA-11 qualification pass, while v22 records a newly discovered real-cohort schema-scale boundary before any real label; benchmark 0.6.4 grouped-schema hardening now requires a fresh live qualification before A/B may begin</small>
