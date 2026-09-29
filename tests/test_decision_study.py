@@ -368,11 +368,31 @@ def test_frozen_v2_oracle_authoring_artifact_matches_generated_view():
     artifact = json.loads(artifact_path.read_text(encoding="utf-8"))
     generated = oracle_authoring_view(load_study_corpus("routing-semantic-v2"))
 
+    manifest_path = artifact_path.with_name("oracle-authoring-view.manifest.json")
+    corpus_path = (
+        root
+        / "src"
+        / "agent_workflow_comparative_eval"
+        / "resources"
+        / "studies"
+        / "routing-semantic-v2.corpus.json"
+    )
+    protocol_path = root / "docs" / "studies" / "routing-semantic-v2-oracle-protocol.md"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
     assert artifact == generated
     assert artifact["study_id"] == "routing-semantic-v2"
     assert artifact["dataset_version"] == "routing-semantic-corpus-v2.0.0"
     assert len(artifact["cases"]) == 120
     assert all("tags" not in case for case in artifact["cases"])
+    assert manifest["frozen_for_independent_adjudication"] is True
+    assert manifest["corpus"]["sha256"] == hashlib.sha256(corpus_path.read_bytes()).hexdigest()
+    assert manifest["oracle_authoring_view"]["sha256"] == hashlib.sha256(
+        artifact_path.read_bytes()
+    ).hexdigest()
+    assert manifest["oracle_protocol"]["sha256"] == hashlib.sha256(
+        protocol_path.read_bytes()
+    ).hexdigest()
 
 
 def test_agentic_jev_pilot_has_three_arms_and_no_effectiveness_claim():
