@@ -24,3 +24,6 @@ LEGACY_TO_CANONICAL = {
     LEGACY_REPORT_SCHEMA: REPORT_SCHEMA,
 }
 CANONICAL_TO_LEGACY = {value: key for key, value in LEGACY_TO_CANONICAL.items()}
+
+PAIRED_DECISION_TRIAL_SCHEMA = "agent-workflow-comparative-eval/paired-decision-trial/v1"
+PAIRED_DECISION_REPORT_SCHEMA = "agent-workflow-comparative-eval/paired-decision-report/v1"
