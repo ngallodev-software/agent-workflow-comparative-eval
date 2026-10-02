@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.4
+
+Completes pre-run RQ4 process-overhead evidence for the Agentic-Jev SWE-Lancer study.
+
+- Preserves host-side Jev receipt token totals and receipt-duration totals in paired treatment evidence.
+- Reports Jev service usage separately from coding-agent token usage and from paired end-to-end sample duration, avoiding an invalid combined-token interpretation across different models.
+- Retains backward compatibility for earlier paired records by treating missing service-overhead fields as unknown/zero captured records.
+- Does not change correctness, pairing, cohort, missing-score, McNemar, or paired-bootstrap semantics.
+
 ## 0.3.3
 
 Pre-run evidence hardening for the preregistered Agentic-Jev SWE-Lancer study.

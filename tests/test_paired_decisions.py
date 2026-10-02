@@ -50,6 +50,12 @@ def arm(score, selected, *, calls=0, successful=0):
             "context_complete_calls": successful,
             "resolved_models": ["jev-default-v1"] if successful else [],
             "request_hashes": ["d" * 64] if successful else [],
+            "service_token_records": successful,
+            "service_input_tokens": 7 * successful,
+            "service_output_tokens": 3 * successful,
+            "service_total_tokens": 10 * successful,
+            "service_duration_known_n": successful,
+            "service_duration_ms_total": 125 * successful,
         }
     return value
 
@@ -108,6 +114,10 @@ def test_paired_report_classifies_all_four_cells():
     assert report["execution_reliability"]["paired_scores_available"] == 4
     assert report["overhead"]["duration_seconds"]["known_paired_n"] == 4
     assert report["overhead"]["total_tokens"]["treatment_minus_control_mean"] == 0.0
+    assert report["overhead"]["jev_service"]["token_records"] == 4
+    assert report["overhead"]["jev_service"]["total_tokens"] == 40.0
+    assert report["overhead"]["jev_service"]["duration_known_n"] == 4
+    assert report["overhead"]["jev_service"]["duration_ms_total"] == 500.0
 
 
 def test_report_rejects_mixed_runtime_identity():

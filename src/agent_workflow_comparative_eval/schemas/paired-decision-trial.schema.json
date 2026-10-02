@@ -28,7 +28,13 @@
             "context_known_calls": {"type": "integer", "minimum": 0},
             "context_complete_calls": {"type": "integer", "minimum": 0},
             "resolved_models": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-            "request_hashes": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+            "request_hashes": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+            "service_token_records": {"type": "integer", "minimum": 0},
+            "service_input_tokens": {"type": "number", "minimum": 0},
+            "service_output_tokens": {"type": "number", "minimum": 0},
+            "service_total_tokens": {"type": "number", "minimum": 0},
+            "service_duration_known_n": {"type": "integer", "minimum": 0},
+            "service_duration_ms_total": {"type": "number", "minimum": 0}
           },
           "required": ["tool_calls", "successful_calls", "context_complete", "request_hashes"]
         }
