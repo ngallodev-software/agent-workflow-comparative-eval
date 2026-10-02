@@ -73,6 +73,21 @@ def _normalized_arm(value: Mapping[str, Any], *, treatment: bool) -> dict[str, A
         if not isinstance(resolved_models, Sequence) or isinstance(resolved_models, (str, bytes)):
             raise ValueError("Jev resolved_models must be an array")
         models = sorted({str(item).strip() for item in resolved_models if str(item).strip()})
+        service_token_records = int(jev.get("service_token_records", 0))
+        service_duration_known_n = int(jev.get("service_duration_known_n", 0))
+        service_input_tokens = float(jev.get("service_input_tokens", 0.0))
+        service_output_tokens = float(jev.get("service_output_tokens", 0.0))
+        service_total_tokens = float(jev.get("service_total_tokens", 0.0))
+        service_duration_ms_total = float(jev.get("service_duration_ms_total", 0.0))
+        if service_token_records < 0 or service_duration_known_n < 0:
+            raise ValueError("invalid Jev service evidence counts")
+        if min(
+            service_input_tokens,
+            service_output_tokens,
+            service_total_tokens,
+            service_duration_ms_total,
+        ) < 0:
+            raise ValueError("invalid Jev service overhead evidence")
         arm["jev"] = {
             "tool_calls": tool_calls,
             "successful_calls": successful_calls,
@@ -81,6 +96,12 @@ def _normalized_arm(value: Mapping[str, Any], *, treatment: bool) -> dict[str, A
             "context_complete_calls": context_complete_calls,
             "resolved_models": models,
             "request_hashes": hashes,
+            "service_token_records": service_token_records,
+            "service_input_tokens": service_input_tokens,
+            "service_output_tokens": service_output_tokens,
+            "service_total_tokens": service_total_tokens,
+            "service_duration_known_n": service_duration_known_n,
+            "service_duration_ms_total": service_duration_ms_total,
         }
     return arm
 
@@ -382,6 +403,33 @@ def build_paired_decision_report(
                 confidence=confidence,
                 minimum_interval_n=minimum_interval_n,
             ),
+            "jev_service": {
+                "token_records": sum(
+                    int(item["treatment"]["jev"].get("service_token_records", 0))
+                    for item in normalized
+                ),
+                "input_tokens": sum(
+                    float(item["treatment"]["jev"].get("service_input_tokens", 0.0))
+                    for item in normalized
+                ),
+                "output_tokens": sum(
+                    float(item["treatment"]["jev"].get("service_output_tokens", 0.0))
+                    for item in normalized
+                ),
+                "total_tokens": sum(
+                    float(item["treatment"]["jev"].get("service_total_tokens", 0.0))
+                    for item in normalized
+                ),
+                "duration_known_n": sum(
+                    int(item["treatment"]["jev"].get("service_duration_known_n", 0))
+                    for item in normalized
+                ),
+                "duration_ms_total": sum(
+                    float(item["treatment"]["jev"].get("service_duration_ms_total", 0.0))
+                    for item in normalized
+                ),
+                "scope": "host-side Jev receipt usage/duration only; paired sample duration above is the end-to-end arm latency measure",
+            },
         },
         "limitations": [
             "Correctness is imported from the official Inspect Evals SWE-Lancer scorer; this library does not redefine the gold proposal.",
