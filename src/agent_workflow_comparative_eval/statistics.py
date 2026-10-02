@@ -19,3 +19,15 @@ def paired_bootstrap_interval(values:Iterable[float],*,label:str,confidence:floa
     generator=random.Random(_seed(label)); estimates=sorted(mean(generator.choice(observed) for _ in observed) for _ in range(samples)); alpha=(1-confidence)/2; li=max(0,min(samples-1,int(alpha*samples))); ui=max(0,min(samples-1,int((1-alpha)*samples)-1))
     return {"n":len(observed),"mean":round(mean(observed),6),"lower":round(estimates[li],6),"upper":round(estimates[ui],6),"confidence":confidence}
 def paired_binary_deltas(control:Iterable[bool],candidate:Iterable[bool])->list[float]: return [float(int(r)-int(l)) for l,r in zip(control,candidate,strict=True)]
+
+
+def mcnemar_exact_p_value(control_only_correct: int, treatment_only_correct: int) -> float:
+    """Two-sided exact McNemar/binomial p-value for paired binary outcomes."""
+    if control_only_correct < 0 or treatment_only_correct < 0:
+        raise ValueError("discordant counts must be nonnegative")
+    n = control_only_correct + treatment_only_correct
+    if n == 0:
+        return 1.0
+    k = min(control_only_correct, treatment_only_correct)
+    tail = sum(math.comb(n, i) for i in range(k + 1)) / (2 ** n)
+    return round(min(1.0, 2.0 * tail), 12)

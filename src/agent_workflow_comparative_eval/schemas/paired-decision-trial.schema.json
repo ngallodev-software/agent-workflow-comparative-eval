@@ -1,0 +1,86 @@
+{
+  "$id": "agent-workflow-comparative-eval/paired-decision-trial/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "decision_record": {
+      "type": ["object", "null"]
+    },
+    "arm": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {"enum": ["success", "error", "timeout", "cancelled"]},
+        "score_available": {"type": "boolean"},
+        "official_score": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "correct": {"type": "boolean"},
+        "selected_proposal_id": {"type": ["string", "null"]},
+        "decision_record": {"$ref": "#/$defs/decision_record"},
+        "usage": {"type": "object"},
+        "duration_seconds": {"type": ["number", "null"], "minimum": 0},
+        "error_class": {"type": ["string", "null"]},
+        "jev": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tool_calls": {"type": "integer", "minimum": 0},
+            "successful_calls": {"type": "integer", "minimum": 0},
+            "context_complete": {"type": ["boolean", "null"]},
+            "request_hashes": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+          },
+          "required": ["tool_calls", "successful_calls", "context_complete", "request_hashes"]
+        }
+      },
+      "required": ["status", "score_available", "official_score", "correct", "selected_proposal_id", "decision_record", "usage", "duration_seconds", "error_class"]
+    },
+    "treatment_arm": {
+      "allOf": [
+        {"$ref": "#/$defs/arm"},
+        {
+          "type": "object",
+          "properties": {
+            "jev": {}
+          },
+          "required": ["jev"]
+        }
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "agent-workflow-comparative-eval/paired-decision-trial/v1"},
+    "study_id": {"type": "string", "minLength": 1},
+    "sample_id": {"type": "string", "minLength": 1},
+    "repetition": {"type": "integer", "minimum": 0},
+    "source": {
+      "type": "object",
+      "required": ["task", "task_variant", "inspect_evals_commit", "eval_version", "scorer", "scorer_source_sha256", "cohort_sha256"]
+    },
+    "runtime": {
+      "type": "object",
+      "required": ["model", "reasoning_effort", "skill_commit", "skill_sha256"]
+    },
+    "control": {"$ref": "#/$defs/arm"},
+    "treatment": {"$ref": "#/$defs/treatment_arm"},
+    "pair": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "classification": {"enum": ["both_correct", "both_incorrect", "control_only_correct", "treatment_only_correct"]},
+        "decision_changed": {"type": ["boolean", "null"]},
+        "treatment_minus_control_correctness": {"enum": [-1, 0, 1]}
+      },
+      "required": ["classification", "decision_changed", "treatment_minus_control_correctness"]
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "raw_provider_content_stored": {"const": false},
+        "secret_values_stored": {"const": false}
+      },
+      "required": ["raw_provider_content_stored", "secret_values_stored"]
+    }
+  },
+  "required": ["schema", "study_id", "sample_id", "repetition", "source", "runtime", "control", "treatment", "pair", "privacy"]
+}

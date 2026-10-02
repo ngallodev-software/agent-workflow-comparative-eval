@@ -9,7 +9,7 @@ from .observations import observation, make_observation, validate_observation, r
 from .outcomes import outcome, make_outcome, validate_outcome, OutcomeJoiner
 from .reports import comparison_report, build_report
 from .usage import normalize_usage, empty_usage, aggregate_usage, NUMERIC_FIELDS
-from .statistics import wilson_interval, paired_bootstrap_interval, paired_binary_deltas
+from .statistics import wilson_interval, paired_bootstrap_interval, paired_binary_deltas, mcnemar_exact_p_value
 from .timing import quantile, timing_summary
 from .cohorts import group_by_cohort
 from .pairing import assert_same_cohort
@@ -29,10 +29,12 @@ from .study import (
     build_decision_study_report,
 )
 
-__version__ = "0.3.1"
+__version__ = "0.3.2"
 from .comparisons import ComparisonPolicy, compare_trials
 from .metrics import (
     correctness_counts, binary_classification, classification_metrics, ordinal_metrics,
     brier_score, expected_calibration_error, multiclass_brier_score, multiclass_log_loss,
     arm_reliability, paired_efficiency,
 )
+
+from .paired_decisions import make_paired_decision_trial, validate_paired_decision_trial, build_paired_decision_report

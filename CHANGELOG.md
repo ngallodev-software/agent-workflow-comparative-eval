@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.2
+
+Preregistered paired task-outcome semantics for the first Jev effectiveness study.
+
+- Adds `agentic-jev-swe-manager-v1`, a fixed 30-task fresh SWE-Lancer manager study using GPT-6 Luna in paired skill-only control and same-skill + live-Jev treatment arms.
+- Treats the upstream Inspect Evals SWE-Lancer scorer as canonical correctness rather than reimplementing gold/scoring locally.
+- Adds versioned paired-decision trial/report records with intent-to-treat attempt accuracy, four-cell paired correctness classification, deterministic paired bootstrap intervals, and two-sided exact McNemar inference.
+- Preserves Jev activation/context and visible justification/reconciliation evidence without requiring or exporting hidden chain-of-thought.
+- Keeps previously observed manager tasks out of the new cohort and forbids outcome-dependent stopping or called-only causal claims.
+
 ## 0.3.0
 
 Versioned follow-up study contracts and pre-live methodological controls.

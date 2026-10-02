@@ -69,11 +69,12 @@ rewritten in place.
 
 ## Decision-study surface
 
-Version `0.3.1` freezes the routing-semantic-v2 real-cohort study resources while preserving the provider-neutral study layer with versioned follow-up studies while preserving the published v1 boundary:
+Version `0.3.2` extends the routing-semantic-v2 real-cohort study resources while preserving the provider-neutral study layer with versioned follow-up studies while preserving the published v1 boundary:
 
 - the frozen `routing-semantic-v1` study specification and published historical boundary;
 - `routing-semantic-v2`, a methodological replication with rationale-complete oracle evidence and explicit usage provenance;
 - `agentic-jev-pilot-v1`, a separate exploratory three-arm coding-agent study contract;
+- `agentic-jev-swe-manager-v1`, a preregistered paired Luna study that imports official Inspect Evals SWE-Lancer correctness while this library owns pairing, effect, discordance, Jev-exposure, and report semantics;
 - separate inference-case and frozen-oracle contracts so labels cannot leak into model inputs;
 - three per-decision observations for task class, interaction requirement, and semantic risk;
 - one provider-request record per batched semantic call, preventing latency/token/cost triple-counting;
@@ -116,7 +117,7 @@ result-affecting edits require a new dataset version.
   winner.
 
 The library imports no Agent-Workflow runtime code and remains
-dependency-neutral. Version `0.3.1` carries the frozen v2 methodological-replication identities and the agentic-Jev pilot contracts while keeping the published v1 study and existing generic records readable. Cross-repository qualification for the new package pair is tracked separately from the historical 0.2.0 qualification in [`COMPATIBILITY.json`](COMPATIBILITY.json).
+dependency-neutral. Version `0.3.2` carries the frozen v2 methodological-replication identities and the agentic-Jev pilot contracts while keeping the published v1 study and existing generic records readable. Cross-repository qualification for the new package pair is tracked separately from the historical 0.2.0 qualification in [`COMPATIBILITY.json`](COMPATIBILITY.json).
 
 ## Study-readiness audit
 
