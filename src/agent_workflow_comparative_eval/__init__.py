@@ -29,7 +29,7 @@ from .study import (
     build_decision_study_report,
 )
 
-__version__ = "0.3.2"
+__version__ = "0.3.3"
 from .comparisons import ComparisonPolicy, compare_trials
 from .metrics import (
     correctness_counts, binary_classification, classification_metrics, ordinal_metrics,

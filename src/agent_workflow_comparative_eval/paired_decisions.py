@@ -58,10 +58,28 @@ def _normalized_arm(value: Mapping[str, Any], *, treatment: bool) -> dict[str, A
         if not isinstance(request_hashes, Sequence) or isinstance(request_hashes, (str, bytes)):
             raise ValueError("Jev request_hashes must be an array")
         hashes = [str(item) for item in request_hashes]
+        context_complete = jev.get("context_complete")
+        context_known_calls = jev.get("context_known_calls")
+        context_complete_calls = jev.get("context_complete_calls")
+        if context_known_calls is None:
+            context_known_calls = 1 if successful_calls > 0 and context_complete is not None else 0
+        if context_complete_calls is None:
+            context_complete_calls = 1 if context_complete is True and context_known_calls else 0
+        context_known_calls = int(context_known_calls)
+        context_complete_calls = int(context_complete_calls)
+        if not 0 <= context_complete_calls <= context_known_calls <= successful_calls:
+            raise ValueError("invalid Jev context completeness counts")
+        resolved_models = jev.get("resolved_models", [])
+        if not isinstance(resolved_models, Sequence) or isinstance(resolved_models, (str, bytes)):
+            raise ValueError("Jev resolved_models must be an array")
+        models = sorted({str(item).strip() for item in resolved_models if str(item).strip()})
         arm["jev"] = {
             "tool_calls": tool_calls,
             "successful_calls": successful_calls,
-            "context_complete": jev.get("context_complete"),
+            "context_complete": context_complete,
+            "context_known_calls": context_known_calls,
+            "context_complete_calls": context_complete_calls,
+            "resolved_models": models,
             "request_hashes": hashes,
         }
     return arm
@@ -145,6 +163,57 @@ def _decision_field_present(arm: Mapping[str, Any], field: str) -> bool:
     return isinstance(record, Mapping) and isinstance(record.get(field), str) and bool(str(record[field]).strip())
 
 
+def _numeric(value: Any) -> float | None:
+    if isinstance(value, (int, float)) and not isinstance(value, bool):
+        return float(value)
+    return None
+
+
+def _usage_value(value: Any, aliases: Sequence[str]) -> float | None:
+    if not isinstance(value, Mapping):
+        return None
+    for key in aliases:
+        numeric = _numeric(value.get(key))
+        if numeric is not None:
+            return numeric
+    children = [_usage_value(child, aliases) for child in value.values() if isinstance(child, Mapping)]
+    known = [item for item in children if item is not None]
+    return sum(known) if known else None
+
+
+def _paired_overhead(
+    normalized: Sequence[Mapping[str, Any]],
+    *,
+    getter: Any,
+    label: str,
+    confidence: float,
+    minimum_interval_n: int,
+) -> dict[str, Any]:
+    control_values: list[float] = []
+    treatment_values: list[float] = []
+    deltas: list[float] = []
+    for item in normalized:
+        control = getter(item["control"])
+        treatment = getter(item["treatment"])
+        if control is None or treatment is None:
+            continue
+        control_values.append(float(control))
+        treatment_values.append(float(treatment))
+        deltas.append(float(treatment) - float(control))
+    n = len(deltas)
+    return {
+        "known_paired_n": n,
+        "control_mean": sum(control_values) / n if n else None,
+        "treatment_mean": sum(treatment_values) / n if n else None,
+        "treatment_minus_control_mean": sum(deltas) / n if n else None,
+        "paired_bootstrap": (
+            paired_bootstrap_interval(deltas, label=label, confidence=confidence)
+            if n >= minimum_interval_n
+            else None
+        ),
+    }
+
+
 def build_paired_decision_report(
     trials: Sequence[Mapping[str, Any]],
     *,
@@ -170,6 +239,19 @@ def build_paired_decision_report(
         normalized.append(trial)
 
     n = len(normalized)
+    source_hashes = {sha256(item["source"]) for item in normalized}
+    runtime_hashes = {sha256(item["runtime"]) for item in normalized}
+    if len(source_hashes) != 1:
+        raise ValueError("paired-decision report cannot mix source identities")
+    if len(runtime_hashes) != 1:
+        raise ValueError("paired-decision report cannot mix runtime identities")
+    cohort_hashes = {str(item["source"].get("cohort_sha256", "")) for item in normalized}
+    if len(cohort_hashes) != 1 or not next(iter(cohort_hashes)):
+        raise ValueError("paired-decision report requires one frozen cohort_sha256")
+    source_sha256 = next(iter(source_hashes))
+    runtime_sha256 = next(iter(runtime_hashes))
+    cohort_sha256 = next(iter(cohort_hashes))
+    pair_keys_sha256 = sha256(sorted(seen))
     control_correct = [bool(item["control"]["correct"]) for item in normalized]
     treatment_correct = [bool(item["treatment"]["correct"]) for item in normalized]
     deltas = [
@@ -182,7 +264,7 @@ def build_paired_decision_report(
     interval = (
         paired_bootstrap_interval(
             deltas,
-            label=f"{study_id}:{sha256(sorted(seen))}:accuracy",
+            label=f"{study_id}:{cohort_sha256}:{pair_keys_sha256}:accuracy",
             confidence=confidence,
         )
         if n >= minimum_interval_n
@@ -195,6 +277,13 @@ def build_paired_decision_report(
         for item in normalized
         if int(item["treatment"]["jev"]["successful_calls"]) > 0
     ]
+    context_known_calls = sum(int(item["treatment"]["jev"].get("context_known_calls", 0)) for item in normalized)
+    context_complete_calls = sum(int(item["treatment"]["jev"].get("context_complete_calls", 0)) for item in normalized)
+    resolved_models = sorted({
+        model
+        for item in normalized
+        for model in item["treatment"]["jev"].get("resolved_models", [])
+    })
     known_changes = [item["pair"]["decision_changed"] for item in normalized if item["pair"]["decision_changed"] is not None]
     changed = sum(value is True for value in known_changes)
 
@@ -202,8 +291,13 @@ def build_paired_decision_report(
         "schema": PAIRED_DECISION_REPORT_SCHEMA,
         "study_id": study_id,
         "study_version": study_version,
-        "cohort_sha256": sha256(sorted(seen)),
+        "cohort_sha256": cohort_sha256,
         "paired_n": n,
+        "identity": {
+            "source_sha256": source_sha256,
+            "runtime_sha256": runtime_sha256,
+            "pair_keys_sha256": pair_keys_sha256,
+        },
         "primary": {
             "metric": "official_swe_lancer_attempt_accuracy_difference",
             "control": {
@@ -240,8 +334,11 @@ def build_paired_decision_report(
             "trials_with_successful_call": sum(value > 0 for value in treatment_successes),
             "tool_calls": sum(treatment_calls),
             "successful_calls": sum(treatment_successes),
-            "successful_call_context_complete": sum(value is True for value in context_values),
-            "successful_call_context_known_n": sum(value is not None for value in context_values),
+            "successful_call_context_complete_trials": sum(value is True for value in context_values),
+            "successful_call_context_known_trials": sum(value is not None for value in context_values),
+            "successful_call_context_complete_calls": context_complete_calls,
+            "successful_call_context_known_calls": context_known_calls,
+            "resolved_models": resolved_models,
         },
         "observable_decision_evidence": {
             "control_justification_present": sum(_decision_field_present(item["control"], "justification") for item in normalized),
@@ -251,7 +348,40 @@ def build_paired_decision_report(
         "execution_reliability": {
             "control_statuses": dict(sorted(Counter(str(item["control"]["status"]) for item in normalized).items())),
             "treatment_statuses": dict(sorted(Counter(str(item["treatment"]["status"]) for item in normalized).items())),
+            "control_scores_available": sum(bool(item["control"]["score_available"]) for item in normalized),
+            "treatment_scores_available": sum(bool(item["treatment"]["score_available"]) for item in normalized),
+            "paired_scores_available": sum(bool(item["control"]["score_available"]) and bool(item["treatment"]["score_available"]) for item in normalized),
             "attempt_scoring_rule": "missing or non-binary official score is counted incorrect in the preregistered primary attempt-level analysis",
+        },
+        "overhead": {
+            "duration_seconds": _paired_overhead(
+                normalized,
+                getter=lambda arm: _numeric(arm.get("duration_seconds")),
+                label=f"{study_id}:{cohort_sha256}:{pair_keys_sha256}:duration",
+                confidence=confidence,
+                minimum_interval_n=minimum_interval_n,
+            ),
+            "input_tokens": _paired_overhead(
+                normalized,
+                getter=lambda arm: _usage_value(arm.get("usage", {}), ("input_tokens", "prompt_tokens")),
+                label=f"{study_id}:{cohort_sha256}:{pair_keys_sha256}:input_tokens",
+                confidence=confidence,
+                minimum_interval_n=minimum_interval_n,
+            ),
+            "output_tokens": _paired_overhead(
+                normalized,
+                getter=lambda arm: _usage_value(arm.get("usage", {}), ("output_tokens", "completion_tokens")),
+                label=f"{study_id}:{cohort_sha256}:{pair_keys_sha256}:output_tokens",
+                confidence=confidence,
+                minimum_interval_n=minimum_interval_n,
+            ),
+            "total_tokens": _paired_overhead(
+                normalized,
+                getter=lambda arm: _usage_value(arm.get("usage", {}), ("provider_total_tokens", "total_tokens")),
+                label=f"{study_id}:{cohort_sha256}:{pair_keys_sha256}:total_tokens",
+                confidence=confidence,
+                minimum_interval_n=minimum_interval_n,
+            ),
         },
         "limitations": [
             "Correctness is imported from the official Inspect Evals SWE-Lancer scorer; this library does not redefine the gold proposal.",

@@ -25,6 +25,9 @@
             "tool_calls": {"type": "integer", "minimum": 0},
             "successful_calls": {"type": "integer", "minimum": 0},
             "context_complete": {"type": ["boolean", "null"]},
+            "context_known_calls": {"type": "integer", "minimum": 0},
+            "context_complete_calls": {"type": "integer", "minimum": 0},
+            "resolved_models": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
             "request_hashes": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
           },
           "required": ["tool_calls", "successful_calls", "context_complete", "request_hashes"]

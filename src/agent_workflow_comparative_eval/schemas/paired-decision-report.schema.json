@@ -9,6 +9,7 @@
     "study_version": {"type": "string", "minLength": 1},
     "cohort_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "paired_n": {"type": "integer", "minimum": 1},
+    "identity": {"type": "object"},
     "primary": {"type": "object"},
     "discordant_pairs": {"type": "object"},
     "pair_classification_counts": {"type": "object"},
@@ -16,6 +17,7 @@
     "jev_exposure": {"type": "object"},
     "observable_decision_evidence": {"type": "object"},
     "execution_reliability": {"type": "object"},
+    "overhead": {"type": "object"},
     "limitations": {"type": "array", "items": {"type": "string"}}
   },
   "required": ["schema", "study_id", "study_version", "cohort_sha256", "paired_n", "primary", "discordant_pairs", "pair_classification_counts", "decision_change", "jev_exposure", "observable_decision_evidence", "execution_reliability", "limitations"]
