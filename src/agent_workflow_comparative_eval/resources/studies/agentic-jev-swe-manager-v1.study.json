@@ -1,0 +1,114 @@
+{
+  "schema": "agent-workflow-comparative-eval/decision-study-spec/v1",
+  "study_id": "agentic-jev-swe-manager-v1",
+  "study_version": "1.0.0-preregistered",
+  "status": "preregistered-not-run",
+  "purpose": "Estimate the paired task-outcome effect of making live Jev semantic evidence available to GPT-6 Luna on a fresh official Inspect Evals SWE-Lancer manager cohort, while preserving observable decision justification and Jev process evidence.",
+  "evaluation_unit": "one official Inspect Evals SWE-Lancer swe_manager sample executed independently in a skill-only Luna control arm and a same-skill Luna plus live-Jev treatment arm",
+  "decision_seams": [
+    {
+      "decision_id": "manager.proposal_selection",
+      "feature_id": "agent.jev-swe-manager-choice/v1",
+      "semantic_type": "choice",
+      "oracle_type": "official-inspect-evals-swe-lancer-scorer",
+      "primary_metrics": [
+        "official_swe_lancer_attempt_accuracy_difference",
+        "discordant_pair_counts",
+        "mcnemar_exact_p_value"
+      ]
+    }
+  ],
+  "research_questions": [
+    {
+      "id": "RQ1",
+      "text": "Does live Jev availability change official SWE-Lancer manager proposal-selection accuracy for GPT-6 Luna relative to the same current Jev decision skill without a live Jev tool?"
+    },
+    {
+      "id": "RQ2",
+      "text": "How many paired decisions are treatment-only correct, control-only correct, both correct, or both incorrect, and how often does the selected proposal change?"
+    },
+    {
+      "id": "RQ3",
+      "text": "How often is Jev actually invoked, does successful Jev use preserve adequate primary context, and does Luna retain a visible justification and semantic-evidence reconciliation?"
+    },
+    {
+      "id": "RQ4",
+      "text": "What latency, token, and reliability overhead accompanies Jev availability and successful Jev calls?"
+    }
+  ],
+  "sample_policy": {
+    "target_tasks": 30,
+    "source": "inspect_evals/swe_lancer",
+    "task_variant": "swe_manager",
+    "split": "diamond",
+    "epochs": 1,
+    "paired_same_sample": true,
+    "control": "GPT-6 Luna with the exact current Jev decision-support skill installed but no live Jev bridge",
+    "treatment": "GPT-6 Luna with the same skill plus the live host-side Jev bridge",
+    "selection": "ascending sha256(preregistered salt + ':' + official sample_id), excluding every previously observed Agentic-Jev SWE-Lancer manager sample",
+    "gold_fields_used_for_selection": false,
+    "fixed_n": true,
+    "outcome_dependent_stopping": false,
+    "primary_denominator": "all frozen paired tasks; a missing or non-binary official arm score counts incorrect at attempt level",
+    "sample_size_limitation": "n=30 is intended to reveal large directional effects and discordant-pair structure; it is not well powered for small effects"
+  },
+  "oracle_policy": {
+    "required": true,
+    "source": "official Inspect Evals SWE-Lancer scorer",
+    "gold_redefinition_forbidden": true,
+    "gold_visibility": "correct proposal must not be consulted for cohort selection, prompting, or arm execution; it becomes analysis evidence only after paired execution is sealed"
+  },
+  "exclusion_policy": {
+    "silent_exclusion_forbidden": true,
+    "previously_observed_manager_tasks_excluded_before_freeze": true,
+    "provider_and_tool_failures_remain_reliability_evidence": true,
+    "arm_execution_failure_primary_handling": "attempt-level incorrect rather than post-hoc exclusion",
+    "allowed_full-pair_exclusion_reason_codes": [
+      "upstream_fixture_invalid_before_execution",
+      "frozen_source_identity_mismatch",
+      "duplicate_sample_identity"
+    ]
+  },
+  "evidence_policy": {
+    "inspect_eval_log_is_canonical_execution_record": true,
+    "official_score_is_canonical_correctness_record": true,
+    "credentials_public": false,
+    "raw_provider_http_public": false,
+    "raw_jev_context_public": false,
+    "record_jev_request_hash": true,
+    "record_jev_activation_and_success": true,
+    "record_context_completeness": true,
+    "record_visible_decision_justification": true,
+    "record_tradeoff": true,
+    "record_semantic_evidence_reconciliation": true,
+    "hidden_chain_of_thought_required": false,
+    "hidden_chain_of_thought_exported": false
+  },
+  "frozen_runtime_identity": {
+    "harness": "Inspect AI with upstream Inspect Evals SWE-Lancer task/scorer plus Inspect SWE codex_cli",
+    "coding_agent_model": "gpt-6-luna",
+    "coding_agent_provider_path": "openai-api/codex-lb/gpt-6-luna",
+    "coding_agent_reasoning_effort": "high",
+    "coding_agent_responses_api": true,
+    "skill_repository": "ngallodev-software/jev-decision-support",
+    "skill_commit": "d0ac1ef45d1b79b18b2905872c62cb9e68d961c7",
+    "tool_transport": "Inspect bridged tool; Jev executes on host",
+    "api_key_location": "host only; never injected into sandbox",
+    "inspect_evals_source_must_be_pinned_before_cohort_freeze": true
+  },
+  "analysis_policy": {
+    "primary_effect": "treatment attempt accuracy minus control attempt accuracy",
+    "paired_interval": "deterministic paired bootstrap when n >= 10",
+    "discordant_test": "two-sided exact McNemar/binomial test",
+    "called_only_subset": "descriptive only because Jev invocation is agent-selected",
+    "report_no_call_treatment_tasks": true,
+    "report_decision_change_separately_from_correctness": true
+  },
+  "claim_policy": {
+    "confirmatory_within_frozen_cohort": true,
+    "effectiveness_claim_requires_completed_paired_cohort": true,
+    "semantic_agreement_is_not_correctness": true,
+    "no_cross-benchmark_generalization_claim": true,
+    "report_point_estimate_interval_discordant_counts_and_limitations_together": true
+  }
+}
