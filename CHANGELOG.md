@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.3
+
+Pre-run evidence hardening for the preregistered Agentic-Jev SWE-Lancer study.
+
+- Binds paired reports to one frozen source/runtime identity and preserves the actual frozen cohort artifact SHA separately from the paired-key digest.
+- Adds paired latency and token-overhead summaries so the preregistered overhead question is reportable from captured trial evidence.
+- Preserves exact Jev context-completeness call counts and resolved Jev model identities while retaining the existing trial-level process summary.
+- Adds score-availability reliability counts and rejects mixed-runtime or mixed-source reports before aggregation.
+- Does not change the frozen study cohort policy, arms, prompt, official correctness oracle, primary estimand, missing-score rule, or inferential methods.
+
 ## 0.3.2
 
 Preregistered paired task-outcome semantics for the first Jev effectiveness study.
