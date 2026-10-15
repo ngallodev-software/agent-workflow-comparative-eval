@@ -10,7 +10,7 @@ The first full `routing-semantic-v2` IA-1 through IA-11 qualification attempt su
 
 Observed runtime lock:
 
-- path: `/lump/apps/agent-workflow/.venv/.xdg/data/agent-workflow/routing-semantic-v2-qualification/runtime-lock.json`;
+- path: `<workspace>/agent-workflow/.venv/.xdg/data/agent-workflow/routing-semantic-v2-qualification/runtime-lock.json`;
 - SHA-256: `55bd5156194f9a8dbc0c05433a1130d4d6ad404c97d68c779a783d26769babd1`;
 - module: `routing-semantic-v2-oracle-inspect` `2.0.0`;
 - module SHA-256: `7c0f948e91dd9fd90c3b993220d9f53d3da65bdba162fe31605bc4dccc69ec27`;
@@ -100,11 +100,11 @@ rather than resolving a new Codex cohort.
 Update the coordinated stack and rerun:
 
 ~~~bash
-cd /lump/apps/agent-workflow
+cd <workspace>/agent-workflow
 git pull --ff-only origin master
-bash scripts/build-install-all.sh --venv /lump/apps/agent-workflow/.venv
+bash scripts/build-install-all.sh --venv <workspace>/agent-workflow/.venv
 
-cd /lump/apps/agent-workflow-benchmark
+cd <workspace>/agent-workflow-benchmark
 
 export CODEX_LB_BASE_URL='http://127.0.0.1:2455/v1'
 export CODEX_LB_API_KEY='inspect-placeholder'

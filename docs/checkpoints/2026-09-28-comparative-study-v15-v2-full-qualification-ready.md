@@ -104,7 +104,7 @@ Instead, after creating/reusing the frozen v2 runtime lock, it reruns the synthe
 After updating/installing the coordinated stack, run:
 
 ~~~bash
-cd /lump/apps/agent-workflow-benchmark
+cd <workspace>/agent-workflow-benchmark
 
 export CODEX_LB_BASE_URL='http://127.0.0.1:2455/v1'
 export CODEX_LB_API_KEY='inspect-placeholder'
