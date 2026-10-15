@@ -221,13 +221,13 @@ Two trackers now exist for the strengthened boundary:
 Update the coordinated stack, then rerun qualification as a deliberate archived retry:
 
 ~~~bash
-cd /lump/apps/agent-workflow
+cd <workspace>/agent-workflow
 git pull --ff-only origin master
 
 bash scripts/build-install-all.sh \
-  --venv /lump/apps/agent-workflow/.venv
+  --venv <workspace>/agent-workflow/.venv
 
-cd /lump/apps/agent-workflow-benchmark
+cd <workspace>/agent-workflow-benchmark
 
 export CODEX_LB_BASE_URL='http://127.0.0.1:2455/v1'
 export CODEX_LB_API_KEY='inspect-placeholder'

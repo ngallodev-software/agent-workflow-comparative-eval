@@ -36,7 +36,7 @@ Cumulative provider/API accounting for the initial qualification/adjudication ru
 - API requests: **36**;
 - tokens: **726,263**.
 
-This accounting is scoped to oracle-baseline construction through freeze. It excludes P1 TypeSafe/Jev smoke traffic, P2 comparative inference, and P3 publication work. The figures are operator-recorded provider/API metrics and are not reconstructed from committed raw billing traffic. See `docs/evidence/oracle-baseline-api-usage-2026-09-26.md` and its JSON companion.
+This accounting is scoped to oracle-baseline construction through freeze. It excludes P1 TypeSafe/Jev smoke traffic, P2 comparative inference, and P3 publication work. The figures are operator-recorded provider/API metrics and are not reconstructed from committed raw billing traffic. See `docs/internal/evidence/oracle-baseline-api-usage-2026-09-26.md` and its JSON companion.
 
 The independent oracle is now frozen and available privately for later post-inference joining.
 
@@ -328,19 +328,19 @@ Read in this order:
 4. `src/agent_workflow_comparative_eval/resources/studies/routing-semantic-v1.study.json`  
    Machine-readable study contract, metrics, evidence policy, exclusions, and frozen runtime identities.
 
-5. `docs/checkpoints/2026-09-27-comparative-study-v6-checkpoint.md`  
+5. `docs/internal/checkpoints/2026-09-27-comparative-study-v6-checkpoint.md`  
    Current phase state: P2 complete, P3 publication review next, plus reasoning-summary audit correction.
 
-6. `docs/checkpoints/2026-09-26-comparative-study-v5-checkpoint.md`  
+6. `docs/internal/checkpoints/2026-09-26-comparative-study-v5-checkpoint.md`  
    Historical P1-to-P2 handoff retained for chronology.
 
-7. `docs/checkpoints/2026-09-26-comparative-study-v4-checkpoint.md`  
+7. `docs/internal/checkpoints/2026-09-26-comparative-study-v4-checkpoint.md`  
    Historical P0B-to-P1 handoff retained for chronology.
 
 8. `docs/portfolio/COMPARATIVE_STUDY_PROGRESS.md`  
    Portfolio-facing architecture/status summary.
 
-9. `docs/evidence/oracle-baseline-api-usage-2026-09-26.md`  
+9. `docs/internal/evidence/oracle-baseline-api-usage-2026-09-26.md`  
    Durable P0A/P0B execution provenance and cumulative DeepSeek-4.1-Flash provider/API accounting through oracle freeze. The adjacent JSON file is the machine-readable companion.
 
 Supporting implementation evidence:

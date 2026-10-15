@@ -120,7 +120,7 @@ Repository implementation is ready for the next two live checks.
 Use the same adjudicator model as v1 initially to minimize a model-identity confound:
 
 ~~~bash
-cd /lump/apps/agent-workflow-benchmark
+cd <workspace>/agent-workflow-benchmark
 git pull --ff-only
 
 export V2_ADJUDICATION_MODEL='openai-api/codex-lb/deepseek-flash'

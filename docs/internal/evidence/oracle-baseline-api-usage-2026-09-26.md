@@ -50,4 +50,4 @@ The aggregate values above were supplied by the project operator from provider/A
 
 Raw provider traffic, credentials, and private billing artifacts are not committed. The repository does not independently reconstruct these totals from raw billing events, and no input/output-token split was supplied. Do not infer per-token pricing, treatment cost, or comparative efficiency from this record.
 
-The machine-readable companion is `docs/evidence/oracle-baseline-api-usage-2026-09-26.json`.
+The machine-readable companion is `docs/internal/evidence/oracle-baseline-api-usage-2026-09-26.json`.

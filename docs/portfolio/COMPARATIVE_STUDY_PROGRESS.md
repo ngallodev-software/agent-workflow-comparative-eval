@@ -18,10 +18,6 @@ This file is intentionally maintained as a portfolio-facing engineering artifact
 | P1 live instrumentation smoke | passed | 8 cases, 8 observed cases, 24 observations, 8 provider requests, 0 exclusions; all verification invariants passed |
 | Full study | complete and published | 120 cases, 360 observations, 120 provider requests, 360 oracle outcomes, 0 exclusions; P3 verification passed and sanitized public result is in benchmark-results |
 
-## Website-agent handoff
-
-For the current portfolio synthesis boundary, use [`WEBSITE_AGENT_HANDOFF_2026-09-27.md`](WEBSITE_AGENT_HANDOFF_2026-09-27.md). It is grounded in the P3-verified public result and supersedes the earlier pre-publication handoff for current rendering.
-
 ## Architecture
 
 ```mermaid
@@ -61,8 +57,6 @@ Detailed postmortem: [`2026-09-26-oracle-decision-justification-evidence-gap.md`
 
 Corrective audit: [`2026-09-27-oracle-reasoning-summary-retention-audit.md`](../audits/2026-09-27-oracle-reasoning-summary-retention-audit.md).
 
-Focused website handoff: [`WEBSITE_AGENT_HANDOFF_ORACLE_EVIDENCE_GAP_2026-09-26.md`](WEBSITE_AGENT_HANDOFF_ORACLE_EVIDENCE_GAP_2026-09-26.md).
-
 ## v2 follow-up now in implementation
 
 The v1 oracle remains immutable.
@@ -76,29 +70,29 @@ The v2 corpus identity has been created as `routing-semantic-corpus-v2.0.0-draft
 
 Current execution boundary: live IA-9/10/11 preflight and agentic-Jev tool qualification must pass before freezing the real v2 authoring view or running the 24 × 3 pilot.
 
-Detailed checkpoint: [`2026-09-27-comparative-study-v8-v2-live-boundary.md`](../checkpoints/2026-09-27-comparative-study-v8-v2-live-boundary.md).
+Detailed checkpoint: [`2026-09-27-comparative-study-v8-v2-live-boundary.md`](../internal/checkpoints/2026-09-27-comparative-study-v8-v2-live-boundary.md).
 
 A subsequent pre-live static review found that the agentic-Jev runtime lock did not yet bind the host-side Jev implementation or installed TypeSafe SDK version. This was corrected before any runtime lock or provider outcome was observed. Benchmark PR #55 merged the stronger contract: the lock now verifies the exact host-tool implementation SHA and `typesafe-sdk==0.6.0` before qualification/run.
 
-Pre-freeze correction checkpoint: [`2026-09-27-comparative-study-v9-agentic-runtime-identity-hardening.md`](../checkpoints/2026-09-27-comparative-study-v9-agentic-runtime-identity-hardening.md).
+Pre-freeze correction checkpoint: [`2026-09-27-comparative-study-v9-agentic-runtime-identity-hardening.md`](../internal/checkpoints/2026-09-27-comparative-study-v9-agentic-runtime-identity-hardening.md).
 
 A complete pre-live review then tightened the remaining execution boundaries before any new treatment outcome was observed. Benchmark PR #56 now rechecks the frozen Inspect/SWE, Codex platform, Docker/Compose, sandbox-image, Inspect-harness, host-tool, TypeSafe SDK, skill, and task identities and makes the Jev bridge qualification exactly-once. PR #57 restores the historical v1 provenance shape while keeping the corrected scoped usage contract in v2.
 
-Current readiness checkpoint: [`2026-09-27-comparative-study-v10-prelive-readiness-review.md`](../checkpoints/2026-09-27-comparative-study-v10-prelive-readiness-review.md).
+Current readiness checkpoint: [`2026-09-27-comparative-study-v10-prelive-readiness-review.md`](../internal/checkpoints/2026-09-27-comparative-study-v10-prelive-readiness-review.md).
 
 Before live qualification, the model identities were then frozen separately by study purpose. `routing-semantic-v2` retains the v1-matched DeepSeek Flash adjudicator path so the evidence-contract change is not confounded with a model change. `agentic-jev-pilot-v1` is now frozen on GPT-6 Luna at high reasoning effort across all three arms, with Responses API transport, explicit `gpt-6-luna` Codex model configuration, and a Codex CLI >=0.155.0 requirement.
 
-Model-identity checkpoint: [`2026-09-27-comparative-study-v11-model-identity-split.md`](../checkpoints/2026-09-27-comparative-study-v11-model-identity-split.md).
+Model-identity checkpoint: [`2026-09-27-comparative-study-v11-model-identity-split.md`](../internal/checkpoints/2026-09-27-comparative-study-v11-model-identity-split.md).
 
 The first live DeepSeek IA-9/10/11 preflight then exposed a benchmark terminal-output extraction gap at the C tiebreaker: the Inspect sample completed, but the harness assumed the adjudication JSON must be in `EvalSample.output.completion` and attempted to decode an empty value. Benchmark PR #60 / merge `37b1e9670bef79f648f0939e4f55fca2b3b6294b` adds a v2-only terminal-assistant fallback, records the selected completion source, preserves v1's historical extraction/provenance shape, and cleans generated preflight evidence before a forced retry.
 
-First-live correction checkpoint: [`2026-09-27-comparative-study-v12-first-live-preflight-output-correction.md`](../checkpoints/2026-09-27-comparative-study-v12-first-live-preflight-output-correction.md).
+First-live correction checkpoint: [`2026-09-27-comparative-study-v12-first-live-preflight-output-correction.md`](../internal/checkpoints/2026-09-27-comparative-study-v12-first-live-preflight-output-correction.md).
 
 The clean retry then completed far enough to evaluate all three v2 evidence gates: **IA-9 passed, IA-10 failed, and IA-11 passed**. The A/B/C usage evidence contained token totals, but `model_call_count` and `provider_request_count` were null because the pinned Inspect `ModelUsage` aggregate does not provide those counters. Benchmark PR #61 made non-passing gates and the artifact path explicit. Benchmark PR #62 / merge `a898b39d6ef476e99dc1d33080c7b6e01c2494f9` corrects IA-10 by deriving logical model-call and provider-request counts from typed Inspect `ModelEvent` records, counting retries while excluding cache reads from provider requests, and failing closed on invalid retry evidence. The same release advances benchmark to `0.5.0` and pins comparative-eval `0.3.0`.
 
-Second-live correction checkpoint: [`2026-09-28-comparative-study-v13-second-live-preflight-provenance-counts.md`](../checkpoints/2026-09-28-comparative-study-v13-second-live-preflight-provenance-counts.md).
+Second-live correction checkpoint: [`2026-09-28-comparative-study-v13-second-live-preflight-provenance-counts.md`](../internal/checkpoints/2026-09-28-comparative-study-v13-second-live-preflight-provenance-counts.md).
 
-Subsequent v2 work advanced through full structured-justification prompt/validation hardening and native Codex final-output JSON Schema enforcement. Benchmark 0.6.2 exposed `codex_cli(output_schema=...)` through a byte-pinned Inspect-SWE compatibility seam while retaining strict whole-completion parsing and post-generation contract validation. That implementation milestone is preserved in [`2026-09-28-comparative-study-v18-v2-structured-output-implemented.md`](../checkpoints/2026-09-28-comparative-study-v18-v2-structured-output-implemented.md).
+Subsequent v2 work advanced through full structured-justification prompt/validation hardening and native Codex final-output JSON Schema enforcement. Benchmark 0.6.2 exposed `codex_cli(output_schema=...)` through a byte-pinned Inspect-SWE compatibility seam while retaining strict whole-completion parsing and post-generation contract validation. That implementation milestone is preserved in [`2026-09-28-comparative-study-v18-v2-structured-output-implemented.md`](../internal/checkpoints/2026-09-28-comparative-study-v18-v2-structured-output-implemented.md).
 
 The first live qualification attempt through that strengthened path then exposed a second integration boundary before any oracle sample completed: Inspect AI 0.3.268 warned that `const`, `minItems`, and `maxItems` were not modeled and would be dropped. Dropping the per-case `const` left an empty `case_id` schema node, and the provider rejected the request with HTTP 400 because that node lacked a `type`. No `qualification.json` was produced and no experimental evidence was admitted.
 
@@ -106,7 +100,7 @@ The Inspect-SWE compatibility feature was strengthened to fail closed at `codex_
 
 The capability-v2 live retry then progressed past the v19 schema-transport rejection but exposed a new end-to-end enforcement failure. A synthetic C sample completed successfully and returned a non-empty terminal answer containing explanatory prose followed by the intended JSON object. The strict whole-completion decoder correctly rejected the prose-prefixed result at character 0. The embedded JSON was not salvaged because doing so would hide whether native structured output was actually enforced.
 
-Failure checkpoint: [`2026-09-29-comparative-study-v20-v2-native-structured-output-enforcement-failure.md`](../checkpoints/2026-09-29-comparative-study-v20-v2-native-structured-output-enforcement-failure.md).
+Failure checkpoint: [`2026-09-29-comparative-study-v20-v2-native-structured-output-enforcement-failure.md`](../internal/checkpoints/2026-09-29-comparative-study-v20-v2-native-structured-output-enforcement-failure.md).
 
 A later archived retry added a sanitized loopback capture between the Inspect/OpenAI-compatible client and Codex-LB. The retry passed the complete qualification: `qualified=true` and IA-1 through IA-11 all reported `pass`. The capture observed 15 `POST /v1/responses` requests; every structured-output request carried `text.format.type=json_schema`, `strict=true`, and a schema SHA-256 matching the persisted primary or C schema artifact. Primary A/B, qualification C, and evidence-preflight A/B/C all returned JSON-object-only terminal completions. The prior v20 failure remains preserved as an intermittent structured-output enforcement failure whose exact historical provider-facing request was not captured.
 
